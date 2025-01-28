@@ -134,7 +134,7 @@ After successful completion of the workflow, the release will look like the foll
 
 And it will be available in the NPM repository as well.
 
-![_config.yml]({{ site.baseurl }}/images/SY23Z2gsw7T-.webp)
+![_config.yml]({{ site.baseurl }}/images/0_M0J_-SY23Z2gsw7T-.webp)
 
 Sources used in the article:
 
