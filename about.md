@@ -1,12 +1,16 @@
 ---
 layout: page
-title: About
+title: Hi, i'm Vadym
 permalink: /about/
 ---
 
 «Let's change the world, starting with quality»
 
-Currently a Senior Software Test Automation Engineer at EPAM Systems.
+Vadym's personal blog. 
+Here Vadym shares interesting ideas about testing, test automation and software development.
+
+Currently a Senior Software Test Automation Engineer at [EPAM Systems](https://www.epam.com/)
+
 
 ### Contact me
 
