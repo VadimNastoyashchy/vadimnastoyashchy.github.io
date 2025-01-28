@@ -1,2 +1,1 @@
-# vadimnastoyashchy.github.io
-Pesonal blog
+# Personal Blog
