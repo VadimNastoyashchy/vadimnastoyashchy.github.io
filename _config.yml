@@ -28,10 +28,6 @@ search_provider: lunr
 # Created copy and changed script to support Google Analytics 4 (GA4)
 # google_analytics_id: UA-179499509-1
 
-# https://github.com/mmistakes/jekyll-theme-basically-basic#comments-via-disqus
-# disqus:
-#   shortname: bartoszgorka
-
 markdown: kramdown
 kramdown:
     highlighter: rouge
@@ -60,16 +56,11 @@ paginate: 15
 paginate_path: /page-:num/
 
 # https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-# twitter:
-#   username: bartoszgorka96
-#   card: summary_large_image
-# social:
-#   name: Bartosz Górka
-#   links:
-#     - https://twitter.com/bartoszgorka96
-#     - https://www.facebook.com/bartosz.goriusz.gorka
-#     - https://www.linkedin.com/in/bartoszgorka96
-#     - https://github.com/bartoszgorka
+social:
+  name: Vadym Nastoiashchyi
+  links:
+    - https://www.linkedin.com/in/vadym-nastoiashchyi
+    - https://github.com/VadimNastoyashchy
 
 # Exclude from processing.
 exclude:
