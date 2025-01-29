@@ -10,7 +10,7 @@ tags:
   - Cypress Cloud
 ---
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_pU_h27oaQTXPjLxAhMMG0A.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_pU_h27oaQTXPjLxAhMMG0A.webp){: .align-center .border .max-width-600px}
 
 *We have a set of automated tests that can be run locally on our machine, or they can be integrated as part of continuous integration/continuous deployment. The tests are executed in a single thread, test by test. We use the standard spec reporter to understand and analyze our test results.*
 
@@ -41,17 +41,17 @@ Our automation framework with some amount of automated tests:
 Example:
 [https://github.com/VadimNastoyashchy/demoblaze.com](https://github.com/VadimNastoyashchy/demoblaze.com)
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_4yL-KXGGdiwJrGLMtQ_Uhw.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_4yL-KXGGdiwJrGLMtQ_Uhw.webp){: .align-center .border .max-width-600px}
 
 First, we need to create a Cypress Cloud account. We can immediately connect up to 50 users and up to 500 test runs for free.
 
 *See the price list for more information:*
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_MfbSy90hda634D_8KZ96Hw.webp){: .align-center .border .max-width-600px}.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_MfbSy90hda634D_8KZ96Hw.webp){: .align-center .border .max-width-600px}.webp){: .align-center .border .max-width-600px}
 
 After all of the manipulations with the step-by-step instructions, we will get the **project id** and **record key**:
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_AvB1Ngcuz4Ki7Z4sgKNuYQ.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_AvB1Ngcuz4Ki7Z4sgKNuYQ.webp){: .align-center .border .max-width-600px}
 
 Then everything is simple. We need to add “projectId:“ to the configuration:
 
@@ -121,11 +121,11 @@ And record key should be added as an additional arg for the test command:
 That’s it! It’s really easy to configure!
 Now we can look at the results of our tests, identify flak tests, analyze graphs, and look at each test in detail, step by step. In general, very rich analytics.
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_PUmHkwEcVbT8mpxuUrmXfw.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_PUmHkwEcVbT8mpxuUrmXfw.webp){: .align-center .border .max-width-600px}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_z1om8CngSG8-eVGyumbFyA.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_z1om8CngSG8-eVGyumbFyA.webp){: .align-center .border .max-width-600px}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_RUpXnY_8-o6Q3bUBQCckaQ.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_RUpXnY_8-o6Q3bUBQCckaQ.webp){: .align-center .border .max-width-600px}
 
 Overall it’s very comprehensive information. I realize that there are free options like Playwright with pretty good parallelization and analysis regarding test results. But let's give Cypress one last chance and try Cloud to understand for yourself whether you need to configure everything yourself but for free or for a certain amount of money to get everything all at once.
 
