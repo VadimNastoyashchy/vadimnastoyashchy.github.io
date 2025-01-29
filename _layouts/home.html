@@ -9,7 +9,7 @@ layout: default
     <div>{{ content }}</div>
 
     <div>
-      <div class="entries-{{ page.entries_layout | default: 'list' }}">
+      <!-- <div class="entries-{{ page.entries_layout | default: 'list' }}">
         {% if site.plugins contains 'jekyll-paginate' and page.paginate or site.gems contains 'jekyll-paginate' and page.paginate %}
           {% comment %}
             Add paginator.posts loop if jekyll-paginate plugin is enabled
@@ -19,7 +19,31 @@ layout: default
         {% else %}
           {% include posts-all.html %}
         {% endif %}
+      </div> -->
+      {% if paginator.total_pages > 1 %}
+      <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="page-previous"
+          >Previous</a
+        >
+        {% else %}
+        <span class="page-previous disabled">Previous</span>
+        {% endif %} {% for page in (1..paginator.total_pages) %} {% if page ==
+        paginator.page %}
+        <span class="page-number current">{{ page }}</span>
+        {% else %}
+        <a
+          href="{{ paginator.paginate_path | replace: ':num', page }}"
+          class="page-number"
+          >{{ page }}</a
+        >
+        {% endif %} {% endfor %} {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="page-next">Next</a>
+        {% else %}
+        <span class="page-next disabled">Next</span>
+        {% endif %}
       </div>
+      {% endif %}
     </div>
   </div>
 </main>
