@@ -9,12 +9,7 @@ tags:
   - Github Actions
 ---
 
----
-layout: post
-title: Automating JavaScript Library Deployment to NPM with GitHub Actions. A Step-by-Step Guide
----
-
-![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp){: .align-center .border .max-width-300px}
+![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp){: .align-center .border .max-width-600px}
 
 This article is useful for test automation engineers or developers who are using JavaScript in their code and want to publish their library to the NPM repository and use it as a dependency in other projects. There are two different ways of publishing. The first is locally using npm commands in the terminal, and the other is an automated process using CI/CD configuration for building and publishing.
 
@@ -22,15 +17,15 @@ Now we will explore the possibility of automatic deployment. First and foremost,
 
 For example, let’s consider the test runner library: https://github.com/VadimNastoyashchy/real-test-js. To get started, we need to sign in or sign up to the npm repository and create a new npm access token for publishing a package using GitHub Actions. Create a new access token on npmjs.com for Automation and copy it for the next step.
 
-![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_P6y9PHlQzynkf0pb.webp){: .align-center .border .max-width-300px}
+![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_P6y9PHlQzynkf0pb.webp){: .align-center .border .max-width-600}
 
 Save the npm access token as a GitHub secret. We will save the generated token for GitHub Actions as a repository secret. In your GitHub repository settings, go to “Secrets”, then “Actions”, then click on the “New repository secret” and add the npm access token that has been created in the previous step. We will name this secret NPMJS_ACCESS_TOKEN.
 
-![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_R8ZvWyFGF2X4suGO.webp){: .align-center .border .max-width-300px}
+![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_R8ZvWyFGF2X4suGO.webp){: .align-center .border .max-width-600}
 
 Also, select “Allow GitHub actions to create and approve pull requests” and “Read and write permissions” in the Workflow permissions sections, and then add the GitHub workflow to your repository.
 
-![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_d08uChxc0IHBWLWt.webp){: .align-center .border .max-width-300px}
+![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_d08uChxc0IHBWLWt.webp){: .align-center .border .max-width-600}
 
 In your project, create a new GitHub workflow file named release_npm_package.yml in the .github/workflows directory.
 
@@ -137,11 +132,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 To trigger the npm release, go to Actions, select our release workflow, and click on the “Run workflow” button. You can select from the available list of options to set the release type.
 
-![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_2qeYLiBNf7GNQUjQ.webp){: .align-center .border .max-width-300px}
+![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_2qeYLiBNf7GNQUjQ.webp){: .align-center .border .max-width-600}
 
 After successful completion of the workflow, the release will look like the following:
 
-![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_oRJyBssDC0BpAzj-.webp){: .align-center .border .max-width-300px}
+![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_oRJyBssDC0BpAzj-.webp){: .align-center .border .max-width-600}
 
 And it will be available in the NPM repository as well.
 
