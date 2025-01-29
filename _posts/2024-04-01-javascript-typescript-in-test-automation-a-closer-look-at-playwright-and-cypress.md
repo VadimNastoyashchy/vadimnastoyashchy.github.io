@@ -11,7 +11,7 @@ tags:
   - Playwright
 ---
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/0_awmiCTtuNj9yrQQ4.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress0_awmiCTtuNj9yrQQ4.webp){: .align-center .border .max-width-600px}
 
 For any software development project, selecting the right language and tools is crucial to ensure effective test automation. Two languages that have caught the attention of developers worldwide are JavaScript (JS) and TypeScript (TS). Let’s dive into a comparison between these two languages, and specifically how they apply in two popular testing tools — Playwright and Cypress.
 
@@ -50,30 +50,30 @@ Choosing between JavaScript and TypeScript when working with Playwright and Cypr
 
 **Playwright** — Choosing JavaScript could make sense if your team is more comfortable with dynamic typing or if you want to avoid the setup that TypeScript requires. Also, if your project isn’t very complex and doesn’t require the added type of safety that TypeScript provides, then using JavaScript could be a better choice*.*
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_5ogof1Qa-HzaFLE5L1bZPA.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_5ogof1Qa-HzaFLE5L1bZPA.webp){: .align-center .border .max-width-600px}
 
 > Playwright supports JavaScript out of the box. There is nothing to configure. Only Node.js to be installed
 
 **Cypress** — was initially built to support JavaScript. If your team is more comfortable with JavaScript or if you’re working on a small to mid-sized project, using Cypress with JavaScript can be a good option.
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_D6It49zCZXwBbm1VbH6V6A.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_D6It49zCZXwBbm1VbH6V6A.webp){: .align-center .border .max-width-600px}
 
 > Cypress supports JavaScript out of the box. There is nothing to configure. Only Node.js to be installed
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/0_s9gFJiK-JOtumHuQ.webp){: .align-center .border .max-width-600px}*Cypress with JS*
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress0_s9gFJiK-JOtumHuQ.webp){: .align-center .border .max-width-600px}*Cypress with JS*
 
 ***TypeScript***:
 
 **Playwright** — TypeScript could be a better choice for larger, more complex projects where type safety can help prevent bugs. By catching errors early at compile time, you can save time and resources that would have been spent finding and fixing them at runtime. TypeScript also provides better autocompletion, making it easier to use Playwright APIs.
 > To support TypeScript, you must specify Playwright during the initial installation:
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/0_s9gFJiK-JOtumHuQ.webp){: .align-center .border .max-width-600px}*Just choose your preferred programming language — and the Playwright does it all.*
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress0_s9gFJiK-JOtumHuQ.webp){: .align-center .border .max-width-600px}*Just choose your preferred programming language — and the Playwright does it all.*
 
 > Or install everything listed manually:
 
 * **add [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html)**
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_VuFoqxkXr1AcuJY9TAuqgA.webp){: .align-center .border .max-width-600px}*To use all TypeScript “magic” use command **“npx tsc -p tsconfig.json — noEmit -w”***
+![_config.yml]({{ site.url }}/assets/images/posts2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress1_VuFoqxkXr1AcuJY9TAuqgA.webp){: .align-center .border .max-width-600px}*To use all TypeScript “magic” use command **“npx tsc -p tsconfig.json — noEmit -w”***
 
 [***Playwright TypeScript configuration example](https://github.com/VadimNastoyashchy/playwright-saucedemo.com)***
 
@@ -84,7 +84,7 @@ Choosing between JavaScript and TypeScript when working with Playwright and Cypr
 
 * **add [tsconfig.json](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html)**
 
-[***Cypress TypeScript configuration example](https://github.com/VadimNastoyashchy/demoblaze.com)***
+[Cypress TypeScript configuration example](https://github.com/VadimNastoyashchy/demoblaze.com)
 
 In conclusion, choosing between JavaScript and TypeScript, and between Playwright and Cypress, depends on your project needs, team skills, and specific requirements. TypeScript, combined with Playwright or Cypress, is an excellent choice for large-scale projects where reliability, maintainability, and advanced features are crucial. On the other hand, JavaScript, because of its simplicity, remains a solid choice for quick and effective test automation.
 
