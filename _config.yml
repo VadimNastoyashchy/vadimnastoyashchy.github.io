@@ -95,9 +95,9 @@ defaults:
 comments:
   giscus:
     enabled: true
-    repo: "repo="VadimNastoyashchy/vadimnastoyashchy.github.io"
+    repo: "VadimNastoyashchy/vadimnastoyashchy.github.io"
     repo_id: "R_kgDONws5cA"
-    category: "Announcements"
+    category: "General"
     category_id: "DIC_kwDONws5cM4Cmc8H"
     mapping: "pathname"
     reactions_enabled: "1"
