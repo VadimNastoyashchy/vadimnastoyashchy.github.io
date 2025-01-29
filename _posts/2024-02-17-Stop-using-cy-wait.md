@@ -7,7 +7,7 @@ date: 2024-02-17 20:00:00 +01:00
 last_modified_at: 2024-02-17 20:00:00 +01:00
 tags:
   - JavaScript
-  - cypress
+  - Cypress
 ---
 
 ![_config.yml]({{ site.url }}/assets/images/posts/2024-2-17-Stop-using-cy-wait/1_hj-rHICtXaPMa2dxK_Vdog@2x.webp){: .align-center .border .max-width-600px}
