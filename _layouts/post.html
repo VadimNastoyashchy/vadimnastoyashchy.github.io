@@ -2,16 +2,29 @@
 layout: default
 ---
 
-<article class="post">
-  <h1>{{ page.title }}</h1>
+{% include page-intro.html %}
 
-  <div class="entry">
-    {{ content }}
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+
+      {% if page.skip_post_footer != true %}
+        {% include post-footer.html refpage=page.title %}
+      {% endif %}
+
+      {% if page.skip_related != true %}
+        <div id="related">
+          <h3>{{ site.data.theme.t.related_posts }}</h3>
+          <ul class="posts">
+            {% for post in site.related_posts limit:3 %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </article>
   </div>
-
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
-
-  {% include disqus.html %}
-</article>
+</main>

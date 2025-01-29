@@ -1,10 +1,8 @@
 ---
-title: "About"
+title: Now
 layout: about
+permalink: /now
 ---
-
-![My photo](/assets/images/avatar.png){: .author-picture}
-
 # Hi, i'm Vadym
 
 «Let's change the world, starting with quality»
