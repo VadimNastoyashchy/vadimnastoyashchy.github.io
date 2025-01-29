@@ -11,7 +11,7 @@ tags:
   - Plugins
 ---
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-05.03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp){: .align-center .border .max-width-600px}
 
 [Cypress](https://www.cypress.io/) is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications.
 
