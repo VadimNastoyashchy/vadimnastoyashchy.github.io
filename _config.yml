@@ -92,16 +92,16 @@ defaults:
       read_time: true
       comments: true
 
-# comments:
-#   giscus:
-#     enabled: true
-#     repo: "bartoszgorka/bartoszgorka.github.io"
-#     repo_id: "MDEwOlJlcG9zaXRvcnkyOTk2NTk5MzI="
-#     category: "Announcements"
-#     category_id: "DIC_kwDOEdxynM4CThkc"
-#     mapping: "pathname"
-#     reactions_enabled: "1"
-#     theme: "light"
+comments:
+  giscus:
+    enabled: true
+    repo: "repo="VadimNastoyashchy/vadimnastoyashchy.github.io"
+    repo_id: "R_kgDONws5cA"
+    category: "Announcements"
+    category_id: "DIC_kwDONws5cM4Cmc8H"
+    mapping: "pathname"
+    reactions_enabled: "1"
+    theme: "light"
 
 # Custom links instead of "/:year/:month/:day/:title"
 permalink: /:title
