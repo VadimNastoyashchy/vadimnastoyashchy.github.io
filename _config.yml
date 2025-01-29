@@ -19,16 +19,14 @@ github_username: VadimNastoyashchy
 linkedin_username: vadym-nastoiashchyi
 logo: /assets/avatar.png
 
+# Based on https://github.com/mmistakes/jekyll-theme-basically-basic#google-analytics
+
 google_analytics_id: G-8VGGL0NVS2
 
 # https://github.com/mmistakes/jekyll-theme-basically-basic#search
 search: true
 search_full_content: false
 search_provider: lunr
-
-# Based on https://github.com/mmistakes/jekyll-theme-basically-basic#google-analytics
-# Created copy and changed script to support Google Analytics 4 (GA4)
-# google_analytics_id: UA-179499509-1
 
 markdown: kramdown
 kramdown:
