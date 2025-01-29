@@ -19,6 +19,8 @@ github_username: VadimNastoyashchy
 linkedin_username: vadym-nastoiashchyi
 logo: /assets/avatar.png
 
+google_analytics_id: G-8VGGL0NVS2
+
 # https://github.com/mmistakes/jekyll-theme-basically-basic#search
 search: true
 search_full_content: false
