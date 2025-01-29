@@ -1,0 +1,176 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+// Own accent color
+$accent-color: #dc143c !default;
+
+// Theme skin
+@import "basically-basic/themes/{{ site.data.theme.skin | default: 'default' }}";
+@import "basically-basic";
+
+ul.entry-tags {
+  & {
+    list-style: none;
+    padding: 0;
+  }
+  & .icon {
+    font-size: 12px;
+    fill: $accent-color;
+  }
+  & li {
+    display: inline-block;
+    margin-right: 20px;
+    & a {
+      text-decoration: none;
+      font-size: 16px;
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+// Own styles
+header#masthead {
+  border-bottom: 1px solid $border-color;
+}
+div.inner {
+  margin: 0 auto;
+}
+.sidebar-toggle-wrapper {
+  @include breakpoint($large) {
+    right: 8vw;
+  }
+}
+.results .entry-title a:hover {
+  color: $accent-color;
+}
+div#related {
+  margin-top: 30px;
+}
+@media (min-width: 64em) {
+  .site-title {
+    padding-left: 4.5vw;
+  }
+  .layout--post .entry-content, .layout--page .entry-content {
+    width: 100%;
+  }
+}
+.intro-title {
+  @include fluid-type($min-vw, $max-vw, 20px, 60px);
+  margin-bottom: 1rem;
+  color: tint($text-color, 25%);
+  line-height: 1;
+}
+.entry-title {
+  @include fluid-type($min-vw, $max-vw, 18px, 35px);
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+.site-title {
+  font-weight: 300;
+}
+.intro {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+footer .contact-list a {
+  text-decoration: none;
+  color: tint($text-color, 30%);
+}
+footer.site-footer {
+  border-top: 1px solid $border-color;
+  padding: 20px 0;
+}
+.pager a {
+  max-width: 250px;
+  margin: 0 auto;
+}
+.author-picture {
+  float: left;
+  max-width: 175px;
+  margin-right: 25px;
+  border-radius: 50%;
+}
+
+.border {
+  border: 1px solid;
+  border-color: $border-color;
+}
+
+.max-width-300px {
+  max-width: 300px;
+  height: auto;
+}
+
+// Footnote references
+div.footnotes p {
+  margin-bottom: 0.5rem;
+}
+
+// Plaintext code
+code.language-plaintext.highlighter-rouge {
+  background: $base00;
+  color: $base05;
+  font-size: 0.9em;
+  padding: 1.5px;
+}
+
+// Mailchimp newsletter
+#mc_embed_signup {
+  border: 1px solid $border-color;
+  background-color: #f9fafc;
+  border-radius: 5px;
+  margin-bottom: 35px;
+
+  form#mc-embedded-subscribe-form {
+    text-align: center;
+    color: $text-color;
+    padding: 10px 15px;
+
+    .mc-field-group {
+      width: 100%;
+    }
+
+    input {
+      border-color: $border-color;
+      font-size: 15px;
+    }
+
+    input#mc-embedded-subscribe {
+      background-color: $accent-color;
+      border-radius: 5px;
+      height: 36px;
+      line-height: 36px;
+      margin: 0 5px 10px 0;
+      padding: 0px 36px;
+
+      &:hover {
+        background-color: shade($accent-color, 25%);
+      }
+    }
+
+    p#benefits {
+      font-size: 16px;
+      color: tint($text-color, 15%);
+      font-style: italic;
+    }
+
+    p#unsubscribe {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 12px;
+      font-weight: 200;
+    }
+
+    h2 {
+      color: $text-color;
+      font-size: 24px;
+      margin: 15px 0;
+    }
+  }
+}
