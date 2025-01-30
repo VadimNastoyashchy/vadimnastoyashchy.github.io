@@ -1,6 +1,6 @@
 ---
 title: "How to automate Accessibility testing using CypressIO?"
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-2-5-Access-Cypress/1_Bq0kJ6Q4QfK3KfTzxnH47Q.webp
 excerpt: "This article is useful for test automation engineers or developers who are involved in testing and want to improve their test framework skills to apply such type of testing in the project.
 Let’s start with a quick overview of accessibility testing itself. ↓↓↓"
 date: 2024-02-05 20:00:00 +01:00
