@@ -1,6 +1,6 @@
 ---
 title: "JavaScript 🆚 TypeScript in Test Automation. A Closer Look at Playwright and Cypress"
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-04-01-javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress/0_awmiCTtuNj9yrQQ4.webp
 excerpt: "For any software development project, selecting the right language and tools is crucial to ensure effective test automation. Two languages that have caught the attention of developers worldwide are JavaScript (JS) and TypeScript (TS). Let’s dive into a comparison between these two languages, and specifically how they apply in two popular testing tools — Playwright and Cypress."
 date: 2024-04-01 20:00:00 +01:00
 last_modified_at: 2024-04-01 20:00:00 +01:00
