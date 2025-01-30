@@ -19,7 +19,7 @@ github_username: VadimNastoyashchy
 linkedin_username: vadym-nastoiashchyi
 logo: /assets/images/avatar.png
 
-use_logo: /assets/images/avatar.png
+# use_logo: /assets/images/avatar.png
 
 # Based on https://github.com/mmistakes/jekyll-theme-basically-basic#google-analytics
 
