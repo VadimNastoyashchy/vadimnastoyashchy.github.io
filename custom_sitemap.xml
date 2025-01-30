@@ -2,154 +2,176 @@
 layout: null
 sitemap: false
 ---
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://vadimnastoyashchy.github.io/Automating-js-library</loc>
         <lastmod>2024-01-12T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/Automating-js-library" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/Playwright-how-to-pom</loc>
         <lastmod>2024-01-22T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/Playwright-how-to-pom" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/accessability-Cypress</loc>
         <lastmod>2024-02-05T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/accessability-Cypress" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/Stop-using-cy-wait</loc>
         <lastmod>2024-02-17T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/Stop-using-cy-wait" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/cypress-io-how-to-build-page-object-correctly</loc>
         <lastmod>2024-03-01T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/cypress-io-how-to-build-page-object-correctly" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/cypress-cloud-is-it-worth-paying-for-it</loc>
         <lastmod>2024-03-24T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/cypress-cloud-is-it-worth-paying-for-it" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress</loc>
         <lastmod>2024-04-01T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/javascript-typescript-in-test-automation-a-closer-look-at-playwright-and-cypress" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/what-is-the-best-code-editor-for-javascript</loc>
         <lastmod>2024-04-24T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/what-is-the-best-code-editor-for-javascript" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/top-10-useful-cypress-plugins-in-2024</loc>
         <lastmod>2024-04-24T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/top-10-useful-cypress-plugins-in-2024" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/how-to-get-free-parallelization-in-cypress-io</loc>
         <lastmod>2024-06-04T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/how-to-get-free-parallelization-in-cypress-io" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/json-splitter</loc>
         <lastmod>2024-06-15T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/json-splitter" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/top-5-useful-software-testing-books</loc>
         <lastmod>2024-07-17T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/top-5-useful-software-testing-books" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/a-beginners-guide-to-solid-principles-in-javascript-made-simple</loc>
         <lastmod>2024-07-29T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/a-beginners-guide-to-solid-principles-in-javascript-made-simple" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/what-is-package-json-in-simple-words-for-beginners</loc>
         <lastmod>2024-10-09T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/what-is-package-json-in-simple-words-for-beginners" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/what-is-a-testing-piramide-in-simple-words</loc>
         <lastmod>2024-10-15T22:00:00+03:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/what-is-a-testing-piramide-in-simple-words" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/what-is-ci-cd-continuous-integration-and-continuous-deployment</loc>
         <lastmod>2024-11-04T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/what-is-ci-cd-continuous-integration-and-continuous-deployment" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/cy-get-cy-contains-cy-find-the-differences-cypress</loc>
         <lastmod>2024-11-15T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/cy-get-cy-contains-cy-find-the-differences-cypress" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/test-plan-test-strategy-in-simple-words</loc>
         <lastmod>2024-12-04T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/test-plan-test-strategy-in-simple-words" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/playwright-compare-the-performance-of-different-test-parallelization-approaches</loc>
         <lastmod>2024-12-05T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/playwright-compare-the-performance-of-different-test-parallelization-approaches" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/javascript-ui-test-automation-frameworks-which-one-is-faster</loc>
         <lastmod>2024-12-17T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/javascript-ui-test-automation-frameworks-which-one-is-faster" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/how-to-become-an-automation-qa-in-javascript-from-manual-qa</loc>
         <lastmod>2025-01-08T21:00:00+02:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="article" href="https://vadimnastoyashchy.github.io/how-to-become-an-automation-qa-in-javascript-from-manual-qa" />
     </url>
-    <!-- The following links have no last modification provided so you might want to adjust the `<lastmod>` tag later -->
     <url>
         <loc>https://vadimnastoyashchy.github.io/about</loc>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
+        <xhtml:link rel="about" href="https://vadimnastoyashchy.github.io/about" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/</loc>
-        <changefreq>yearly</changefreq>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <xhtml:link rel="home" href="https://vadimnastoyashchy.github.io/" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/tags/</loc>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
+        <xhtml:link rel="tags" href="https://vadimnastoyashchy.github.io/tags/" />
     </url>
     <url>
         <loc>https://vadimnastoyashchy.github.io/page-2/</loc>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
+        <xhtml:link rel="additional" href="https://vadimnastoyashchy.github.io/page-2/" />
     </url>
 </urlset>
