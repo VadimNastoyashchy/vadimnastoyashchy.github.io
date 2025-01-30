@@ -140,12 +140,14 @@ After successful completion of the workflow, the release will look like the foll
 
 And it will be available in the NPM repository as well.
 
+![_config.yml]({{ site.url }}/assets/images/posts/js-library/0_M0J_-SY23Z2gsw7T.webp){: .align-center .border .max-width-600}
+
 Sources used in the article:
 
 Official documentation Github, NPM,
 
-https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+[https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages](https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages)
 
-https://keepachangelog.com/en/1.0.0/
+[https://keepachangelog.com/en/1.0.0/](https://keepachangelog.com/en/1.0.0/)
 
-https://superface.ai/blog/npm-publish-gh-actions-changelog
+[https://superface.ai/blog/npm-publish-gh-actions-changelog](https://superface.ai/blog/npm-publish-gh-actions-changelog)
