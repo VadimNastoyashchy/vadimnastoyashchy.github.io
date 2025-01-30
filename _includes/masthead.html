@@ -10,7 +10,7 @@
       {% if page.url == '/' %}
         <h1 class="site-title">
           <a href="{{ '/' | relative_url }}">
-            {% if site.use_logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
+            {% if site.use_logo %}<img src="{{ site.url }}{{ site_logo }}" alt="" class="site-logo">{% endif %}
             <span>{{ site.title | escape }}</span>
           </a>
         </h1>
