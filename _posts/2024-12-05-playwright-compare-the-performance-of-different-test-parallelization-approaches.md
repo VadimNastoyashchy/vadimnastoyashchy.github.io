@@ -1,6 +1,6 @@
 ---
 title: "🎭Playwright. Compare the performance of different test parallelization approaches."
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-12-05-playwright-compare-the-performance-of-different-test-parallelization-approaches/0_OWmrZjf95TDjGa2B.webp
 excerpt: "Time is of the essence in software testing, where achieving quicker test results without compromising reliability is a primary objective for development teams. Playwright, an open-source browser automation library, is instrumental in testing modern web applications across different browsers. Parallelization further enhances the efficacy and efficiency of automated testing by reducing execution times.
 "
 date: 2024-12-05 20:00:00 +01:00
@@ -10,6 +10,8 @@ tags:
   - Playwright
   - Performance
 ---
+
+![_config.yml]({{ site.url }}/assets/images/posts/2024-12-05-playwright-compare-the-performance-of-different-test-parallelization-approaches/0_OWmrZjf95TDjGa2B.webp){: .align-center .border .max-width-600px}
 
 *I continue to share tips for playwrights and in the previous article, I showed you [how to build a Page Object correctly using fixtures](https://medium.com/softwaretestingdaily/playwright-how-to-build-page-object-correctly-using-fixtures-ff0a8c05b395). Now, I shift the focus to test parallelization, which plays a vital role in accelerating test execution using Playwright as a test framework.*
 
