@@ -1,6 +1,6 @@
 ---
 title: "Cypress Cloud. Is it worth paying for it?"
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-03-24-cypress-cloud-is-it-worth-paying-for-it/1_pU_h27oaQTXPjLxAhMMG0A.webp
 excerpt: "We have a set of automated tests that can be run locally on our machine, or they can be integrated as part of continuous integration/continuous deployment. The tests are executed in a single thread, test by test. We use the standard spec reporter to understand and analyze our test results."
 date: 2024-03-24 20:00:00 +01:00
 last_modified_at: 2024-03-24 20:00:00 +01:00

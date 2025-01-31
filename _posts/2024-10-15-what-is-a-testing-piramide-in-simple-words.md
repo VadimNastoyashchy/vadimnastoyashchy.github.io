@@ -1,6 +1,6 @@
 ---
 title: "💁‍♂️What is a Testing Piramide?"
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-10-15-what-is-a-testing-piramide-in-simple-words/0_45yhYRhkDwSJ9_eR.webp
 excerpt: "In the world of software development, ensuring that an application is bug-free and works as intended is critical. That’s where the “testing pyramid” comes in. The testing pyramid is a concept that helps us understand how to efficiently organize testing efforts to achieve the best results.
 "
 date: 2024-10-15 20:00:00 +01:00
@@ -8,6 +8,8 @@ last_modified_at: 2024-10-15 20:00:00 +01:00
 tags:
   - Testing
 ---
+
+![_config.yml]({{ site.url }}/assets/images/posts/2024-10-15-what-is-a-testing-piramide-in-simple-words/0_45yhYRhkDwSJ9_eR.webp){: .align-center .border .max-width-600px}
 
 In the world of software development, ensuring that an application is bug-free and works as intended is critical. That’s where the “testing pyramid” comes in. The testing pyramid is a concept that helps us understand how to efficiently organize testing efforts to achieve the best results.
 
@@ -17,7 +19,7 @@ In the world of software development, ensuring that an application is bug-free a
 
 The testing pyramid is a visual metaphor that describes the ideal distribution of software test types across three levels: unit tests, integration tests, and end-to-end tests. The shape of the pyramid illustrates the number of tests you should have at each level at the bottom (unit tests), less at the top (end-to-end tests).
 
-![](https://cdn-images-1.medium.com/max/NaN/0*p1H0FM-RvzQPg6Kn.png)
+![](https://miro.medium.com/v2/0*p1H0FM-RvzQPg6Kn.png)
 
 ### The Layers of the Testing Pyramid:
 > ***Unit Tests (Bottom Layer):*** These tests cover the smallest parts of an application, typically individual functions or methods. Unit tests are quick to execute and aim to ensure that each piece of code performs its specific function correctly.

@@ -1,6 +1,6 @@
 ---
 title: "🔝JavaScript UI Test Automation Frameworks — which one is faster?"
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-12-17-javascript-ui-test-automation-frameworks-which-one-is-faster/1_jlskksKL_ZgiQzxnoeoYPw.webp
 excerpt: "Today I have prepared an equally interesting article. As you can see from the title, we are going to compare the performance of three of the most popular system (UI) testing tools.
 Playwright, WebdriverIO, and Cypress will be our guinea pigs today.
 "
@@ -14,9 +14,11 @@ tags:
   - Performance
 ---
 
+![_config.yml]({{ site.url }}/assets/images/posts/2024-12-17-javascript-ui-test-automation-frameworks-which-one-is-faster/1_jlskksKL_ZgiQzxnoeoYPw.webp){: .align-center .border .max-width-600px}
+
 *I continue to share interesting experiences and tips from the automation testing world. So far we’ve discussed the following:*
 
-![[*🎭Playwright. Compare the performance of different test parallelization approaches.](https://medium.com/javascript-in-plain-english/playwright-compare-the-performance-of-different-test-parallelization-approaches-7698f1ee6523)*](https://cdn-images-1.medium.com/max/2540/1*VdHXUgs7bNmA8kA8VO8Evg.png)*[*🎭Playwright. Compare the performance of different test parallelization approaches.](https://medium.com/javascript-in-plain-english/playwright-compare-the-performance-of-different-test-parallelization-approaches-7698f1ee6523)**
+![[*🎭Playwright. Compare the performance of different test parallelization approaches.](https://medium.com/javascript-in-plain-english/playwright-compare-the-performance-of-different-test-parallelization-approaches-7698f1ee6523)*](https://cdn-images-1.medium.com/max/2540/1*VdHXUgs7bNmA8kA8VO8Evg.png)[*🎭Playwright. Compare the performance of different test parallelization approaches.](https://medium.com/javascript-in-plain-english/playwright-compare-the-performance-of-different-test-parallelization-approaches-7698f1ee6523)
 
 *Today I have prepared an equally interesting article. As you can see from the title, we are going to compare the performance of three of the most popular system (UI) testing tools. 
 [Playwright](https://playwright.dev/), [WebdriverIO](https://webdriver.io/), and [Cypress](https://www.cypress.io/) will be our guinea pigs today.*

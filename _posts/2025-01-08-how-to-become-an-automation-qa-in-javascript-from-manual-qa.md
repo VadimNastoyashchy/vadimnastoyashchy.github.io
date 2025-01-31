@@ -1,6 +1,6 @@
 ---
 title: "How to Become an Automation QA in JavaScript (From Manual QA)"
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2025-01-08-how-to-become-an-automation-qa-in-javascript-from-manual-qa/1_MZdFBUpoDIiBelNG8X6rvA.webp
 excerpt: "Starting a career as an automation quality assurance (AQA) engineer, and moving from a manual QA role, can be both exciting and challenging. This transition involves learning new technical skills, understanding automation frameworks, and implementing test automation best practices. In this article, we’ll go over the basic concepts, tools, and skills you need to master to successfully start your transition to the next level that will bring you closer to automation in JavaScript, as I like this programming language. Next, I’ll introduce you to frameworks like Cypress, Playwright, WebdriverIO, and testing tools like Mocha and Jest, which are an integral part of the automation qa arsenal.
 "
 date: 2025-01-08 20:00:00 +01:00
@@ -10,6 +10,8 @@ tags:
   - Automation QA
   - Manual QA
 ---
+
+![_config.yml]({{ site.url }}/assets/images/posts/2025-01-08-how-to-become-an-automation-qa-in-javascript-from-manual-qa/1_MZdFBUpoDIiBelNG8X6rvA.webp){: .align-center .border .max-width-600px}
 
 **Starting** a career as an automation quality assurance (AQA) engineer, and moving from a manual QA role, can be both exciting and challenging. This transition involves learning new technical skills, understanding automation frameworks, and implementing test automation best practices. In this article, we’ll go over the basic concepts, tools, and skills you need to master to successfully start your transition to the next level that will bring you closer to automation in JavaScript, as I like this programming language. Next, I’ll introduce you to frameworks like Cypress, Playwright, WebdriverIO, and testing tools like Mocha and Jest, which are an integral part of the automation qa arsenal.
 
@@ -29,23 +31,23 @@ To start writing your test automation scripts, you must be familiar with the pro
 
 ![](https://cdn-images-1.medium.com/max/5200/0*Trs2wLl-dSv9wZ1_.png)
 > ***- Cypress:*** It’s a front-end testing tool built for the modern web. It’s known for easy setup and fast execution. Visit [Cypress Documentation](https://docs.cypress.io/) for more.
-[***Cypress Tutorial for Beginners (YouTube)](https://www.youtube.com/watch?v=7N63cMKosIE)***
+[Cypress Tutorial for Beginners (YouTube)](https://www.youtube.com/watch?v=7N63cMKosIE)
 
 ![](https://cdn-images-1.medium.com/max/2000/0*l8ssbwJzVRXpcYMR.png)
 > - ***Playwright:*** This Node library enables you to automate Chromium, Firefox, and WebKit with a single API. See the [Playwright](https://github.com/microsoft/playwright) page.
-[***Automated UI Testing with Playwright](https://www.youtube.com/watch?v=4_m3HsaNwOE&list=PLhW3qG5bs-L9sJKoT1LC5grGT77sfW0Z8)***
+[Automated UI Testing with Playwright](https://www.youtube.com/watch?v=4_m3HsaNwOE&list=PLhW3qG5bs-L9sJKoT1LC5grGT77sfW0Z8)
 
 ![](https://cdn-images-1.medium.com/max/2000/0*2NjWM3U5AUvVQJuq)
 > - ***WebdriverIO:*** It is a progressive automation framework that supports both web and mobile testing. Learn more on [WebdriverIO Docs](https://webdriver.io/docs/gettingstarted.html)
-[***WebDriverIO: A Guide for Beginners (YouTube)](https://www.youtube.com/watch?v=gdd5ZC5L9TM&list=PLhW3qG5bs-L9K2xtu-04jZFqykzXzqJW8)***
+[WebDriverIO: A Guide for Beginners (YouTube)](https://www.youtube.com/watch?v=gdd5ZC5L9TM&list=PLhW3qG5bs-L9K2xtu-04jZFqykzXzqJW8)
 
 ![](https://cdn-images-1.medium.com/max/2000/0*wn91ahs2fq5WtD-l)
 > - ***Mocha:*** A feature-rich JavaScript test framework running on Node.js, making asynchronous testing simple and fun. [MochaJS](https://mochajs.org/)
-[***Learn Mocha](https://www.geeksforgeeks.org/introduction-to-mocha/)***
+[Learn Mocha](https://www.geeksforgeeks.org/introduction-to-mocha/)
 
 ![](https://cdn-images-1.medium.com/max/2000/0*xKkzGi8CAFVbw8Hw.png)
 > - ***Jest:*** Primarily used for React application testing, but can also be used with other JavaScript frameworks. Learn more from [Jest](https://jestjs.io/)
-[***Jest Crash Course (YouTube)](https://www.youtube.com/watch?v=7r4xVDI2vho)***
+[Jest Crash Course (YouTube)](https://www.youtube.com/watch?v=7r4xVDI2vho)
 
 ### Integrating with Continuous Integration (CI) Tools
 > Learn to use CI tools like Jenkins, GitLab CI, or GitHub Actions to automate the testing process in different environments. This will help in integrating and testing your code automatically every time you commit changes to version control.

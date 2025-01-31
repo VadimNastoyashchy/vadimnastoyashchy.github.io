@@ -1,6 +1,6 @@
 ---
-title: "Cypress IO. How to build Page Object correctly."
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+title: "CypressIO. How to build Page Object correctly."
+image: /assets/images/posts/2024-03-01-cypress-io-how-to-build-page-object-correctly/0_VyJt9BTbzRk3q6rq.webp
 excerpt: "This article is useful for test automation engineers or developers who are involved in testing and want to improve their testing framework skills to use Page Object models to organize testing, maintenance, and communication with each other. It may also be useful for those engineers who are already using this method but would like to hear a different point of view.
 Earlier I talked about the Page object and how it can be implemented using the Playwright as an example. Now I want to demonstrate an approach, using all the features of Cypress.
 So let’s take a look at the most common scenario of logging in and verifying that the user is logged in:"

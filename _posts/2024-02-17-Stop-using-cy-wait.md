@@ -1,6 +1,6 @@
 ---
 title: "🚫STOP using cy.wait()! Use timeout or aliases instead. Cypres IO."
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-2-17-Stop-using-cy-wait/1_hj-rHICtXaPMa2dxK_Vdog@2x.webp
 excerpt: "When writing tests, I often encounter a delay in the appearance of elements on the frontend page. This can be due to waiting for a request with data that the rendering of elements on the page depends on, or other conditions.
 The easiest way to wait for an item to appear is to use the:"
 date: 2024-02-17 20:00:00 +01:00

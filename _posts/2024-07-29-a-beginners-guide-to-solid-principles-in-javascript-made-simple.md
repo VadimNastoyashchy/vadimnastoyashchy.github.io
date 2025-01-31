@@ -1,6 +1,6 @@
 ---
 title: "👨‍🏫A beginner’s guide to SOLID principles in JavaScript: Made Simple"
-image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
+image: /assets/images/posts/2024-07-29-a-beginners-guide-to-solid-principles-in-javascript-made-simple/1_jPROahDWDQ2fWnKixUZhAw.webp
 excerpt: "The SOLID Principles are guidelines that help software developers design and maintain clear, robust, and flexible systems. They are essential in object-oriented programming, but they can also be useful in understanding structured coding practices in JavaScript. Here, I’ll break down each principle with simple explanations and examples to make them accessible to everyone.
 "
 date: 2024-07-29 20:00:00 +01:00
@@ -10,6 +10,8 @@ tags:
   - Patterns
   - JavaScript
 ---
+
+![_config.yml]({{ site.url }}/assets/images/posts/2024-07-29-a-beginners-guide-to-solid-principles-in-javascript-made-simple/1_jPROahDWDQ2fWnKixUZhAw.webp){: .align-center .border .max-width-600px}
 
 The SOLID Principles are guidelines that help software developers design and maintain clear, robust, and flexible systems. They are essential in object-oriented programming, but they can also be useful in understanding structured coding practices in JavaScript. Here, I’ll break down each principle with simple explanations and examples to make them accessible to everyone.
 
