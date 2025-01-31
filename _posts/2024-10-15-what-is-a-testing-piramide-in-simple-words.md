@@ -9,8 +9,6 @@ tags:
   - Testing
 ---
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-10-15-what-is-a-testing-piramide-in-simple-words/0_45yhYRhkDwSJ9_eR.webp){: .align-center .border .max-width-600px}
-
 In the world of software development, ensuring that an application is bug-free and works as intended is critical. That’s where the “testing pyramid” comes in. The testing pyramid is a concept that helps us understand how to efficiently organize testing efforts to achieve the best results.
 
 ![[cdn.britannica.com/06/122506–050-C8E03A8A/Pyramid-…](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britannica.com%2Ftechnology%2Fpyramid-architecture&psig=AOvVaw1OsLkcttIiiY_aXAT_sTHg&ust=1729055802077000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCMj0tPjQj4kDFQAAAAAdAAAAABAE)](https://cdn-images-1.medium.com/max/3200/0*45yhYRhkDwSJ9_eR.jpg)*[cdn.britannica.com/06/122506–050-C8E03A8A/Pyramid-…](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.britannica.com%2Ftechnology%2Fpyramid-architecture&psig=AOvVaw1OsLkcttIiiY_aXAT_sTHg&ust=1729055802077000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCMj0tPjQj4kDFQAAAAAdAAAAABAE)*
