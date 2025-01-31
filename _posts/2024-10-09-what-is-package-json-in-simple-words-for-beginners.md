@@ -10,8 +10,6 @@ tags:
   - JavaScript
 ---
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-10-09-what-is-package-json-in-simple-words-for-beginners/1_uUGbYKSD0xjtrSbctRlZag.webp){: .align-center .border .max-width-600px}
-
 For a long time, I have not abandoned the idea that beginners do not understand certain terms, constructs, and mechanisms of programming language and testing that need a simpler explanation. I want to try to start a series of articles that begin with
 💁‍♂️What is …. ?
 I hope the simple examples and explanations will be useful and answer the necessary questions.
