@@ -19,7 +19,7 @@ In the world of software development, ensuring that an application is bug-free a
 
 The testing pyramid is a visual metaphor that describes the ideal distribution of software test types across three levels: unit tests, integration tests, and end-to-end tests. The shape of the pyramid illustrates the number of tests you should have at each level at the bottom (unit tests), less at the top (end-to-end tests).
 
-![](https://cdn-images-1.medium.com/max/NaN/0*p1H0FM-RvzQPg6Kn.png)
+![](https://miro.medium.com/v2/0*p1H0FM-RvzQPg6Kn.png)
 
 ### The Layers of the Testing Pyramid:
 > ***Unit Tests (Bottom Layer):*** These tests cover the smallest parts of an application, typically individual functions or methods. Unit tests are quick to execute and aim to ensure that each piece of code performs its specific function correctly.
