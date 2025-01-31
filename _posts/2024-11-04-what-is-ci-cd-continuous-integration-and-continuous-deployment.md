@@ -13,8 +13,6 @@ tags:
   - Jenkins
 ---
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-11-04-what-is-ci-cd-continuous-integration-and-continuous-deployment/0_OnzP_7IgfjwFIHwN.webp){: .align-center .border .max-width-600px}
-
 In the fast-paced world of software development, it’s crucial to have systems that allow quick and reliable software updates. This is where CI/CD, or Continuous Integration and Continuous Deployment, comes into play. But what exactly does CI/CD mean, and how does it differ between its components? Let’s break it down into simple terms.
 
 ![[Free CI/CD Tools: A Comprehensive Guide](https://www.google.com/url?sa=i&url=https%3A%2F%2Fapidog.com%2Fblog%2Ffree-ci-cd-tools-a-comprehensive-guide%2F&psig=AOvVaw0n_Q4Q7Pv9thl1peCEX7ia&ust=1729055551712000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCPj5koTQj4kDFQAAAAAdAAAAABAE)](https://cdn-images-1.medium.com/max/2400/0*OnzP_7IgfjwFIHwN.png)*[Free CI/CD Tools: A Comprehensive Guide](https://www.google.com/url?sa=i&url=https%3A%2F%2Fapidog.com%2Fblog%2Ffree-ci-cd-tools-a-comprehensive-guide%2F&psig=AOvVaw0n_Q4Q7Pv9thl1peCEX7ia&ust=1729055551712000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCPj5koTQj4kDFQAAAAAdAAAAABAE)*
