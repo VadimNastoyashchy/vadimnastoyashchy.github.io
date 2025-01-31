@@ -1,7 +1,7 @@
-name: Pr to master
+name: Nightly run
 on:
-  pull_request:
-    branches: master
+  schedule:
+    - cron: "0 3 * * *" # Runs at 3:00 AM UTC which is 6:00 AM in Kyiv timezone (UTC+3)
 jobs:
   tests:
     runs-on: ubuntu-latest
