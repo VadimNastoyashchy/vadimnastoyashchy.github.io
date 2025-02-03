@@ -45,7 +45,10 @@ div.inner {
     right: 8vw;
   }
 }
-.results .entry-title .read-more a:hover {
+.results .entry-title a:hover {
+  color: $accent-color;
+}
+.read-more a:hover {
   color: $accent-color;
 }
 div#related {
