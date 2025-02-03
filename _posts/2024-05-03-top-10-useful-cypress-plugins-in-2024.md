@@ -1,6 +1,6 @@
 ---
 title: "🔝TOP 10 useful Cypress plugins in 2024!"
-image: /assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024
+image: /assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp
 excerpt: "Cypress is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications...
 "
 date: 2024-04-24 20:00:00 +01:00
