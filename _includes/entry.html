@@ -34,7 +34,7 @@
       {% assign entry_image = entry_image | relative_url %}
     {% endunless %}
     {% assign entry_image = entry_image | escape %}
-    <img class="entry-image-thumbnail" src="{{ site.url }}{{ entry_image }}" alt="" sizes="(max-width: 200px)">
+    <img class="entry-image-thumbnail" src="{{ site.url }}{{ entry_image }}" width="300" alt="">
   {% endif %}
 
   </header>
