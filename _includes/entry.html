@@ -28,14 +28,15 @@
       <img class="entry-image u-photo" src="{{ entry_image }}" alt="">
     {% endif %}
 
-    <!-- {% if post.image %}
+    {% if post.image %}
     {% assign entry_image = post.image %}
     {% unless entry_image contains '://' %}
       {% assign entry_image = entry_image | relative_url %}
     {% endunless %}
     {% assign entry_image = entry_image | escape %}
-    <img class="entry-image-thumbnail" src="{{ site.url }}{{ entry_image }}" alt="" sizes="(max-width: 300px)>
-  {% endif %} -->
+    <img class="entry-image-thumbnail" src="{{ site.url }}{{ entry_image }}" alt="" sizes="(max-width: 300px)">
+  {% endif %}
+
   </header>
   <footer class="entry-meta">
     <ul>
