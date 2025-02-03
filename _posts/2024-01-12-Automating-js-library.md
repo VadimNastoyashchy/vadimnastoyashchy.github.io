@@ -1,7 +1,7 @@
 ---
 title: "Automating JavaScript Library Deployment to NPM with GitHub Actions. A Step-by-Step Guide"
 image: /assets/images/posts/js-library/0_9BY0h3oT-oe4eDAx.webp
-excerpt: "This article is useful for test automation engineers or developers who are using JavaScript in their code and want to publish their library to the NPM repository and use it as a dependency in other projects. There are two different ways of publishing. The first is locally using npm commands in the terminal, and the other is an automated process using CI/CD configuration for building and publishing."
+excerpt: "This article is useful for test automation engineers or developers who are using JavaScript in their code and want to publish their library to the NPM repository and use it as a dependency in other projects. There are two different ways of publishing. The first is locally using npm commands in the terminal, and the other is an automated process using CI/CD configuration for building and publishing..."
 date: 2024-01-12 20:00:00 +01:00
 last_modified_at: 2024-01-12 20:00:00 +01:00
 tags:

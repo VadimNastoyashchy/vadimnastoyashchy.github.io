@@ -1,7 +1,7 @@
 ---
 title: "How to Become an Automation QA in JavaScript (From Manual QA)"
 image: /assets/images/posts/2025-01-08-how-to-become-an-automation-qa-in-javascript-from-manual-qa/1_MZdFBUpoDIiBelNG8X6rvA.webp
-excerpt: "Starting a career as an automation quality assurance (AQA) engineer, and moving from a manual QA role, can be both exciting and challenging. This transition involves learning new technical skills, understanding automation frameworks, and implementing test automation best practices. In this article, we’ll go over the basic concepts, tools, and skills you need to master to successfully start your transition to the next level that will bring you closer to automation in JavaScript, as I like this programming language. Next, I’ll introduce you to frameworks like Cypress, Playwright, WebdriverIO, and testing tools like Mocha and Jest, which are an integral part of the automation qa arsenal.
+excerpt: "Starting a career as an automation quality assurance (AQA) engineer, and moving from a manual QA role, can be both exciting and challenging. This transition involves learning new technical skills, understanding automation frameworks, and implementing test automation best practices. In this article, we’ll go over the basic concepts, tools, and skills you need to master to successfully start your transition to the next level that will bring you closer to automation in JavaScript, as I like this programming language. Next, I’ll introduce you to frameworks like Cypress, Playwright, WebdriverIO, and testing tools like Mocha and Jest, which are an integral part of the automation qa arsenal...
 "
 date: 2025-01-08 20:00:00 +01:00
 last_modified_at: 2025-01-08 20:00:00 +01:00

@@ -1,7 +1,7 @@
 ---
 title: "Test Plan 🆚 Test Strategy. In Simple Words"
 image: /assets/images/posts/2024-12-04-test-plan-test-strategy-in-simple-words/1_9Sl_9wyyNck6A-OF1lgTdQ.webp
-excerpt: "In software testing, two essential documents help guide the quality assurance process: the Test Plan and the Test Strategy. While you might hear these terms used interchangeably, they refer to different aspects of the testing process. Let’s simplify these concepts, understand their differences, and explore why they are crucial in the software development life cycle.
+excerpt: "In software testing, two essential documents help guide the quality assurance process: the Test Plan and the Test Strategy. While you might hear these terms used interchangeably, they refer to different aspects of the testing process. Let’s simplify these concepts, understand their differences, and explore why they are crucial in the software development life cycle...
 "
 date: 2024-12-04 20:00:00 +01:00
 last_modified_at: 2024-12-04 20:00:00 +01:00

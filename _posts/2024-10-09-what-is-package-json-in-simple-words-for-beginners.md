@@ -1,7 +1,7 @@
 ---
 title: "💁‍♂️What is package.json?"
 image: /assets/images/posts/2024-10-09-what-is-package-json-in-simple-words-for-beginners/1_uUGbYKSD0xjtrSbctRlZag.webp
-excerpt: "As you begin to dive into the world of JavaScript and Node.js, one of the first files you will encounter is package.json. This file is essential but may seem intimidating at first. Fear not, as it’s just a simple yet powerful tool for managing your project’s various needs, such as packages, scripts, and configurations. Here’s a simple guide to understanding what package.json is and setting up everything you need to run a project.
+excerpt: "As you begin to dive into the world of JavaScript and Node.js, one of the first files you will encounter is package.json. This file is essential but may seem intimidating at first. Fear not, as it’s just a simple yet powerful tool for managing your project’s various needs, such as packages, scripts, and configurations. Here’s a simple guide to understanding what package.json is and setting up everything you need to run a project...
 "
 date: 2024-10-09 20:00:00 +01:00
 last_modified_at: 2024-10-09 20:00:00 +01:00

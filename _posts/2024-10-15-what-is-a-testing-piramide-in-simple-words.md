@@ -1,7 +1,7 @@
 ---
 title: "💁‍♂️What is a Testing Piramide?"
 image: /assets/images/posts/2024-10-15-what-is-a-testing-piramide-in-simple-words/0_45yhYRhkDwSJ9_eR.webp
-excerpt: "In the world of software development, ensuring that an application is bug-free and works as intended is critical. That’s where the “testing pyramid” comes in. The testing pyramid is a concept that helps us understand how to efficiently organize testing efforts to achieve the best results.
+excerpt: "In the world of software development, ensuring that an application is bug-free and works as intended is critical. That’s where the “testing pyramid” comes in. The testing pyramid is a concept that helps us understand how to efficiently organize testing efforts to achieve the best results...
 "
 date: 2024-10-15 20:00:00 +01:00
 last_modified_at: 2024-10-15 20:00:00 +01:00
