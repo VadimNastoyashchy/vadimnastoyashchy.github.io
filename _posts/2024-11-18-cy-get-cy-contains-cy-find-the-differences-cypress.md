@@ -1,6 +1,6 @@
 ---
 title: "cy.get() 🆚 cy.contains() 🆚 cy.find(). The differences. Cypress."
-image: 
+image: assets/images/posts/2024-11-18-cy-get-cy-contains-cy-find-the-differences-cypress/1_Fur-rcWpRBCt_lDEhYVBuw.webp
 excerpt: "Cypress IO offers several commands to target and interact with elements, each with specific use cases. Three commonly used commands are...
 "
 date: 2024-11-15 20:00:00 +01:00
