@@ -1,7 +1,7 @@
 ---
 title: "😱HOW TO get free parallelization in Cypress IO?"
 image: /assets/images/posts/2024-06-04-how-to-get-free-parallelization-in-cypress-io/1_1d4Sq-oR7636pTikDR0fbQ.webp
-excerpt: "End-to-end testing is an integral part of any application development pipeline, to simulate real-world user workflows and ensure that they perform as expected. One of the most popular tools for this task is Cypress IO. While Cypress IO offers several benefits, running extensive test suites can be time-consuming. However, you can address this issue by enabling parallel test execution. In this article, we’ll take a step-by-step approach to achieving free parallelization in Cypress IO using the open-source `cy-split` plugin.
+excerpt: "End-to-end testing is an integral part of any application development pipeline, to simulate real-world user workflows and ensure that they perform as expected. One of the most popular tools for this task is Cypress IO. While Cypress IO offers several benefits, running extensive test suites can be time-consuming. However, you can address this issue by enabling parallel test execution. In this article, we’ll take a step-by-step approach to achieving free parallelization in Cypress IO using the open-source `cy-split` plugin...
 "
 date: 2024-06-04 20:00:00 +01:00
 last_modified_at: 2024-06-04 20:00:00 +01:00

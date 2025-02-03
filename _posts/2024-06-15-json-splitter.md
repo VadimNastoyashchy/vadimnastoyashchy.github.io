@@ -3,7 +3,7 @@ title: "How do I split one or more large JSON files into a bunch of smaller JSON
 image: /assets/images/posts/2024-06-15-json-splitter/1_itQSHhFdqqfySbYgPSEwNw.webp
 excerpt: "Working with JSON (JavaScript Object Notation) is common in web development. JSON has become a popular data exchange format because of its lightweight nature and easy-to-understand syntax. However, we sometimes encounter large JSON files that can be bulky and difficult for other tools to manage, read, or process.
 In such scenarios, it is beneficial to break or “slice” the mammoth JSON file into smaller, more manageable chunks. This divide-and-conquer approach allows for efficient processing, easy sanity checking, and better readability. 
-This article will introduce you to the JSONSplitter UI application and guide you through the process of splitting large JSON files into smaller ones.
+This article will introduce you to the JSONSplitter UI application and guide you through the process of splitting large JSON files into smaller ones...
 "
 date: 2024-06-15 20:00:00 +01:00
 last_modified_at: 2024-06-15 20:00:00 +01:00

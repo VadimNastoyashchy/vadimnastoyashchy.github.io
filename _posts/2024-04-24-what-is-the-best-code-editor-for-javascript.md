@@ -1,7 +1,7 @@
 ---
 title: "🤔What is the best code editor for JavaScript?"
 image: /assets/images/posts/2024-04-24-what-is-the-best-code-editor-for-javascript/1_TwKeZwaE-NnmdBJF4iGEgQ.webp
-excerpt: "JavaScript is one of the world’s most popular programming languages. JavaScript provides integration with CSS and HTML to create robust front-end applications. The introduction of NodeJS has extended the reach of high-level, interpreted programming languages to server-side development. JavaScript also plays an important role in test automation for building test frameworks for testing E2E, API, unit, etc."
+excerpt: "JavaScript is one of the world’s most popular programming languages. JavaScript provides integration with CSS and HTML to create robust front-end applications. The introduction of NodeJS has extended the reach of high-level, interpreted programming languages to server-side development. JavaScript also plays an important role in test automation for building test frameworks for testing E2E, API, unit, etc..."
 date: 2024-04-24 20:00:00 +01:00
 last_modified_at: 2024-04-24 20:00:00 +01:00
 tags:
