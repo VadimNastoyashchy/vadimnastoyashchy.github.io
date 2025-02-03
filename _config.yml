@@ -7,7 +7,7 @@ description: >-
 baseurl: ""
 url: 
 use_logo: false
-use_copyright: false
+use_copyright: true
 timezone: Europe/Kyiv
 
 # https://github.com/mmistakes/jekyll-theme-basically-basic#author
@@ -20,7 +20,6 @@ linkedin_username: vadym-nastoiashchyi
 # logo: /assets/images/avatar.png
 
 # Based on https://github.com/mmistakes/jekyll-theme-basically-basic#google-analytics
-
 google_analytics_id: G-8VGGL0NVS2
 
 # https://github.com/mmistakes/jekyll-theme-basically-basic#search
