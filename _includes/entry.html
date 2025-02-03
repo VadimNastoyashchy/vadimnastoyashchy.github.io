@@ -53,4 +53,7 @@
       {{ post.excerpt | markdownify }}
     {% endif %}
   </div>
+  <h1 class="read-more">
+    <a href="{{ post.url | relative_url }}" rel="bookmark">Read more</a>
+  </h1>
 </article>
