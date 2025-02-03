@@ -1,7 +1,7 @@
 ---
 title: "🎭Playwright. How to build Page Object correctly using fixtures"
 image: /assets/images/posts/2024-1-22-Playwright-how-to-pom/1_1aQ9ki7tVGg9edYFJJnM-g.webp
-excerpt: "This article is useful for test automation engineers or developers who are involved in testing and who want to improve their testing framework skills to use Page Object models for test organization, maintenance, and relations between themself. It can also be useful for those engineers who already use this method but would like to hear a different point of view."
+excerpt: "This article is useful for test automation engineers or developers who are involved in testing and who want to improve their testing framework skills to use Page Object models for test organization, maintenance, and relations between themself. It can also be useful for those engineers who already use this method but would like to hear a different point of view..."
 date: 2024-01-22 20:00:00 +01:00
 last_modified_at: 2024-01-22 20:00:00 +01:00
 tags:

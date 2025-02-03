@@ -1,7 +1,7 @@
 ---
 title: "🎭Playwright. Compare the performance of different test parallelization approaches."
 image: /assets/images/posts/2024-12-05-playwright-compare-the-performance-of-different-test-parallelization-approaches/0_OWmrZjf95TDjGa2B.webp
-excerpt: "Time is of the essence in software testing, where achieving quicker test results without compromising reliability is a primary objective for development teams. Playwright, an open-source browser automation library, is instrumental in testing modern web applications across different browsers. Parallelization further enhances the efficacy and efficiency of automated testing by reducing execution times.
+excerpt: "Time is of the essence in software testing, where achieving quicker test results without compromising reliability is a primary objective for development teams. Playwright, an open-source browser automation library, is instrumental in testing modern web applications across different browsers. Parallelization further enhances the efficacy and efficiency of automated testing by reducing execution times...
 "
 date: 2024-12-05 20:00:00 +01:00
 last_modified_at: 2024-12-05 20:00:00 +01:00

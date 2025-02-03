@@ -2,7 +2,7 @@
 title: "🔝JavaScript UI Test Automation Frameworks — which one is faster?"
 image: /assets/images/posts/2024-12-17-javascript-ui-test-automation-frameworks-which-one-is-faster/1_jlskksKL_ZgiQzxnoeoYPw.webp
 excerpt: "Today I have prepared an equally interesting article. As you can see from the title, we are going to compare the performance of three of the most popular system (UI) testing tools.
-Playwright, WebdriverIO, and Cypress will be our guinea pigs today.
+Playwright, WebdriverIO, and Cypress will be our guinea pigs today...
 "
 date: 2024-12-17 20:00:00 +01:00
 last_modified_at: 2024-12-17 20:00:00 +01:00
