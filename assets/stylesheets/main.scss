@@ -48,6 +48,9 @@ div.inner {
 .results .entry-title a:hover {
   color: $accent-color;
 }
+.read-more a:hover {
+  color: $accent-color;
+}
 div#related {
   margin-top: 30px;
 }
@@ -105,6 +108,11 @@ footer.site-footer {
 .max-width-300px {
   max-width: 300px;
   height: auto;
+}
+
+#search{
+  width: 100%;
+  box-sizing: border-box;
 }
 
 // Footnote references
