@@ -21,8 +21,8 @@ jobs:
         run: npm instal
         working-directory: ./e2e
 
-      - name: Install Playwright browsers
-        run: npx playwright install
+      - name: Install Playwright Chrome
+        run: npx playwright install chrome
         working-directory: ./e2e
 
       - name: Run regression tests
