@@ -1,7 +1,6 @@
 import { Page } from '@playwright/test';
 
 export default abstract class BasePage {
-    protected readonly BASE_PAGE = 'https://vadimnastoyashchy.github.io/';
     protected readonly PAGE_NAME: string;
     protected readonly PAGE_URL: string;
     protected readonly page: Page;
@@ -14,10 +13,10 @@ export default abstract class BasePage {
     }
 
     public async open(): Promise<void> {
-        await this.page.goto(`${this.BASE_PAGE}${this.PAGE_URL}`);
+        await this.page.goto(this.PAGE_URL);
     }
 
     public async getPageUrl(): Promise<string> {
-        return `${this.BASE_PAGE}${this.PAGE_URL}`;
+        return await this.page.url();
     }
 }

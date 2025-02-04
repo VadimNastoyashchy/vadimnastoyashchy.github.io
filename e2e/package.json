@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test",
+    "regression": "npx playwright test",
+    "smoke": "npx playwright test --tag=smoke",
     "report": "npx playwright show-report",
     "tsc": "npx tsc --project tsconfig.json --noEmit",
     "lint": "npx eslint \"src/**\"",
