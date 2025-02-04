@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "regression": "npx playwright test",
-    "smoke": "npx playwright test --tag=smoke",
+    "smoke": "npx playwright test --grep @smoke",
     "report": "npx playwright show-report",
     "tsc": "npx tsc --project tsconfig.json --noEmit",
     "lint": "npx eslint \"src/**\"",
