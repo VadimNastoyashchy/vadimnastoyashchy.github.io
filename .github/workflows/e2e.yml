@@ -1,9 +1,5 @@
 name: End-to-end tests
-
-on: 
-  deployment_status:
-    branches:
-      - master
+on: [deployment_status]
 
 jobs:
   e2e:
