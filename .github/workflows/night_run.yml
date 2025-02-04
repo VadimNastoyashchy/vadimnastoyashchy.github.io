@@ -1,4 +1,5 @@
 name: Nightly run
+
 on:
   schedule:
 - cron: "50 13 * * *"  # Runs at 1:50 PM UTC, equivalent to 4:50 AM in Kyiv timezone (UTC+3) - for test
@@ -20,8 +21,8 @@ jobs:
         run: npm install
         working-directory: ./e2e
 
-      - name: Install Playwright Chrome
-        run: npx playwright install chrome
+      - name: Install Playwright browsers
+        run: npx playwright install
         working-directory: ./e2e
 
       - name: Run smoke tests
