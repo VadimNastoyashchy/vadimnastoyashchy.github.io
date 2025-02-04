@@ -20,8 +20,6 @@ tags:
 
 ## 14.0.0 | 14.0.1
 
-*Released 1/16/2025 | Released 1/28/2025*
-
 Cypress v14.0.0 is pretty solid. It’ll give your component testing a nice boost and you’ll be all set for the new framework and dev server versions. It’s also got some breaking changes to cy.origin, which are needed to deal with Chrome’s deprecation of document.domain injection. This should fix some issues for some users in the latest Chrome versions. But keep in mind that support for older versions of Node.js, Linux distributions, browsers, and component testing frameworks and dev servers is being phased out.
 
 **Breaking Changes:**
@@ -39,6 +37,7 @@ Refer to the [v14 Migration Guide](https://docs.cypress.io/app/references/migrat
 ## Version 1.50 | 1.49
 
 * New option [timeout](https://playwright.dev/docs/api/class-test#test-step-option-timeout) allows specifying a maximum run time for an individual test step. A timed-out step will fail the execution of the test.
+
 ```
     test('some test', async ({ page }) => {
       await test.step('a step', async () => {
@@ -46,7 +45,9 @@ Refer to the [v14 Migration Guide](https://docs.cypress.io/app/references/migrat
       }, { timeout: 1000 });
     });
 ```
+
 * New method [test.step.skip()](https://playwright.dev/docs/api/class-test#test-step-skip) to disable the execution of a test step.
+
 ```
     test('some test', async ({ page }) => {
       await test.step('before running step', async () => {
@@ -62,7 +63,9 @@ Refer to the [v14 Migration Guide](https://docs.cypress.io/app/references/migrat
       });
     });​
 ```
+
 * New assertion [expect(locator).toMatchAriaSnapshot()](https://playwright.dev/docs/api/class-locatorassertions#locator-assertions-to-match-aria-snapshot) verifies page structure by comparing to an expected accessibility tree, represented as YAML.
+
 ```
     await page.goto('https://playwright.dev');
     await expect(page.locator('body')).toMatchAriaSnapshot(`
@@ -75,6 +78,7 @@ Refer to the [v14 Migration Guide](https://docs.cypress.io/app/references/migrat
         - heading "Any browser • Any platform • One API"
     `);
 ```
+
 You can generate this assertion with [Test Generator](https://playwright.dev/docs/codegen) and update the expected snapshot with --update-snapshots command line flag.
 
 Learn more in the [aria snapshots guide](https://playwright.dev/docs/aria-snapshots).
@@ -91,6 +95,7 @@ Learn more in the [aria snapshots guide](https://playwright.dev/docs/aria-snapsh
 - new swipe for native apps method
 - scrollIntoView to make it dependent on the swipe
 - UTs for scrollIntoView
+
 ```
     it('should execute a default swipe', async () => {
         await browser.swipe();
@@ -105,11 +110,13 @@ Learn more in the [aria snapshots guide](https://playwright.dev/docs/aria-snapsh
         })
     });
 ```
+
 * Added the mobile tap command including
 - native tap on coordinates
 - web tap on coordinates
 - native tap on element + automatically scrolling when the element is not visible on the native tap
 - web tab on element
+
 ```
     it('should be able to tap an on element', async () => {
         const elem = $('~myElement')
@@ -131,6 +138,7 @@ Learn more in the [aria snapshots guide](https://playwright.dev/docs/aria-snapsh
         await browser.tap({ x: 200, y: 400 })
     })
 ```
+
 These are the updates we received in early 2025. We continue to follow the development and updates of the most popular tools in the world of JavaScript testing
 
 ***Thanks to everyone who read this article, I hope you found it useful.***
