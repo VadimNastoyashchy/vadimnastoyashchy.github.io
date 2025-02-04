@@ -35,6 +35,7 @@
     {% endunless %}
     {% assign entry_image = entry_image | escape %}
     <img class="entry-image-thumbnail" src="{{ site.url }}{{ entry_image }}" width="600" alt="">
+    <p></p>
   {% endif %}
 
   </header>
@@ -55,6 +56,6 @@
   </div>
   <p></p>
   <p class="read-more">
-    <a href="{{ post.url | relative_url }}" rel="bookmark">Read more</a>
+    <a href="{{ post.url | relative_url }}" rel="bookmark">Read more...</a>
   </p>
 </article>
