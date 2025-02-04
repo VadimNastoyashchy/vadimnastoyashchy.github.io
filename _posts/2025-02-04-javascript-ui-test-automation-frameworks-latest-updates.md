@@ -20,8 +20,6 @@ tags:
 
 ## 14.0.0 | 14.0.1
 
-*Released 1/16/2025 | Released 1/28/2025*
-
 Cypress v14.0.0 is pretty solid. It’ll give your component testing a nice boost and you’ll be all set for the new framework and dev server versions. It’s also got some breaking changes to cy.origin, which are needed to deal with Chrome’s deprecation of document.domain injection. This should fix some issues for some users in the latest Chrome versions. But keep in mind that support for older versions of Node.js, Linux distributions, browsers, and component testing frameworks and dev servers is being phased out.
 
 **Breaking Changes:**
