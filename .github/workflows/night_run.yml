@@ -1,8 +1,9 @@
-name: PR to master
+name: Nightly run
 
 on:
-  pull_request:
-    branches: [master] 
+  schedule:
+    - cron: "0 3 * * *" # Runs at 3:00 AM UTC which is 6:00 AM in Kyiv timezone (UTC+3)
+
 
 jobs:
   tests:
@@ -18,21 +19,21 @@ jobs:
           node-version: '18'
 
       - name: Install E2E dependencies
-        run: npm instal
+        run: npm install
         working-directory: ./e2e
 
       - name: Install Playwright browsers
         run: npx playwright install
         working-directory: ./e2e
 
-      - name: Run regression tests
-        run: npm run regression
+      - name: Run smoke tests
+        run: npm run smoke
         working-directory: ./e2e
 
-      - name: Upload Test Report Artifact
+      - name: Upload Smoke Test Report Artifact
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-report-pr-master
-          path: e2e/playwright-report/ 
+          name: playwright-smoke-report-night-run
+          path: e2e/playwright-report/
           retention-days: 30
