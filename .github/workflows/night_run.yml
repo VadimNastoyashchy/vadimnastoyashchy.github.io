@@ -2,7 +2,7 @@ name: Nightly run
 
 on:
   schedule:
-    - cron: "40 14 * * *" # Runs at 2:40 PM UTC, equivalent to 5:30 AM in Kyiv timezone (UTC+3) - for test
+    - cron: "45 15 * * *" # Runs at 2:40 PM UTC, equivalent to 5:30 AM in Kyiv timezone (UTC+3) - for test
 
 
 jobs:
