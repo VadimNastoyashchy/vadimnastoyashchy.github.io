@@ -1,5 +1,9 @@
 name: End-to-end tests
-on: [deployment_status]
+
+on: 
+  deployment_status:
+    branches:
+      - master
 
 jobs:
   e2e:
@@ -9,9 +13,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: "master"
+          ref: 'master'
 
-      - name: Install node
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./e2e
+
+      - name: Install Playwright
+        run: npx playwright install
+        working-directory: ./e2e
+
+      - name: Run E2E tests
+        run: npm run regression
+        working-directory: ./e2e
