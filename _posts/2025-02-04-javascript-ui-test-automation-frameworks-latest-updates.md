@@ -3,8 +3,8 @@ title: "🔝JavaScript UI Test Automation Frameworks - latest updates in 20
 image: /assets/images/posts/2024-12-17-javascript-ui-test-automation-frameworks-which-one-is-faster/1_jlskksKL_ZgiQzxnoeoYPw.webp
 excerpt: "Playwright, WebdriverIO, and Cypress are currently the top testing frameworks. They're always adding new features because of the competition. If you're an automation or software development engineer, it's crucial to stay on top of the latest functionalities. This article will give you the latest updates from early 2025....
 "
-date: 2025-02-04 20:00:00 +01:00
-last_modified_at: 2025-02-04 20:00:00 +01:00
+date: 2025-01-09 20:00:00 +01:00
+last_modified_at: 2025-01-09 20:00:00 +01:00
 tags:
   - JavaScript
   - Playwright
