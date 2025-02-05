@@ -25,6 +25,14 @@ jobs:
         run: npx playwright install
         working-directory: ./e2e
 
+      - name: Run Eslint
+        run: npm run lint
+        working-directory: ./e2e
+
+      - name: Run Prettier
+        run: npm run format
+        working-directory: ./e2e
+
       - name: Run regression tests
         run: npm run regression
         working-directory: ./e2e
