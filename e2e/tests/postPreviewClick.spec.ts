@@ -8,7 +8,7 @@ test.describe('Post Reading Functionality', () => {
         await homePage.open();
         expect(page.url()).toContain(await homePage.getPageUrl());
 
-        await homePage.verifyAllPreviewsVisible()
+        await homePage.verifyAllPreviewsVisible();
         await homePage.postComponent.checkPostVisibility();
         const previewData = await homePage.postComponent.getPreviewData();
         await homePage.postComponent.navigateToFullPost();
@@ -17,6 +17,6 @@ test.describe('Post Reading Functionality', () => {
         expect(articleData.title).toBe(previewData.title);
         expect(articleData.date).toBe(previewData.date);
         expect(articleData.readTime).toBe(previewData.readTime);
-        await articlePage.verifyImageVisible()
+        await articlePage.verifyImageVisible();
     });
 });

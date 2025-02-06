@@ -14,7 +14,7 @@ export default class HomePage extends BasePage {
         return await this.page.$$('article.entry');
     }
 
-    public async verifyAllPreviewsVisible() {
+    public async verifyAllPreviewsVisible(): Promise<void> {
         const previewPosts = await this.getAllPreviewPosts();
         for (const post of previewPosts) {
             await post.isVisible();

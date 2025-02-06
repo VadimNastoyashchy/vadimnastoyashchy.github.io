@@ -9,8 +9,8 @@ export default class PostComponent extends BaseComponent {
         keywords: '.entry-tags',
         image: 'img.entry-image-thumbnail',
         date: '.entry-time',
-        readTime: '//li[contains(text(), "5 min read")]'
-    }
+        readTime: '//li[contains(text(), "5 min read")]',
+    };
 
     constructor(page: Page) {
         super(page);
@@ -32,14 +32,29 @@ export default class PostComponent extends BaseComponent {
     }
 
     public async navigateToFullPost(): Promise<void> {
-        await (this.page.getByText('Read more...').first()).click();
-        expect(this.page.url()).toContain('/javascript-ui-test-automation-frameworks-latest-updates');
+        await this.page.getByText('Read more...').first().click();
+        expect(this.page.url()).toContain(
+            '/javascript-ui-test-automation-frameworks-latest-updates',
+        );
     }
 
-    public async getPreviewData(): Promise<{ title: string; date: string; readTime: string }> {
-        const title = await (this.page.locator(this.selectors.title).first()).innerText();
-        const date = await (this.page.locator(this.selectors.date).first()).innerText();
-        const readTime = await (this.page.locator(this.selectors.readTime).first()).innerText();
+    public async getPreviewData(): Promise<{
+        title: string;
+        date: string;
+        readTime: string;
+    }> {
+        const title = await this.page
+            .locator(this.selectors.title)
+            .first()
+            .innerText();
+        const date = await this.page
+            .locator(this.selectors.date)
+            .first()
+            .innerText();
+        const readTime = await this.page
+            .locator(this.selectors.readTime)
+            .first()
+            .innerText();
         return { title, date, readTime };
     }
 }
