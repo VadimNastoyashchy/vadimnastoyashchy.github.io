@@ -12,15 +12,7 @@ export default class ArticlePage extends BasePage {
         super( page, 'Article Page', '');
     }
 
-   /*  public async getAllPreviewPosts(): Promise<ElementHandle[]> {
-        return await this.page.$$('');
-    } */
-
-    public async getArticleData(): Promise<{
-        title: string;
-        date: string;
-        readTime: string;
-    }> {
+    public async getArticleData(): Promise<{title: string; date: string; readTime: string;}> {
         const title = await this.title.innerText();
         const date = await this.date.innerText();
         const readTime = await this.readTime.innerText();

@@ -9,17 +9,4 @@ export default class HomePage extends BasePage {
         super(page, 'Home Page', '');
         this.postsPreview = new PostsPreview(page);
     }
-
-    public async getAllPreviewPosts(): Promise<ElementHandle[]> {
-        return await this.page.$$('article.entry');
-    }
-
-    public async verifyAllPreviewsVisible(): Promise<void> {
-        const previewPosts = await this.getAllPreviewPosts();
-        for (const post of previewPosts) {
-            const visible = await post.isVisible();
-            expect(visible).toBe(true);
-            //console.log(visible)
-        }
-    }
 }
