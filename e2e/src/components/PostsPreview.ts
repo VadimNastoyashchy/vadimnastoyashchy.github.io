@@ -37,12 +37,22 @@ export default class PostsPreview extends BaseComponent {
         return (await this.getLatestPost()).locator(this.dateAndReadTime);
     }
 
-    private async getArrayReadMoreBtn(): Promise<Array<Locator>> {
-        return await this.page.locator('//a[text()="Read more..."]').all();
+    private async getArrayReadMore(): Promise<Array<Locator>> {
+        return await this.page.locator('.read-more a').all();
     }
 
-    public async clickOnReadMoreBtn(): Promise<void> {
-        return ((await this.getArrayReadMoreBtn())[0]).click();
+    public async getLatestReadMore(): Promise<Locator> {
+        return (await this.getArrayReadMore())[0];
+    }
+
+    public async getPageUrlFromReadMoreLink(): Promise<null | string> {
+        const latestReadMore = await this.getLatestReadMore();
+        const href = await latestReadMore.getAttribute('href')
+        return href
+    }
+
+    public async clickOnReadMore(): Promise<void> {
+       return (await this.getLatestReadMore()).click();
     }
 
     public async getTitlePreviewData(): Promise<string> {
@@ -56,5 +66,4 @@ export default class PostsPreview extends BaseComponent {
         const dateAndReadTime = await getPreviewDataAndReadTime.innerText()
         return dateAndReadTime;
     }
-    
 }

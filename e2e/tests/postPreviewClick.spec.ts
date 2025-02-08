@@ -8,7 +8,6 @@ test.describe('Post Reading Functionality', () => {
         expect(page.url()).toContain(await homePage.getPageUrl());
 
         await homePage.postsPreview.getLatestPost();
-        
         (await homePage.postsPreview.getTitle()).isVisible();
         (await homePage.postsPreview.getDescription()).isVisible();
         (await homePage.postsPreview.getKeywords()).isVisible();
@@ -17,8 +16,10 @@ test.describe('Post Reading Functionality', () => {
 
         await homePage.postsPreview.getTitlePreviewData();
         await homePage.postsPreview.getDateAndReadTimePreviewData();
-        await homePage.postsPreview.clickOnReadMoreBtn();
-        
+
+        const pageUrlFromReadMoreLink = await homePage.postsPreview.getPageUrlFromReadMoreLink()
+
+        await homePage.postsPreview.clickOnReadMore();
         // await homePage.postsPreview.navigateToFullPost();
 
         // const articleData = await articlePage.getArticleData();
