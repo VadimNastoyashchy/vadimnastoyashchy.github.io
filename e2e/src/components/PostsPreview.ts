@@ -2,20 +2,21 @@ import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class PostsPreview extends BaseComponent {
-
     private readonly title = this.page.locator('h1.entry-title');
     private readonly description = this.page.locator('.entry-excerpt');
     private readonly keywords = this.page.locator('.entry-tags');
     private readonly image = this.page.locator('img.entry-image-thumbnail');
     private readonly date = this.page.locator('time.entry-time');
-    private readonly readTime = this.page.locator('.entry-meta ul li:nth-child(2)');
+    private readonly readTime = this.page.locator(
+        '.entry-meta ul li:nth-child(2)',
+    );
 
     constructor(page: Page) {
         super(page);
     }
 
     public async getLatestPost(): Promise<Locator> {
-        return (this.page.locator('article.entry').nth(0));
+        return this.page.locator('article.entry').nth(0);
     }
 
     public async getTitle(): Promise<Locator> {
@@ -48,29 +49,29 @@ export default class PostsPreview extends BaseComponent {
 
     public async getPageUrlFromReadMoreLink(): Promise<null | string> {
         const latestReadMore = await this.getReadMore();
-        const href = await latestReadMore.getAttribute('href')
-        return href
+        const href = await latestReadMore.getAttribute('href');
+        return href;
     }
 
     public async clickOnReadMore(): Promise<void> {
-       return (await this.getReadMore()).click();
+        return (await this.getReadMore()).click();
     }
 
     public async getTitlePreviewData(): Promise<string> {
-        const getPreviewTitle = await this.getTitle()
-        const title = await getPreviewTitle.innerText()
+        const getPreviewTitle = await this.getTitle();
+        const title = await getPreviewTitle.innerText();
         return title;
     }
 
     public async getDatePreviewData(): Promise<string> {
-        const getDatePreview = await this.getDate()
-        const date = await getDatePreview.innerText()
+        const getDatePreview = await this.getDate();
+        const date = await getDatePreview.innerText();
         return date;
     }
 
     public async getReadTimePreviewData(): Promise<string> {
-        const getPreviewReadTime = await this.getReadTime()
-        const readTime = await getPreviewReadTime.innerText()
+        const getPreviewReadTime = await this.getReadTime();
+        const readTime = await getPreviewReadTime.innerText();
         return readTime;
     }
 }

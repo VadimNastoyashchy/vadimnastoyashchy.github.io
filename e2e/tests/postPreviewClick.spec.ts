@@ -1,4 +1,3 @@
-import { get } from 'node:http';
 import { test, expect } from '../src/FixtureConfigs';
 
 test.describe('Post Reading Functionality', () => {
@@ -7,7 +6,7 @@ test.describe('Post Reading Functionality', () => {
     }, async ({ page, homePage, articlePage }) => {
         await homePage.open();
         expect(page.url()).toContain(await homePage.getPageUrl());
-        
+
         await homePage.postsPreview.getLatestPost();
         (await homePage.postsPreview.getTitle()).isVisible();
         (await homePage.postsPreview.getDescription()).isVisible();
