@@ -7,7 +7,8 @@ export default class PostsPreview extends BaseComponent {
     private readonly description = this.page.locator('.entry-excerpt');
     private readonly keywords = this.page.locator('.entry-tags');
     private readonly image = this.page.locator('img.entry-image-thumbnail');
-    private readonly dateAndReadTime = this.page.locator('footer.entry-meta');
+    private readonly date = this.page.locator('time.entry-time');
+    private readonly readTime = this.page.locator('.entry-meta ul li:nth-child(2)');
 
     constructor(page: Page) {
         super(page);
@@ -33,26 +34,26 @@ export default class PostsPreview extends BaseComponent {
         return (await this.getLatestPost()).locator(this.image);
     }
 
-    public async getDateAndReadTime(): Promise<Locator> {
-        return (await this.getLatestPost()).locator(this.dateAndReadTime);
+    public async getDate(): Promise<Locator> {
+        return (await this.getLatestPost()).locator(this.date);
     }
 
-    private async getArrayReadMore(): Promise<Array<Locator>> {
-        return await this.page.locator('.read-more a').all();
+    public async getReadTime(): Promise<Locator> {
+        return (await this.getLatestPost()).locator(this.readTime);
     }
 
-    public async getLatestReadMore(): Promise<Locator> {
-        return (await this.getArrayReadMore())[0];
+    private async getReadMore(): Promise<Locator> {
+        return this.page.locator('.read-more a').nth(0);
     }
 
     public async getPageUrlFromReadMoreLink(): Promise<null | string> {
-        const latestReadMore = await this.getLatestReadMore();
+        const latestReadMore = await this.getReadMore();
         const href = await latestReadMore.getAttribute('href')
         return href
     }
 
     public async clickOnReadMore(): Promise<void> {
-       return (await this.getLatestReadMore()).click();
+       return (await this.getReadMore()).click();
     }
 
     public async getTitlePreviewData(): Promise<string> {
@@ -61,9 +62,15 @@ export default class PostsPreview extends BaseComponent {
         return title;
     }
 
-    public async getDateAndReadTimePreviewData(): Promise<string> {
-        const getPreviewDataAndReadTime = await this.getDateAndReadTime()
-        const dateAndReadTime = await getPreviewDataAndReadTime.innerText()
-        return dateAndReadTime;
+    public async getDatePreviewData(): Promise<string> {
+        const getDatePreview = await this.getDate()
+        const date = await getDatePreview.innerText()
+        return date;
+    }
+
+    public async getReadTimePreviewData(): Promise<string> {
+        const getPreviewReadTime = await this.getReadTime()
+        const readTime = await getPreviewReadTime.innerText()
+        return readTime;
     }
 }
