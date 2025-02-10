@@ -6,7 +6,7 @@ export default class ArticlePage extends BasePage {
     public articleContent: ArticleContent;
 
     constructor(page: Page) {
-        super(page, 'Article Page', ' ');
+        super(page, 'Article Page', '');
         this.articleContent = new ArticleContent(page);
     }
 }
