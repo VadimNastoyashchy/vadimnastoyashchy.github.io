@@ -5,9 +5,7 @@ export default class PostsPreview extends BaseComponent {
     private readonly titleLocator = this.page.locator('h1.entry-title');
     private readonly descriptionLocator = this.page.locator('.entry-excerpt');
     private readonly keywordsLocator = this.page.locator('.entry-tags');
-    private readonly imageLocator = this.page.locator(
-        'img.entry-image-thumbnail',
-    );
+    private readonly imageLocator = this.page.locator('img.entry-image-thumbnail');
     private readonly dateLocator = this.page.locator('time.entry-time');
     private readonly readTimeLocator = this.page.locator(
         '.entry-meta ul li:nth-child(2)',
