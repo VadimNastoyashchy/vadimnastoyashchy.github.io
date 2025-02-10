@@ -10,7 +10,9 @@
     "lint": "npx eslint",
     "check": "npm run tsc && npm run lint",
     "format": "prettier --write \"src/**/*.{js,ts}\"",
-    "debug": "npx playwright test --headed --timeout=0 --debug"
+    "debug": "npx playwright test --headed --timeout=0 --debug",
+    "mobile": "npx playwright test --project=mobile",
+    "desktop": "npx playwright test --project=desktop"
   },
   "keywords": [],
   "author": "",
