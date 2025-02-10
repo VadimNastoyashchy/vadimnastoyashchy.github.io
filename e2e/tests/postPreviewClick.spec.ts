@@ -2,7 +2,7 @@ import { test, expect } from '../src/FixtureConfigs';
 
 test.describe('Post Reading Functionality', () => {
     test('Verify user can open and read full post details from preview', {
-        tag: '@smoke',
+        tag: ['@regression', '@smoke']
     }, async ({ page, homePage, articlePage }) => {
         await homePage.open();
         expect(page.url()).toContain(await homePage.getPageUrl());
