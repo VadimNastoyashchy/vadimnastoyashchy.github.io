@@ -18,11 +18,19 @@ jobs:
           node-version: '18'
 
       - name: Install E2E dependencies
-        run: npm instal
+        run: npm install
+        working-directory: ./e2e
+      
+      - name: Run Eslint
+        run: npm run lint
+        working-directory: ./e2e
+
+      - name: Run Prettier
+        run: npm run format
         working-directory: ./e2e
 
       - name: Install Playwright browsers
-        run: npx playwright install
+        run: npx playwright install --with-deps
         working-directory: ./e2e
 
       - name: Run regression tests

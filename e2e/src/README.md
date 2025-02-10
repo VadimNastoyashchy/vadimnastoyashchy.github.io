@@ -19,7 +19,7 @@ npm install
 You can run the automated tests to verify the blog functionalities either using npm or directly via npx:
 
 ```
-npm run test
+npm run regression
 ```
 or
 
