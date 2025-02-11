@@ -5,7 +5,7 @@ test.describe('Preview Post Validations', () => {
         tag: ['@regression', '@smoke']
     }, async ({ page, homePage }) => {
         const amoutOfPosts = 15;
-        
+
         await homePage.open();
         expect(page.url()).toContain(await homePage.getPageUrl());
 
