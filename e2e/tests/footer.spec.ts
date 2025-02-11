@@ -12,13 +12,13 @@ test.describe('Footer visibility', () => {
         expect(page.url()).toContain(await homePage.getPageUrl());
 
         await expect(homePage.footer.footer).toBeVisible();
-        
+
         await expect(homePage.footer.linkedInLink).toBeVisible();
         await expect(homePage.footer.gitHubLink).toBeVisible();
         await expect(homePage.footer.copyright).toHaveText(copyrightText);
 
         await homePage.footer.clickLinkAndVerifyResponse(homePage.footer.gitHubLink, github);
-        await homePage.open(); 
+        await homePage.open();
         await homePage.footer.clickLinkAndVerifyResponse(homePage.footer.linkedInLink, linkedin);
     });
 });
