@@ -9,10 +9,6 @@ export default class Footer extends BaseComponent {
         super(page);
     }
 
-    static FooterConstants = {
-        COPYRIGHT_TEXT: '© 2025 Vadym Nastoiashchyi',
-    };
-
     get footerSection(): Locator {
         return this.footerLocator;
     }
