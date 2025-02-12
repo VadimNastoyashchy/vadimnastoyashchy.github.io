@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       LAUNCH_NAME: "PR Master Regression Tests"
-      REPORT_PORTAL_LAUNCH_NAME: ${{ env.LAUNCH_NAME }}
       REPORT_PORTAL_ENDPOINT: 'https://reportportal.epam.com/api/v1'
       REPORT_PORTAL_APIKEY: 'vad-nast-key_dpNv-EIWSKKT8wXeQNFg4pfArO3dGf1MijRhLOpY_iuUVUtkv0DRVxM7p1s4msNn'
       REPORT_PORTAL_PROJECT: 'oleh_babenko_personal'
@@ -26,7 +25,7 @@ jobs:
       - name: Display Environment Variables
         run: |
           echo "Launch Name: ${{ env.LAUNCH_NAME }}"
-          echo "Report Portal Launch Name: ${{ env.REPORT_PORTAL_LAUNCH_NAME }}"
+          echo "Report Portal Launch Name: ${{ env.LAUNCH_NAME }}"
 
       - name: Install E2E dependencies
         run: npm install
