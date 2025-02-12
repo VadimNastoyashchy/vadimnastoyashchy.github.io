@@ -2,17 +2,11 @@ name: PR to master
 
 on:
   pull_request:
-    branches: [master] 
+    branches: [master]
 
 jobs:
   tests:
     runs-on: ubuntu-latest
-    env:
-      LAUNCH_NAME: "PR Master Regression Tests"
-      REPORT_PORTAL_ENDPOINT: 'https://reportportal.epam.com/api/v1'
-      REPORT_PORTAL_APIKEY: 'vad-nast-key_dpNv-EIWSKKT8wXeQNFg4pfArO3dGf1MijRhLOpY_iuUVUtkv0DRVxM7p1s4msNn'
-      REPORT_PORTAL_PROJECT: 'oleh_babenko_personal'
-      REPORT_PORTAL_DESCRIPTION: 'Generated from GitHub Actions'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,8 +18,10 @@ jobs:
 
       - name: Display Environment Variables
         run: |
-          echo "Launch Name: ${{ env.LAUNCH_NAME }}"
-          echo "Report Portal Launch Name: ${{ env.LAUNCH_NAME }}"
+          echo "Launch Name: ${LAUNCH_NAME}"
+          echo "Report Portal Launch Name: ${LAUNCH_NAME}"
+        env:
+          LAUNCH_NAME: "PR Master Regression Tests"
 
       - name: Install E2E dependencies
         run: npm install
@@ -46,11 +42,17 @@ jobs:
       - name: Run regression tests
         run: npm run regression
         working-directory: ./e2e
+        env:
+          LAUNCH_NAME: "PR Master Regression Tests"
+          REPORT_PORTAL_ENDPOINT: 'https://reportportal.epam.com/api/v1'
+          REPORT_PORTAL_APIKEY: 'vad-nast-key_dpNv-EIWSKKT8wXeQNFg4pfArO3dGf1MijRhLOpY_iuUVUtkv0DRVxM7p1s4msNn'
+          REPORT_PORTAL_PROJECT: 'oleh_babenko_personal'
+          REPORT_PORTAL_DESCRIPTION: 'Generated from GitHub Actions'
 
       - name: Upload Test Report Artifact
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report-pr-master
-          path: e2e/playwright-report/ 
+          path: e2e/playwright-report/
           retention-days: 30
