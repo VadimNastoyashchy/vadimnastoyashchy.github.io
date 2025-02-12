@@ -38,6 +38,12 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
         working-directory: ./e2e
+      
+      - name: Print Environment Variables
+        run: |
+        echo "Endpoint: $REPORT_PORTAL_ENDPOINT"
+        echo "API Key: $REPORT_PORTAL_APIKEY"
+        echo "Project: $REPORT_PORTAL_PROJECT"
 
       - name: Run regression tests
         run: npm run regression
