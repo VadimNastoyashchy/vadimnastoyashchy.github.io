@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Display Environment Variables
+        run: |
+          echo "Launch Name: ${{ env.LAUNCH_NAME }}"
+          echo "Report Portal Launch Name: ${{ env.REPORT_PORTAL_LAUNCH_NAME }}"
+
       - name: Install E2E dependencies
         run: npm install
         working-directory: ./e2e
