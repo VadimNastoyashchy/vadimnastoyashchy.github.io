@@ -4,12 +4,9 @@ on:
   schedule:
     - cron: "0 3 * * *" # Runs at 3:00 AM UTC which is 6:00 AM in Kyiv timezone (UTC+3)
 
-
 jobs:
   tests:
     runs-on: ubuntu-latest
-    env:
-      LAUNCH_NAME: "Nightly Smoke Tests"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -18,6 +15,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'
+
+      - name: Set Node.js Environment Variables
+        run: |
+          echo "REPORT_PORTAL_LAUNCH_NAME=Nightly Smoke Tests" >> $GITHUB_ENV
 
       - name: Install E2E dependencies
         run: npm install
@@ -38,5 +39,3 @@ jobs:
           name: playwright-smoke-report-night-run
           path: e2e/playwright-report/
           retention-days: 30
-        env:
-          REPORT_PORTAL_LAUNCH_NAME: ${{ env.LAUNCH_NAME }}

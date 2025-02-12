@@ -22,9 +22,7 @@ jobs:
       
       - name: Set Node.js Environment Variables
         run: |
-          echo "REPORT_PORTAL_LAUNCH_NAME=${LAUNCH_NAME}" >> $GITHUB_ENV
-        env:
-          LAUNCH_NAME: "PR Master Regression Tests"
+          echo "REPORT_PORTAL_LAUNCH_NAME=PR Master Regression Tests" >> $GITHUB_ENV
 
       - name: Run Eslint
         run: npm run lint
