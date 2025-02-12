@@ -4,7 +4,7 @@ test.describe('Footer visibility', () => {
     test('Footer section is visible and contains working links', {
         tag: '@regression'
     }, async ({ page, homePage }) => {
-        const copyrightText = '© 2025 Vadym Nastoiashchy';
+        const copyrightText = '© 2025 Vadym Nastoiashchyi';
 
         await homePage.open();
         expect(page.url()).toContain(await homePage.getPageUrl());
