@@ -26,11 +26,6 @@ jobs:
         env:
           LAUNCH_NAME: "PR Master Regression Tests"
 
-      - name: Display Environment Variables
-        run: |
-          echo "Launch Name: ${LAUNCH_NAME}"
-          echo "Report Portal Launch Name: ${REPORT_PORTAL_LAUNCH_NAME}"
-
       - name: Run Eslint
         run: npm run lint
         working-directory: ./e2e
