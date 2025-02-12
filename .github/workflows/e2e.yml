@@ -16,6 +16,10 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Set Node.js Environment Variables
+        run: |
+          echo "REPORT_PORTAL_LAUNCH_NAME=End-to-End Deployment Tests" >> $GITHUB_ENV
+
       - name: Install dependencies
         run: npm install
         working-directory: ./e2e
