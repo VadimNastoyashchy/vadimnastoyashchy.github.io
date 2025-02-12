@@ -1,19 +1,19 @@
 import { test, expect } from '../src/FixtureConfigs';
+import { elementsAreVisible, getAllLinks, verifyLinksResponse } from '../src/commonFunctions';
 
 test.describe('Footer visibility', () => {
     test('Footer section is visible and contains working links', {
         tag: '@regression'
-    }, async ({ page, homePage }) => {
+    }, async ({ homePage }) => {
         const copyrightText = '© 2025 Vadym Nastoiashchyi';
 
-        await homePage.open();
-        expect(page.url()).toContain(await homePage.getPageUrl());
+        await homePage.isVisible();
 
         await expect(homePage.footer.footerSection).toBeVisible();
-        await homePage.footer.elementsAreVisible(await homePage.footer.allFooterUrls());
+        await elementsAreVisible(await homePage.footer.allFooterUrls());
         await expect(homePage.footer.copyright).toHaveText(copyrightText);
 
-        const linksUrls = await homePage.footer.getAllLinks(homePage.footer.footerSection);
-        await homePage.footer.verifyLinksResponse(linksUrls);
+        const linksUrls = await getAllLinks(homePage.footer.footerSection, await homePage.getPageUrl());
+        await verifyLinksResponse(linksUrls);
     });
 });
