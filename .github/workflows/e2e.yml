@@ -5,6 +5,8 @@ jobs:
   e2e:
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
+    env: 
+      LAUNCH_NAME: "End-to-End Deployment Tests"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -35,3 +37,5 @@ jobs:
           name: playwright-report-e2e
           path: e2e/playwright-report/
           retention-days: 30
+        env:
+          REPORT_PORTAL_LAUNCH_NAME: ${{ env.LAUNCH_NAME }}
