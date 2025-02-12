@@ -1,5 +1,4 @@
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 const rpConfig = {
     endpoint: process.env.REPORT_PORTAL_ENDPOINT,
