@@ -1,4 +1,4 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class PostsPreview extends BaseComponent {
@@ -89,36 +89,5 @@ export default class PostsPreview extends BaseComponent {
 
     public async getAllReadMoreLinks(): Promise<Locator[]> {
         return this.readMoreLinkLocator.all();
-    }
-
-    public async elementsAreVisible(elements: Locator): Promise<void> {
-        for (let i = 0; i < (await elements.count()); i++) {
-            const element = elements.nth(i);
-            await expect(element).toBeVisible();
-        }
-    }
-
-    async getAllLinks(allReadMoreLinks: Locator): Promise<Set<string>> {
-        const links = allReadMoreLinks.getByRole('link');
-        const allLinks = await links.all();
-        const allhrefs = await Promise.all(
-            allLinks.map((link) => link.getAttribute('href'))
-        );
-        const allValidHrefs = allhrefs.reduce((links, link) => {
-            expect.soft(link).toBeTruthy();
-            if (link) {
-                links.add(new URL(link, this.page.url()).href);
-            }
-            return links;
-        }, new Set<string>());
-        return allValidHrefs;
-    }
-
-    public async verifyLinksResponse(linksUrls: Set<string>): Promise<void> {
-        for(const url of linksUrls) {
-            const response = await this.page.request.get(url);
-            const isSuccessful = (response.status() === 200 || response.status() === 999);
-            expect.soft(isSuccessful).toBeTruthy();
-        }
     }
 }

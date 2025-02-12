@@ -1,11 +1,11 @@
 import { test, expect } from '../src/FixtureConfigs';
+import { elementsAreVisible } from '../src/commonFunctions';
 
 test.describe('Post Reading Functionality', () => {
     test('Verify user can open and read full post details from preview', {
         tag: ['@regression', '@smoke']
-    }, async ({ page, homePage, articlePage }) => {
-        await homePage.open();
-        expect(page.url()).toContain(await homePage.getPageUrl());
+    }, async ({ homePage, articlePage }) => {
+        await homePage.isVisible();
 
         (await homePage.postsPreview.title()).isVisible();
         (await homePage.postsPreview.description()).isVisible();
@@ -26,6 +26,6 @@ test.describe('Post Reading Functionality', () => {
         expect(await articlePage.articleContent.getDate()).toEqual(datePreviewData);
         expect(await articlePage.articleContent.getReadTime()).toEqual(readTimePreviewData);
 
-        await articlePage.articleContent.elementsAreVisible(await articlePage.articleContent.getAllImages());
+        await elementsAreVisible(await articlePage.articleContent.getAllImages());
     });
 });
