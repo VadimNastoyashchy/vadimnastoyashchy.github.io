@@ -10,7 +10,7 @@ export default class SideMenu extends BaseComponent {
         super(page);
     }
 
-    get sidebar(): Locator {
+    get sidebarContainer(): Locator {
         return this.sidebarLocator;
     }
 
