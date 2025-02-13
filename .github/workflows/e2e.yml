@@ -1,10 +1,18 @@
 name: End-to-end tests
+
 on: [deployment_status]
 
 jobs:
   e2e:
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
+    env:
+      REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
+      REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
+      REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
+      REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      REPORT_PORTAL_LAUNCH_NAME: "End-to-End Deployment Tests"
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
