@@ -6,14 +6,14 @@ const rpConfig = {
     apiKey: process.env.REPORT_PORTAL_APIKEY,
     project: process.env.REPORT_PORTAL_PROJECT,
     description: process.env.REPORT_PORTAL_DESCRIPTION,
-    launch: process.env.REPORT_PORTAL_LAUNCH_NAME || 'Default Launch Name',
+    launch: process.env.REPORT_PORTAL_LAUNCH_NAME || 'Local Launch',
 
     attributes: [
       { key: 'Type', value: 'Smoke' },
       { key: 'Type', value: 'Regression' },
       { key: 'Priority', value: 'High' },
     ],
-    mode: 'DEFAULT',
+    mode: process.env.REPORT_PORTAL_MODE,
     includeTestSteps: true,
 };
 

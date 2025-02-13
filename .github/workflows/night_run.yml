@@ -7,6 +7,12 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    env:
+      REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
+      REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
+      REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
+      REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      REPORT_PORTAL_LAUNCH_NAME: "Nightly Smoke Tests"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -15,10 +21,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'
-
-      - name: Set Node.js Environment Variables
-        run: |
-          echo "REPORT_PORTAL_LAUNCH_NAME=Nightly Smoke Tests" >> $GITHUB_ENV
 
       - name: Install E2E dependencies
         run: npm install
