@@ -7,7 +7,7 @@ test.describe('Footer visibility', () => {
     }, async ({ homePage }) => {
         const copyrightText = '© 2025 Vadym Nastoiashchyi';
 
-        await homePage.isVisible();
+        await homePage.openAndVerify();
 
         await expect(homePage.footer.footerSection).toBeVisible();
         await elementsAreVisible(await homePage.footer.allFooterUrls());

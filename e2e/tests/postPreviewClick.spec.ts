@@ -5,7 +5,7 @@ test.describe('Post Reading Functionality', () => {
     test('Verify user can open and read full post details from preview', {
         tag: ['@regression', '@smoke']
     }, async ({ homePage, articlePage }) => {
-        await homePage.isVisible();
+        await homePage.openAndVerify();
 
         (await homePage.postsPreview.title()).isVisible();
         (await homePage.postsPreview.description()).isVisible();
