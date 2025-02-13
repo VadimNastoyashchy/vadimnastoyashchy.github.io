@@ -34,6 +34,10 @@ jobs:
       - name: Run Prettier
         run: npm run format
         working-directory: ./e2e
+      
+      - name: Install required browsers for Playwright
+        run: npx playwright install
+        working-directory: ./e2e
 
       - name: Install specific browsers for Playwright
         run: npx playwright install chrome webkit
