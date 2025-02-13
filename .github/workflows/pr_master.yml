@@ -36,7 +36,7 @@ jobs:
         working-directory: ./e2e
       
       - name: Install required browsers for Playwright
-        run: npx playwright install
+        run: npx playwright install --with-deps chromium
         working-directory: ./e2e
 
       - name: Install specific browsers for Playwright
