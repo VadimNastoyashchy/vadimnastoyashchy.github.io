@@ -1,5 +1,5 @@
 ---
-title: Privacy-Policy
+title: Privacy policy
 layout: about
 permalink: /privacy-policy
 skip_related: true
@@ -16,7 +16,7 @@ I use Google Analytics to gather anonymized information about how visitors inter
 
 #### 1.2. Github comments
 
-I use giscus for the comments section. To be able to leave comments, you need to be logged in using Github. The personal data of users is stored and used only by Github
+I use [giscus](https://giscus.app/) for the comments section. To be able to leave comments, you need to be logged in using Github. The personal data of users is stored and used only by Github
 
 ### 2. Data sharing
 
