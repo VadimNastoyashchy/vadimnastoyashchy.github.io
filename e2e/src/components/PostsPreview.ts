@@ -7,16 +7,16 @@ export default class PostsPreview extends BaseComponent {
     private readonly keywordsLocator = this.page.locator('.entry-tags');
     private readonly imageLocator = this.page.locator('img.entry-image-thumbnail');
     private readonly dateLocator = this.page.locator('time.entry-time');
-    private readonly readTimeLocator = this.page.locator(
-        '.entry-meta ul li:nth-child(2)',
-    );
+    private readonly readTimeLocator = this.page.locator('.entry-meta ul li:nth-child(2)');
+    private readonly readMoreLinkLocator = this.page.locator('.read-more a');
+    private readonly postLocator = this.page.locator('article.entry');
 
     constructor(page: Page) {
         super(page);
     }
 
     public async getLatestPost(): Promise<Locator> {
-        return this.page.locator('article.entry').nth(0);
+        return this.postLocator.nth(0);
     }
 
     public async title(): Promise<Locator> {
@@ -43,18 +43,18 @@ export default class PostsPreview extends BaseComponent {
         return (await this.getLatestPost()).locator(this.readTimeLocator);
     }
 
-    private async getReadMore(): Promise<Locator> {
-        return this.page.locator('.read-more a').nth(0);
+    private async getLastReadMore(): Promise<Locator> {
+        return this.readMoreLinkLocator.nth(0);
     }
 
     public async getPageUrlFromReadMoreLink(): Promise<null | string> {
-        const latestReadMore = await this.getReadMore();
+        const latestReadMore = (await this.getLastReadMore());
         const href = await latestReadMore.getAttribute('href');
         return href;
     }
 
     public async clickOnReadMore(): Promise<void> {
-        return (await this.getReadMore()).click();
+        return (await this.getLastReadMore()).click();
     }
 
     public async getTitle(): Promise<string> {
@@ -73,5 +73,21 @@ export default class PostsPreview extends BaseComponent {
         const getPreviewReadTime = await this.readTime();
         const readTime = await getPreviewReadTime.innerText();
         return readTime;
+    }
+
+    get allPosts(): Locator {
+        return this.postLocator;
+    }
+
+    get allReadMoreLinks(): Locator {
+        return this.page.locator('.read-more');
+    }
+
+    public async getAllPosts(): Promise<Locator[]> {
+        return await this.postLocator.all();
+    }
+
+    public async getAllReadMoreLinks(): Promise<Locator[]> {
+        return this.readMoreLinkLocator.all();
     }
 }
