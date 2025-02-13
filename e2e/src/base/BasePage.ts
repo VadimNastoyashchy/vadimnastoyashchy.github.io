@@ -22,7 +22,6 @@ export default abstract class BasePage {
 
     public async openAndVerify(): Promise<void> {
         await this.open();
-        //const currentUrl = await this.page.url();
         expect(this.page.url()).toContain(this.PAGE_URL);
     }
 }
