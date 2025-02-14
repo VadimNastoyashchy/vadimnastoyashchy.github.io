@@ -15,7 +15,7 @@ export async function getAllLinks(allReadMoreLinks: Locator, PageURL: string): P
     );
     const allValidHrefs = allhrefs.reduce((links, link) => {
         expect.soft(link).toBeTruthy();
-        if (link) {
+        if (link && !link?.startsWith('mailto:') && !link?.startsWith('#')) {
             links.add(new URL(link, PageURL).href);
         }
         return links;
