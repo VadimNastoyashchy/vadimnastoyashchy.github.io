@@ -1,0 +1,28 @@
+<button id="back-to-top">
+  <svg viewBox="0 0 24 24">
+    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
+  </svg>
+</button>
+<script>
+  (function () {
+    var backToTop = document.getElementById("back-to-top");
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    function handleScroll() {
+      if (window.scrollY > 20) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    backToTop.addEventListener("click", scrollToTop);
+  })();
+</script>
