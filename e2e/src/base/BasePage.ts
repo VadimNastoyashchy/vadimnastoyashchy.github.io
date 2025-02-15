@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 
 export default abstract class BasePage {
     protected readonly PAGE_NAME: string;
@@ -18,5 +18,10 @@ export default abstract class BasePage {
 
     public async getPageUrl(): Promise<string> {
         return await this.page.url();
+    }
+
+    public async openAndVerify(): Promise<void> {
+        await this.open();
+        expect(this.page.url()).toContain(this.PAGE_URL);
     }
 }

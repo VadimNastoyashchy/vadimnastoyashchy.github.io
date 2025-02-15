@@ -1,4 +1,4 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class ArticleContent extends BaseComponent {
@@ -28,12 +28,5 @@ export default class ArticleContent extends BaseComponent {
 
     public async getAllImages(): Promise<Locator> {
         return this.imageLocator;
-    }
-
-    public async elementsAreVisible(elements: Locator): Promise<void> {
-        for (let i = 0; i < (await elements.count()); i++) {
-            const element = elements.nth(i);
-            await expect(element).toBeVisible();
-        }
     }
 }
