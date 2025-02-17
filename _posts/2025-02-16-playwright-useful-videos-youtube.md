@@ -14,9 +14,7 @@ I've been asked for a long time what video courses or lessons I can recommend to
 
 ## [JoanMedia](https://www.youtube.com/@joanmedia)
 
-<div class="embed-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6fapvF1uYo0?si=E15eDQRyYw8bwdSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
+{% include youtubePlayer.html id=6fapvF1uYo0?si=E15eDQRyYw8bwdSE %}
 
 ## [Testers Talk](https://www.youtube.com/@testerstalk)
 
@@ -25,8 +23,6 @@ I've been asked for a long time what video courses or lessons I can recommend to
 </div>
 
 ### [Mukesh otwani](https://www.youtube.com/@Mukeshotwani)
-
-id=”pq20Gd4LXeI&t=122s"
 
 <div class="embed-container">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pq20Gd4LXeI?si=6nTqieQoX1uaTUb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
