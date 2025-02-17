@@ -14,15 +14,22 @@ I've been asked for a long time what video courses or lessons I can recommend to
 
 ## [JoanMedia](https://www.youtube.com/@joanmedia)
 
-{% include youtube.html id=”6fapvF1uYo0&list=PLYDwWPRvXB89caN5PHWDLrXJuyugu5Mg_” %}
+  <iframe
+    width="640"
+    height="390"
+    src="https://www.youtube.com/embed/6fapvF1uYo0&list=PLYDwWPRvXB89caN5PHWDLrXJuyugu5Mg_"
+    frameborder="0"
+    allowfullscreen="true"
+  ></iframe>
+
 
 ## [Testers Talk](https://www.youtube.com/@testerstalk)
 
-{% include youtube.html id=”2poXBtifpzA&list=PLUeDIlio4THGS-7JbBnnWvs_MLZdBKRgB” %}
+<!-- {% include youtube.html id=”2poXBtifpzA&list=PLUeDIlio4THGS-7JbBnnWvs_MLZdBKRgB” %} -->
 
 ### [Mukesh otwani](https://www.youtube.com/@Mukeshotwani)
 
-{% include youtube.html id=”pq20Gd4LXeI&t=122s” %}
+<!-- {% include youtube.html id=”pq20Gd4LXeI&t=122s” %} -->
 
 Currently, these are the top 3 channels for learning Playwright that can be useful for both beginners and experienced engineers. I hope you find these videos useful and informative.
 
