@@ -36,6 +36,7 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
+    "@reportportal/client-javascript": "^5.3.1",
     "dotenv": "^16.4.7"
   }
 }
