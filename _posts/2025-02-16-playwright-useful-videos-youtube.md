@@ -14,25 +14,26 @@ I've been asked for a long time what video courses or lessons I can recommend to
 
 ## [JoanMedia](https://www.youtube.com/@joanmedia)
 
-  <iframe
-    width="640"
-    height="390"
-    src="https://www.youtube.com/embed/6fapvF1uYo0&list=PLYDwWPRvXB89caN5PHWDLrXJuyugu5Mg_"
-    frameborder="0"
-    allowfullscreen="true"
-  ></iframe>
-
+<div class="embed-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6fapvF1uYo0?si=E15eDQRyYw8bwdSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## [Testers Talk](https://www.youtube.com/@testerstalk)
 
-id=”2poXBtifpzA&list=PLUeDIlio4THGS-7JbBnnWvs_MLZdBKRgB”
+<div class="embed-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2poXBtifpzA?si=FRJtfI3rSNf9PAb6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ### [Mukesh otwani](https://www.youtube.com/@Mukeshotwani)
 
 id=”pq20Gd4LXeI&t=122s"
 
+<div class="embed-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pq20Gd4LXeI?si=6nTqieQoX1uaTUb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 Currently, these are the top 3 channels for learning Playwright that can be useful for both beginners and experienced engineers. I hope you find these videos useful and informative.
 
-***Thanks to everyone who read this article, I hope you found it useful.***
+**_Thanks to everyone who read this article, I hope you found it useful._**
 
-*Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development.*
+_Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development._
