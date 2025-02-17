@@ -17,23 +17,17 @@ I've been asked for a long time what video courses or lessons I can recommend to
 
 ## [JoanMedia](https://www.youtube.com/@joanmedia)
 
-<br />
-
 {% include youtubePlayer.html id=page.JoanMedia %}
 
 <br />
 
 ## [Testers Talk](https://www.youtube.com/@testerstalk)
 
-<br />
-
 {% include youtubePlayer.html id=page.TestersTalk %}
 
 <br />
 
 ### [Mukesh otwani](https://www.youtube.com/@Mukeshotwani)
-
-<br />
 
 {% include youtubePlayer.html id=page.MukeshOtwani %}
 
