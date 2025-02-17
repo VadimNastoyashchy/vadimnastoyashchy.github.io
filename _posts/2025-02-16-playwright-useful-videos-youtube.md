@@ -8,13 +8,14 @@ last_modified_at: 2025-02-16 20:00:00 +01:00
 tags:
   - JavaScript
   - Playwright
+JoanMedia: 6fapvF1uYo0?si=E15eDQRyYw8bwdSE
 ---
 
 I've been asked for a long time what video courses or lessons I can recommend to colleagues who want to learn or improve their knowledge of Playwright. So in this article I've collected some interesting channels that might be useful.
 
 ## [JoanMedia](https://www.youtube.com/@joanmedia)
 
-{% include youtubePlayer.html id=6fapvF1uYo0?si=E15eDQRyYw8bwdSE %}
+{% include youtubePlayer.html id=page.JoanMedia %}
 
 ## [Testers Talk](https://www.youtube.com/@testerstalk)
 
