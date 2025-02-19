@@ -23,11 +23,11 @@ export default class Pagination extends BaseComponent {
         return this.newerButtonLocator;
     }
 
-    public async clickOlderButton(): Promise<void> {
+    public async clickOnOlderButton(): Promise<void> {
         await this.paginationButtonLocator.click();
     }
 
-    public async clickNewerButton(): Promise<void> {
+    public async clickOnNewerButton(): Promise<void> {
         await this.newerButtonLocator.click();
     }
 }

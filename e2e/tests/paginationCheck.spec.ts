@@ -12,12 +12,12 @@ test.describe('Pagination Functionality', () => {
         await homePage.pagination.olderButton.isVisible();
 
         const olderButtonUrl = await getHrefFromLink(homePage.pagination.olderButton);
-        await homePage.pagination.clickOlderButton();
+        await homePage.pagination.clickOnOlderButton();
         await elementsAreVisible(homePage.postsPreview.allPosts);
         expect(olderButtonUrl).not.toBe(await getHrefFromLink(homePage.pagination.newerButton));
 
         await homePage.pagination.newerButton.isVisible();
-        await homePage.pagination.clickNewerButton();
+        await homePage.pagination.clickOnNewerButton();
         await elementsAreVisible(homePage.postsPreview.allPosts);
         expect(page.url()).toContain(await homePage.getPageUrl());
     });
