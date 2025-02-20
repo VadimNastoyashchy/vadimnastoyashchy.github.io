@@ -23,6 +23,10 @@ export default class PostsPreview extends BaseComponent {
         return this.page.locator('.read-more');
     }
 
+    public getAllImages(): Locator {
+        return this.page.locator('img.entry-image-thumbnail');
+    }
+
     public async getLatestPost(): Promise<Locator> {
         return this.postLocator.nth(0);
     }
@@ -56,7 +60,7 @@ export default class PostsPreview extends BaseComponent {
     }
 
     public async getPageUrlFromReadMoreLink(): Promise<null | string> {
-        const latestReadMore = (await this.getLastReadMore());
+        const latestReadMore = await this.getLastReadMore();
         const href = await latestReadMore.getAttribute('href');
         return href;
     }

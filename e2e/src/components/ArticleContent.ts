@@ -16,6 +16,10 @@ export default class ArticleContent extends BaseComponent {
         return title;
     }
 
+    public async titleIsVisible(): Promise<boolean> {
+        return this.titleLocator.isVisible();
+    }
+
     public async getDate(): Promise<string> {
         const date = await this.dateLocator.innerText();
         return date;

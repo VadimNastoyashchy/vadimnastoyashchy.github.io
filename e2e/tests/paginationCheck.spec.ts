@@ -1,5 +1,5 @@
-import { test, expect } from '../src/FixtureConfigs';
-import { elementsAreVisible, getHrefFromLink } from '../src/commonFunctions';
+import { test, expect } from '../src/fixtures/FixtureConfigs';
+import { elementsAreVisible, getHrefFromLink } from '../src/utils/commonFunctions';
 
 test.describe('Pagination Functionality', () => {
     test('Verify pagination controls and navigation', {

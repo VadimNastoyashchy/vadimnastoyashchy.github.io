@@ -12,7 +12,8 @@
     "format": "prettier --write \"src/**/*.{js,ts}\"",
     "debug": "npx playwright test --headed --timeout=0 --debug",
     "mobile": "npx playwright test --project=mobile",
-    "desktop": "npx playwright test --project=desktop"
+    "desktop": "npx playwright test --project=desktop",
+    "performance": "npx playwright test --grep @performance"
   },
   "keywords": [],
   "author": "",
