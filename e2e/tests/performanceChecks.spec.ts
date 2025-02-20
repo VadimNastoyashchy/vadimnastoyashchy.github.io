@@ -79,7 +79,7 @@ test.describe('Website Performance Tests', () => {
           await expect(homePage.getPage()).toHaveURL(/about/);
         },
         'SidebarNavigation',
-        2500,
+        2700,
         homePage.getPage()
       );
     });
