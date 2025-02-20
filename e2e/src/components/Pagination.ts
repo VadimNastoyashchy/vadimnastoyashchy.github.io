@@ -3,7 +3,6 @@ import BaseComponent from '../base/BaseComponent';
 
 export default class Pagination extends BaseComponent {
     private readonly paginationLocator = this.page.locator('nav.pager');
-    private readonly paginationButtonLocator = this.page.locator('nav.pager a');
     private readonly olderButtonLocator = this.page.locator('nav.pager a.next');
     private readonly newerButtonLocator = this.page.locator('nav.pager a.previous');
 
@@ -24,7 +23,7 @@ export default class Pagination extends BaseComponent {
     }
 
     public async clickOnOlderButton(): Promise<void> {
-        await this.paginationButtonLocator.click();
+        await this.olderButtonLocator.click();
     }
 
     public async clickOnNewerButton(): Promise<void> {
