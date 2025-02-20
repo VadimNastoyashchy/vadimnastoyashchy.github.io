@@ -25,10 +25,14 @@ export async function getAllLinks(allReadMoreLinks: Locator, PageURL: string): P
 
 export async function verifyLinksResponse(linksUrls: Set<string>): Promise<void> {
     const apiRequestContext: APIRequestContext = await request.newContext();
-    for(const url of linksUrls) {
-        const response = await apiRequestContext.get(url);
-        const isSuccessful = (response.status() === 200 || response.status() === 999);
-        expect.soft(isSuccessful).toBeTruthy();
+    for (const url of linksUrls) {
+        try {
+            const response = await apiRequestContext.get(url);
+            const isSuccessful = response.ok() || response.status() === 999;
+            expect.soft(isSuccessful, `URL ${url} returned status ${response.status()}`).toBeTruthy();
+        } catch (error) {
+            expect.soft(false, `Failed to fetch URL ${url}: ${error}`).toBeTruthy();
+        }
     }
 }
 

@@ -10,6 +10,7 @@ export default class PostsPreview extends BaseComponent {
     private readonly readTimeLocator = this.page.locator('.entry-meta ul li:nth-child(2)');
     private readonly readMoreLinkLocator = this.page.locator('.read-more a');
     private readonly postLocator = this.page.locator('article.entry');
+    private readonly searchResultPostsLocator = this.page.locator('.search-content article.entry');
 
     constructor(page: Page) {
         super(page);
@@ -21,6 +22,10 @@ export default class PostsPreview extends BaseComponent {
 
     get allReadMoreLinks(): Locator {
         return this.page.locator('.read-more');
+    }
+
+    get searchResultPosts(): Locator {
+        return this.searchResultPostsLocator;
     }
 
     public getAllImages(): Locator {
@@ -93,5 +98,10 @@ export default class PostsPreview extends BaseComponent {
 
     public async getAllReadMoreLinks(): Promise<Locator[]> {
         return this.readMoreLinkLocator.all();
+    }
+
+    public async getSearchResults(searchText: string): Promise<Locator[]> {
+        const searchResults = await this.page.locator(`.entry-title:has-text("${searchText}")`).all();
+        return searchResults;
     }
 }
