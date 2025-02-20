@@ -15,6 +15,14 @@ export default class PostsPreview extends BaseComponent {
         super(page);
     }
 
+    get allPosts(): Locator {
+        return this.postLocator;
+    }
+
+    get allReadMoreLinks(): Locator {
+        return this.page.locator('.read-more');
+    }
+
     public async getLatestPost(): Promise<Locator> {
         return this.postLocator.nth(0);
     }
@@ -73,14 +81,6 @@ export default class PostsPreview extends BaseComponent {
         const getPreviewReadTime = await this.readTime();
         const readTime = await getPreviewReadTime.innerText();
         return readTime;
-    }
-
-    get allPosts(): Locator {
-        return this.postLocator;
-    }
-
-    get allReadMoreLinks(): Locator {
-        return this.page.locator('.read-more');
     }
 
     public async getAllPosts(): Promise<Locator[]> {

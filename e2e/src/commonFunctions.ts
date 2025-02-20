@@ -31,3 +31,8 @@ export async function verifyLinksResponse(linksUrls: Set<string>): Promise<void>
         expect.soft(isSuccessful).toBeTruthy();
     }
 }
+
+export async function getHrefFromLink(locator: Locator): Promise<null | string> {
+    const href = await locator.getAttribute('href');
+    return href;
+}
