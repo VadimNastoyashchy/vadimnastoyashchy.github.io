@@ -1,5 +1,5 @@
-import { test, expect } from '../src/FixtureConfigs';
-import { elementsAreVisible, getAllLinks, verifyLinksResponse } from '../src/commonFunctions';
+import { test, expect } from '../src/fixtures/FixtureConfigs';
+import { elementsAreVisible, getAllLinks, verifyLinksResponse } from '../src/utils/commonFunctions';
 test.describe('Preview Post Validations', () => {
     test('Ensure the home page displays preview posts with correctly functioning links', {
         tag: ['@regression', '@smoke']

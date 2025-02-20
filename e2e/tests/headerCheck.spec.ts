@@ -1,5 +1,5 @@
-import { test, expect } from '../src/FixtureConfigs';
-import { elementsAreVisible } from '../src/commonFunctions';
+import { test, expect } from '../src/fixtures/FixtureConfigs';
+import { elementsAreVisible } from '../src/utils/commonFunctions';
 
 test.describe('Header Functionality', () => {
     test('Verify header visibility and interactivity', {

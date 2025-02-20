@@ -1,5 +1,5 @@
-import { test, expect } from '../src/FixtureConfigs';
-import { elementsAreVisible } from '../src/commonFunctions';
+import { test, expect } from '../src/fixtures/FixtureConfigs';
+import { elementsAreVisible } from '../src/utils/commonFunctions';
 
 test.describe('Post Reading Functionality', () => {
     test('Verify user can open and read full post details from preview', {

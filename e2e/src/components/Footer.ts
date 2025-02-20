@@ -3,7 +3,7 @@ import BaseComponent from '../base/BaseComponent';
 
 export default class Footer extends BaseComponent {
     private readonly footerLocator = this.page.locator('footer#footer');
-    private readonly copyrightLocator = (this.page.locator('.copyright'));
+    private readonly copyrightLocator = this.page.locator('.copyright');
 
     constructor(page: Page) {
         super(page);
