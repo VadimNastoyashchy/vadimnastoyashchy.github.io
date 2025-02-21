@@ -4,7 +4,9 @@ import BaseComponent from '../base/BaseComponent';
 export default class Pagination extends BaseComponent {
     private readonly paginationLocator = this.page.locator('nav.pager');
     private readonly olderButtonLocator = this.page.locator('nav.pager a.next');
-    private readonly newerButtonLocator = this.page.locator('nav.pager a.previous');
+    private readonly newerButtonLocator = this.page.locator(
+        'nav.pager a.previous',
+    );
 
     constructor(page: Page) {
         super(page);

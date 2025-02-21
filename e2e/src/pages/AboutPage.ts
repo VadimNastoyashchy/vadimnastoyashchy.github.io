@@ -1,14 +1,12 @@
 import { Page } from '@playwright/test';
 import BasePage from '../base/BasePage';
+import AboutContent from '../components/AboutContent';
 
 export default class AboutPage extends BasePage {
-    private readonly aboutTitle = this.page.locator('#hi-im-vadym');
+    public aboutContent: AboutContent;
 
     constructor(page: Page) {
-        super(page, 'About Page', 'about.html');
-    }
-
-    public async getTitle(): Promise<string> {
-        return await this.aboutTitle.innerText();
+        super(page, 'About Page', 'about');
+        this.aboutContent = new AboutContent(page);
     }
 }
