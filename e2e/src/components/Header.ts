@@ -42,4 +42,8 @@ export default class Header extends BaseComponent {
     public async fillSearchInput(searchText: string): Promise<void> {
         return this.searchInputLocator.fill(searchText);
     }
+
+    public async submitSearch(): Promise<void> {
+        return this.searchInputLocator.press('Enter');
+    }
 }
