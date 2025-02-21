@@ -1,5 +1,5 @@
-import { test } from '../src/FixtureConfigs';
-import { elementsAreVisible, getAllLinks, verifyLinksResponse } from '../src/commonFunctions';
+import { test } from '../src/fixtures/FixtureConfigs';
+import { elementsAreVisible, getAllLinks, verifyLinksResponse } from '../src/utils/commonFunctions';
 
 test.describe('Side Menu Navigation', () => {
     test('Verify side menu functionality and link navigation', {

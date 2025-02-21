@@ -30,8 +30,7 @@ There are a lot of articles, videos, and tutorials on the Internet regarding the
 
 (if you want additional examples, please navigate to > [https://github.com/VadimNastoyashchy/playwright-saucedemo.com](https://github.com/VadimNastoyashchy/playwright-saucedemo.com))
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_OKGGP_VSOoayYVPOKZaxjA.webp){: .align-center .border .max-width-600px}
-`test.js`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_OKGGP_VSOoayYVPOKZaxjA.webp" description="test.js" %}
 
 ![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_VfkjxXJme7o6Kltu3hVETQ.webp){: .align-center .border .max-width-600px}
 `Login page`

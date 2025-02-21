@@ -12,6 +12,10 @@ export default abstract class BasePage {
         this.PAGE_URL = pageUrl;
     }
 
+    public getPage(): Page {
+        return this.page;
+    }
+
     public async open(): Promise<void> {
         await this.page.goto(this.PAGE_URL);
     }
