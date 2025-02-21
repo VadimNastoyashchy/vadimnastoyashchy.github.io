@@ -15,7 +15,7 @@ This article is useful for test automation engineers or developers who are invol
 
 Let’s consider a simple test scenario:
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1\_\_wp3jH63vsKpsIhI5CAjbg.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1__wp3jH63vsKpsIhI5CAjbg.webp){: .align-center .border .max-width-600px}
 
 First of all, we need to open the home page (as we can see it’s an entry point ‘https://www.saucedemo.com/’). When the page is opened we validate it. Then we want to proceed with getting appropriate selectors for input fields filling user name and password there, and clicking on the “log in” button.
 But, what will happen if want to add new tests with another type of user for example admin user? We will need to duplicate our code at least once.
