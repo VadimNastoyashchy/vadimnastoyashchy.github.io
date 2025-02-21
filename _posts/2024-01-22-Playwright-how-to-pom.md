@@ -15,7 +15,7 @@ This article is useful for test automation engineers or developers who are invol
 
 Let’s consider a simple test scenario:
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1__wp3jH63vsKpsIhI5CAjbg.webp){: .align-center .border .max-width-600px}
+![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1\_\_wp3jH63vsKpsIhI5CAjbg.webp){: .align-center .border .max-width-600px}
 
 First of all, we need to open the home page (as we can see it’s an entry point ‘https://www.saucedemo.com/’). When the page is opened we validate it. Then we want to proceed with getting appropriate selectors for input fields filling user name and password there, and clicking on the “log in” button.
 But, what will happen if want to add new tests with another type of user for example admin user? We will need to duplicate our code at least once.
@@ -32,19 +32,15 @@ There are a lot of articles, videos, and tutorials on the Internet regarding the
 
 {% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_OKGGP_VSOoayYVPOKZaxjA.webp" description="test.js" %}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_VfkjxXJme7o6Kltu3hVETQ.webp){: .align-center .border .max-width-600px}
-`Login page`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_VfkjxXJme7o6Kltu3hVETQ.webp" description="Login page" %}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_E7zy9fJ_Qh9Yns5LPFyY5A.webp){: .align-center .border .max-width-600px}
-`Abstraction for Page’s`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_E7zy9fJ_Qh9Yns5LPFyY5A.webp" description="Abstraction for Page’s" %}
 
 For components, I prefer the same level of detail:
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_cb25bT4812A-xR8VQq81xQ.webp){: .align-center .border .max-width-600px}
-`Header component`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_cb25bT4812A-xR8VQq81xQ.webp" description="Header component" %}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_8cEpaRu9ce_Q7dukj-85kA.webp){: .align-center .border .max-width-600px}
-`Abstraction for Components`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_8cEpaRu9ce_Q7dukj-85kA.webp" description="Abstraction for Components" %}
 
 Now it looks better. But still, we need to initialize our pages with { page } fixture in each test block:
 
