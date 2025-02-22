@@ -4,4 +4,4 @@ layout: page
 permalink: /views.html
 ---
 
-{% include mailchimp.html %}
+{% include views.html %}
