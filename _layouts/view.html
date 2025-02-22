@@ -49,10 +49,7 @@
       // Fetch preview data from the API for a specific URL
       async function fetchPreviewData(url) {
         try {
-          const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-          const adjustedUrl = `${proxyUrl}https://hits.sh/api/urns/${encodeURIComponent(
-            url
-          )}`;
+          const adjustedUrl = `https://hits.sh/api/urns/${encodeURIComponent(url)}`;
           const response = await fetch(adjustedUrl);
           const data = await response.json();
           console.log("API Response for URL:", url, data); // Debug log
