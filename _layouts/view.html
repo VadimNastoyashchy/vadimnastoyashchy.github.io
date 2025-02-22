@@ -50,9 +50,9 @@
       async function fetchPreviewData(url) {
         try {
           const hitsUrl =  `https://hits.sh/${url?.replace('https://', '')}`
-          const adjustedUrl = `https://hits.sh/api/urns/${url}`;
-          const responseUrl = await fetch(hitsUrl, { mode: 'no-cors' });
-          const response = await fetch(adjustedUrl, { mode: 'no-cors' });
+          const adjustedUrl = `https://hits.sh/api/urns/${urlurl?.replace('https://', '')}`;
+          const responseUrl = await fetch(hitsUrl);
+          const response = await fetch(adjustedUrl);
           const data = await response.json();
           console.log("API Response for URL:", url, data); // Debug log
 
