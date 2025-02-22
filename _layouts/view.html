@@ -49,7 +49,7 @@
       // Fetch preview data from the API for a specific URL
       async function fetchPreviewData(url) {
         try {
-          const hitsUrl =  `https://hits.sh/${url}`;
+          const hitsUrl =  `https://hits.sh/${url?.replace('https://', '')}`
           const adjustedUrl = `https://hits.sh/api/urns/${url}`;
           const responseUrl = await fetch(hitsUrl, { mode: 'no-cors' });
           const response = await fetch(adjustedUrl, { mode: 'no-cors' });
