@@ -1,7 +1,5 @@
 ---
 title: Views
-layout: page
+layout: views
 permalink: /views.html
 ---
-
-{% include views.html %}
