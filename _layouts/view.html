@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <!-- Based on Basically Basic Jekyll Theme 1.4.4 created by Michael Rose - mademistakes.com | @mmistakes Free for personal and commercial use under the MIT license https://github.com/mmistakes/jekyll-theme-basically-basic/blob/master/LICENSE -->
-<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}" class="no-js">
+<html
+  lang="{{ page.lang | default: site.lang | default: 'en-US' }}"
+  class="no-js"
+>
   {% include head.html %}
 
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {{ page.title | slugify }}">
-
+  <body
+    class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {{ page.title | slugify }}"
+  >
     {% include skip-links.html %}
 
     <h1>Preview Data from Sitemap</h1>
@@ -21,7 +25,7 @@
       </thead>
       <tbody id="data-table"></tbody>
     </table>
-    
+
     <script>
       // Fetch the URLs from the sitemap
       async function fetchURLsFromSitemap(sitemapUrl) {
@@ -30,7 +34,7 @@
           let text = await response.text();
           let parser = new DOMParser();
           let xmlDoc = parser.parseFromString(text, "text/xml");
-      
+
           let urls = Array.from(xmlDoc.querySelectorAll("url loc")).map(
             (node) => node.textContent
           );
@@ -42,44 +46,54 @@
         }
       }
 
+      // Fetch preview data from the API for a specific URL
       async function fetchPreviewData(url) {
-        const adjustedUrl = `https://hits.sh/api/urns/${url}`;
-        const response = await fetch(adjustedUrl, { mode: 'no-cors' });
-        if (response.status === 301) {
-          const newUrl = response.headers.get('Location');
-          return fetchPreviewData(newUrl);
+        try {
+          const adjustedUrl = `https://hits.sh/api/urns/${url}`;
+          const response = await fetch(adjustedUrl);
+          const data = await response.json();
+          console.log("API Response for URL:", url, data); // Debug log
+
+          // Find today's views
+          const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
+          const todayData = data.items.find(
+            (d) => d.from <= today && today <= d.to
+          );
+          const todayViews = todayData
+            ? todayData.data.find((d) => d.day === today).value
+            : 0;
+
+          return {
+            url,
+            totalViews: data.total,
+            todayViews,
+            weeklyViews: data.weekly,
+            monthlyViews: data.monthly,
+          };
+        } catch (error) {
+          console.error("Error fetching preview data for URL:", url, error);
+          return {
+            url,
+            totalViews: 0,
+            todayViews: 0,
+            weeklyViews: 0,
+            monthlyViews: 0,
+          };
         }
-        const data = await response.json();
-        console.log("API Response for URL:", url, data); // Debug log
-    
-        // Find today's views
-        const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
-        const todayData = data.items.find((d) => d.from <= today && today <= d.to);
-        const todayViews = todayData
-          ? todayData.data.find((d) => d.day === today).value
-          : 0;
-    
-        return {
-          url,
-          totalViews: data.total,
-          todayViews,
-          weeklyViews: data.weekly,
-          monthlyViews: data.monthly,
-        };
       }
-    
+
       // Fetch sitemap and preview data, then display in table
       async function displayPreviewData() {
-        const sitemapUrl = "https://vadimnastoyashchy.github.io/sitemap.xml";
-        const urls = await fetchURLsFromSitemap(sitemapUrl);
-        const tableBody = document.getElementById("data-table");
-        tableBody.innerHTML = ""; // Clear previous results
-    
-        for (let url of urls) {
-          try {
+        try {
+          const sitemapUrl = "https://vadimnastoyashchy.github.io/sitemap.xml";
+          const urls = await fetchURLsFromSitemap(sitemapUrl);
+          const tableBody = document.getElementById("data-table");
+          tableBody.innerHTML = ""; // Clear previous results
+
+          for (let url of urls) {
             const previewData = await fetchPreviewData(url);
             console.log("Preview Data:", previewData); // Debug log
-    
+
             let row = `<tr>
                           <td>${previewData.url}</td>
                           <td>${previewData.totalViews}</td>
@@ -87,19 +101,18 @@
                           <td>${previewData.weeklyViews}</td>
                           <td>${previewData.monthlyViews}</td>
                       </tr>`;
-    
+
             tableBody.innerHTML += row;
-          } catch (error) {
-            console.error("Error fetching preview data for URL:", url, error);
           }
+        } catch (error) {
+          console.error("Error displaying preview data:", error);
         }
       }
+
+      displayPreviewData();
     </script>
-    
-    {% include back-to-top.html %}
-    {% include footer.html %}
-    {% include scripts.html %}
 
+    {% include back-to-top.html %} {% include footer.html %} {% include
+    scripts.html %}
   </body>
-
 </html>
