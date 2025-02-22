@@ -5,12 +5,18 @@ export default class PostsPreview extends BaseComponent {
     private readonly titleLocator = this.page.locator('h1.entry-title');
     private readonly descriptionLocator = this.page.locator('.entry-excerpt');
     private readonly keywordsLocator = this.page.locator('.entry-tags');
-    private readonly imageLocator = this.page.locator('img.entry-image-thumbnail');
+    private readonly imageLocator = this.page.locator(
+        'img.entry-image-thumbnail',
+    );
     private readonly dateLocator = this.page.locator('time.entry-time');
-    private readonly readTimeLocator = this.page.locator('.entry-meta ul li:nth-child(2)');
+    private readonly readTimeLocator = this.page.locator(
+        '.entry-meta ul li:nth-child(2)',
+    );
     private readonly readMoreLinkLocator = this.page.locator('.read-more a');
     private readonly postLocator = this.page.locator('article.entry');
-    private readonly searchResultPostsLocator = this.page.locator('.search-content article.entry');
+    private readonly searchResultPostsLocator = this.page.locator(
+        '.search-content article.entry',
+    );
 
     constructor(page: Page) {
         super(page);
@@ -101,7 +107,9 @@ export default class PostsPreview extends BaseComponent {
     }
 
     public async getSearchResults(searchText: string): Promise<Locator[]> {
-        const searchResults = await this.page.locator(`.entry-title:has-text("${searchText}")`).all();
+        const searchResults = await this.page
+            .locator(`.entry-title:has-text("${searchText}")`)
+            .all();
         return searchResults;
     }
 }
