@@ -7,11 +7,14 @@ export async function elementsAreVisible(elements: Locator): Promise<void> {
     }
 }
 
-export async function getAllLinks(allReadMoreLinks: Locator, PageURL: string): Promise<Set<string>> {
+export async function getAllLinks(
+    allReadMoreLinks: Locator,
+    PageURL: string,
+): Promise<Set<string>> {
     const links = allReadMoreLinks.getByRole('link');
     const allLinks = await links.all();
     const allhrefs = await Promise.all(
-        allLinks.map((link) => link.getAttribute('href'))
+        allLinks.map((link) => link.getAttribute('href')),
     );
     const allValidHrefs = allhrefs.reduce((links, link) => {
         expect.soft(link).toBeTruthy();
@@ -23,20 +26,31 @@ export async function getAllLinks(allReadMoreLinks: Locator, PageURL: string): P
     return allValidHrefs;
 }
 
-export async function verifyLinksResponse(linksUrls: Set<string>): Promise<void> {
+export async function verifyLinksResponse(
+    linksUrls: Set<string>,
+): Promise<void> {
     const apiRequestContext: APIRequestContext = await request.newContext();
     for (const url of linksUrls) {
         try {
             const response = await apiRequestContext.get(url);
             const isSuccessful = response.ok() || response.status() === 999;
-            expect.soft(isSuccessful, `URL ${url} returned status ${response.status()}`).toBeTruthy();
+            expect
+                .soft(
+                    isSuccessful,
+                    `URL ${url} returned status ${response.status()}`,
+                )
+                .toBeTruthy();
         } catch (error) {
-            expect.soft(false, `Failed to fetch URL ${url}: ${error}`).toBeTruthy();
+            expect
+                .soft(false, `Failed to fetch URL ${url}: ${error}`)
+                .toBeTruthy();
         }
     }
 }
 
-export async function getHrefFromLink(locator: Locator): Promise<null | string> {
+export async function getHrefFromLink(
+    locator: Locator,
+): Promise<null | string> {
     const href = await locator.getAttribute('href');
     return href;
 }

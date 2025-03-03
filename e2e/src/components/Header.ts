@@ -3,7 +3,9 @@ import BaseComponent from '../base/BaseComponent';
 
 export default class Header extends BaseComponent {
     private readonly burgerMenuLocator = this.page.locator('.navicon-button');
-    private readonly logoLocator = this.page.locator('//span[contains(text(), "Vadym Nastoiashchyi")]');
+    private readonly logoLocator = this.page.locator(
+        '//span[contains(text(), "Vadym Nastoiashchyi")]',
+    );
     private readonly searchLocator = this.page.locator('.search-toggle');
     private readonly searchInputLocator = this.page.locator('.search-input');
 
