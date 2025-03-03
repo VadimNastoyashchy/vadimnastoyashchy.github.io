@@ -28,20 +28,34 @@ function getLastPerformanceMetric(): PerfMetrics {
     return perfMetrics[Object.keys(perfMetrics).length - 1];
 }
 
-async function getVisualCompleteTime(page: Page): Promise<{ visualComplete: number | 'NA' }> {
-    const paintMetrics = await page.evaluate(() => performance.getEntriesByType('paint'));
-    const firstPaint = paintMetrics.find(metric => metric.name === 'first-paint');
+async function getVisualCompleteTime(
+    page: Page,
+): Promise<{ visualComplete: number | 'NA' }> {
+    const paintMetrics = await page.evaluate(() =>
+        performance.getEntriesByType('paint'),
+    );
+    const firstPaint = paintMetrics.find(
+        (metric) => metric.name === 'first-paint',
+    );
     return {
-        visualComplete: firstPaint ? parseFloat(firstPaint.startTime.toFixed(2)) : 'NA'
+        visualComplete: firstPaint
+            ? parseFloat(firstPaint.startTime.toFixed(2))
+            : 'NA',
     };
 }
 
-async function getNavigationTime(page: Page): Promise<{ navigationTime: number | 'NA' }> {
+async function getNavigationTime(
+    page: Page,
+): Promise<{ navigationTime: number | 'NA' }> {
     const navEntry = await page.evaluate(() => {
         const navRecords = performance.getEntriesByType('navigation');
         return navRecords.length ? navRecords[0].toJSON() : null;
     });
-    return { navigationTime: navEntry ? parseFloat(navEntry.duration.toFixed(2)) : 'NA' };
+    return {
+        navigationTime: navEntry
+            ? parseFloat(navEntry.duration.toFixed(2))
+            : 'NA',
+    };
 }
 
 export { measurePerformance, getLastPerformanceMetric };

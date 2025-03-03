@@ -3,8 +3,8 @@ import BaseComponent from '../base/BaseComponent';
 
 export default class ArticleContent extends BaseComponent {
     private readonly titleLocator = this.page.locator('#page-title');
-    private readonly dateLocator = this.page.locator('.byline-item').first();
-    private readonly readTimeLocator = this.page.locator('.byline-item').last();
+    private readonly dateLocator = this.page.locator('.byline-item').nth(0);
+    private readonly readTimeLocator = this.page.locator('.byline-item').nth(1);
     private readonly imageLocator = this.page.locator('img');
 
     constructor(page: Page) {
