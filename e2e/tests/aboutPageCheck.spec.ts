@@ -20,7 +20,8 @@ test.describe('About Page Functionality', () => {
         await aboutPage.aboutContent.contactMe.isVisible();
         await elementsAreVisible(aboutPage.aboutContent.textInfo);
 
-        const allLinks = await getAllLinks(aboutPage.aboutContent.allLinks, await aboutPage.getPageUrl());
+        const pageUrl = await aboutPage.getPageUrl();
+        const allLinks = await getAllLinks(aboutPage.aboutContent.allLinks, pageUrl);
         await verifyLinksResponse(allLinks);
     });
 });

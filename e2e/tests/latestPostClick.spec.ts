@@ -7,12 +7,7 @@ test.describe('Post Reading Functionality', () => {
     }, async ({ homePage, articlePage }) => {
         await homePage.openAndVerify();
 
-        (await homePage.postsPreview.title()).isVisible();
-        (await homePage.postsPreview.description()).isVisible();
-        (await homePage.postsPreview.keywords()).isVisible();
-        (await homePage.postsPreview.image()).isVisible();
-        (await homePage.postsPreview.date()).isVisible();
-        (await homePage.postsPreview.readTime()).isVisible();
+        await homePage.postsPreview.verifyAllElementsAreVisible();
 
         const titlePreviewData = await homePage.postsPreview.getTitle();
         const datePreviewData = await homePage.postsPreview.getDate();

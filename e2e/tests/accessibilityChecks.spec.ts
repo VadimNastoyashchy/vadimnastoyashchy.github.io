@@ -3,20 +3,20 @@ import AccessibilityUtils from '../src/utils/accessibilityUtils';
 
 test.describe('Accessibility Tests', { tag: ['@accessibility'] }, () => {
     test.describe('Home Page Accessibility', () => {
+        let accUtils:any;
 
-        test.beforeEach(async ({ homePage, page }) => {
+        test.beforeEach(async ({ homePage, page, axeBuilder }) => {
             await AccessibilityUtils.skipForMobileDevices(page);
             await homePage.openAndVerify();
+            accUtils = new AccessibilityUtils(axeBuilder);
         });
 
-        test('Check header for accessibility violations', async ({ axeBuilder }) => {
-            const accUtils = new AccessibilityUtils(axeBuilder);
+        test('Check header for accessibility violations', async ({}) => {
             const headerSelectors = ['.navicon-button', '.site-title span', '.search-toggle'];
             await accUtils.checkAccessibility(headerSelectors);
         });
 
-        test('Check footer for accessibility violations', async ({ axeBuilder }) => {
-            const accUtils = new AccessibilityUtils(axeBuilder);
+        test('Check footer for accessibility violations', async ({}) => {
             await accUtils.checkAccessibility(['footer#footer']);
         });
 
@@ -30,10 +30,9 @@ test.describe('Accessibility Tests', { tag: ['@accessibility'] }, () => {
             test.expect(results.violations).toEqual([]);
         });
 
-        test('Check navigation menu accessibility', async ({ homePage, axeBuilder }) => {
+        test('Check navigation menu accessibility', async ({ homePage }) => {
             await homePage.header.clickOnBurgerMenu();
             await homePage.sideMenu.sidebarContainer.isVisible();
-            const accUtils = new AccessibilityUtils(axeBuilder);
             await accUtils.checkAccessibility(['#sidebar']);
         });
     });

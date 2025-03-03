@@ -10,10 +10,14 @@ test.describe('Footer visibility', () => {
         await homePage.openAndVerify();
 
         await expect(homePage.footer.footerSection).toBeVisible();
-        await elementsAreVisible(await homePage.footer.allFooterUrls());
-        await expect(homePage.footer.copyright).toHaveText(copyrightText);
 
-        const linksUrls = await getAllLinks(homePage.footer.footerSection, await homePage.getPageUrl());
+        const footerLinks = await homePage.footer.allFooterUrls();
+        await elementsAreVisible(footerLinks);
+
+        await expect(homePage.footer.copyright).toHaveText(copyrightText);
+        
+        const pageUrl = await homePage.getPageUrl();
+        const linksUrls = await getAllLinks(homePage.footer.footerSection, pageUrl);
         await verifyLinksResponse(linksUrls);
     });
 });

@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect} from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class PostsPreview extends BaseComponent {
@@ -111,5 +111,14 @@ export default class PostsPreview extends BaseComponent {
             .locator(`.entry-title:has-text("${searchText}")`)
             .all();
         return searchResults;
+    }
+
+    public async verifyAllElementsAreVisible(): Promise<void> {
+        await expect(await this.title()).toBeVisible();
+        await expect(await this.description()).toBeVisible();
+        await expect(await this.keywords()).toBeVisible();
+        await expect(await this.image()).toBeVisible();
+        await expect(await this.date()).toBeVisible();
+        await expect(await this.readTime()).toBeVisible();
     }
 }
