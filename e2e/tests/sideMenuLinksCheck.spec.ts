@@ -1,5 +1,5 @@
-import { test } from '../src/fixtures/FixtureConfigs';
-import { elementsAreVisible, getAllLinks, verifyLinksResponse } from '../src/utils/commonFunctions';
+import { test, expect } from '../src/fixtures/FixtureConfigs';
+import { elementsAreVisible, getAllLinks, verifyLinksResponse, getHrefFromLink } from '../src/utils/commonFunctions';
 
 test.describe('Side Menu Navigation', () => {
     test('Verify side menu functionality and link navigation', {
@@ -13,5 +13,21 @@ test.describe('Side Menu Navigation', () => {
 
         const linksUrls = await getAllLinks(homePage.sideMenu.sidebarContainer, await homePage.getPageUrl());
         await verifyLinksResponse(linksUrls);
+    });
+
+    test('Navigation to the Home page from the side bar', {
+        tag: '@regression'
+    }, async ({ aboutPage, homePage }) => {
+
+        await aboutPage.openAndVerify();
+
+        await aboutPage.header.clickOnBurgerMenu();
+        await aboutPage.sideMenu.sidebarContainer.isVisible();
+
+        await aboutPage.sideMenu.clickOnHomeLink();
+
+        const getUrl = await getHrefFromLink(homePage.header.logo);
+        
+        expect (await homePage.getPageUrl()).toContain(getUrl);
     });
 });
