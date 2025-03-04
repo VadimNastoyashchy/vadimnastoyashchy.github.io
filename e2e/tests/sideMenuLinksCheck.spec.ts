@@ -27,7 +27,7 @@ test.describe('Side Menu Navigation', () => {
         await aboutPage.sideMenu.clickOnHomeLink();
 
         const getUrl = await getHrefFromLink(homePage.header.logo);
-        
+
         expect (await homePage.getPageUrl()).toContain(getUrl);
     });
 });
