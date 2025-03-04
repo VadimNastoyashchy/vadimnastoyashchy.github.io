@@ -3,11 +3,11 @@ import BaseComponent from '../base/BaseComponent';
 
 export default class Header extends BaseComponent {
     private readonly burgerMenuLocator = this.page.locator('.navicon-button');
-    private readonly logoLocator = this.page.locator(
-        '//span[contains(text(), "Vadym Nastoiashchyi")]',
-    );
     private readonly searchLocator = this.page.locator('.search-toggle');
     private readonly searchInputLocator = this.page.locator('.search-input');
+    private readonly logoLinkLocator = this.page.locator(
+        '.site-title a[href="/"]',
+    );
 
     constructor(page: Page) {
         super(page);
@@ -18,7 +18,7 @@ export default class Header extends BaseComponent {
     }
 
     get logo(): Locator {
-        return this.logoLocator;
+        return this.logoLinkLocator;
     }
 
     get search(): Locator {
@@ -38,7 +38,7 @@ export default class Header extends BaseComponent {
     }
 
     public async clickOnLogo(): Promise<void> {
-        return this.logoLocator.click();
+        return this.logoLinkLocator.click();
     }
 
     public async fillSearchInput(searchText: string): Promise<void> {

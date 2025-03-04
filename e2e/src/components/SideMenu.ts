@@ -7,6 +7,10 @@ export default class SideMenu extends BaseComponent {
     private readonly aboutLinkLocator = this.page.locator(
         '.menu-item a[href="/about"]',
     );
+    private readonly homeLinkLocator = this.page.locator(
+        '.menu-item a[href="/"]',
+    );
+
 
     constructor(page: Page) {
         super(page);
@@ -26,6 +30,10 @@ export default class SideMenu extends BaseComponent {
 
     public async clickOnAboutLink(): Promise<void> {
         await this.aboutLinkLocator.click();
+    }
+
+    public async clickOnHomeLink(): Promise<void> {
+        await this.homeLinkLocator.click();
     }
 
     async getLinkByText(linkText: string): Promise<Locator> {
