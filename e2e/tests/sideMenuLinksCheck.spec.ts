@@ -24,7 +24,8 @@ test.describe('Side Menu Navigation', () => {
         await aboutPage.header.clickOnBurgerMenu();
         await aboutPage.sideMenu.sidebarContainer.isVisible();
 
-        await aboutPage.sideMenu.clickOnHomeLink();
+        const homeLink = await aboutPage.sideMenu.getLinkByText('Home');
+        await homeLink.click();
 
         const getUrl = await getHrefFromLink(homePage.header.logo);
 
