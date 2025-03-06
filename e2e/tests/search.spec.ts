@@ -1,12 +1,11 @@
 import { test, expect } from '../src/fixtures/FixtureConfigs';
-import { elementsAreVisible } from '../src/utils/commonFunctions';
-test.describe('Search Functionality', () => {
-    test('User can search for an article with specific keywords', {
+test.describe('Search', () => {
+    test('User can search for an article with specific input', {
         tag: '@regression'
     }, async ({ homePage }) => {
         const inputText = 'Playwright';
 
-        await homePage.openAndVerify();
+        await homePage.open();
         await homePage.header.clickOnSearch();
         await expect(homePage.header.searchInput).toBeVisible();
 
@@ -14,7 +13,7 @@ test.describe('Search Functionality', () => {
         await expect(homePage.header.searchInput).toHaveValue(inputText);
         await homePage.header.submitSearch();
 
-        await elementsAreVisible(homePage.postsPreview.searchResultPosts);
+        await expect(homePage.postsPreview.searchResultPosts).areVisible()
         await homePage.postsPreview.getSearchResults(inputText);
     });
 });

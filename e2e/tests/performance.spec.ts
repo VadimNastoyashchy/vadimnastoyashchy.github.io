@@ -17,7 +17,7 @@ test.describe('Website Performance Tests', () => {
     test('Complete Page Performance', { tag: '@performance' }, async ({ homePage }) => {
       await assertPerformanceStep(
         async () => {
-          await homePage.openAndVerify();
+          await homePage.open();
         },
         'HomePageLoad',
         1500,
@@ -28,7 +28,7 @@ test.describe('Website Performance Tests', () => {
     test('Check image load times are within acceptable limits', { tag: '@performance' }, async ({ homePage }) => {
       await assertPerformanceStep(
         async () => {
-          await homePage.openAndVerify();
+          await homePage.open();
           const images = homePage.postsPreview.getAllImages();
           const count = await images.count();
           for (let i = 0; i < count; i++) {
@@ -44,7 +44,7 @@ test.describe('Website Performance Tests', () => {
     test('Verify rapid page switches using pagination', { tag: '@performance' }, async ({ homePage }) => {
       await assertPerformanceStep(
         async () => {
-          await homePage.openAndVerify();
+          await homePage.open();
           await homePage.pagination.clickOnOlderButton();
           await homePage.pagination.clickOnNewerButton();
         },
@@ -57,7 +57,7 @@ test.describe('Website Performance Tests', () => {
     test('Measure time to open and display a full post', { tag: '@performance' }, async ({ homePage, articlePage }) => {
       await assertPerformanceStep(
         async () => {
-          await homePage.openAndVerify();
+          await homePage.open();
           await homePage.postsPreview.clickOnReadMore();
           const titleVisible = await articlePage.articleContent.titleIsVisible();
           expect(titleVisible).toBe(true);
@@ -71,7 +71,7 @@ test.describe('Website Performance Tests', () => {
     test('Main Page Response after Sidebar Navigation', { tag: '@performance' }, async ({ homePage }) => {
       await assertPerformanceStep(
         async () => {
-          await homePage.openAndVerify();
+          await homePage.open();
           await homePage.getPage().waitForLoadState('networkidle');
           await homePage.header.clickOnBurgerMenu();
           const aboutLinkLocator = await homePage.sideMenu.getLinkByText('About');

@@ -1,4 +1,4 @@
-import { test as base } from '@playwright/test';
+import { test as base, expect as baseExpect, Locator } from '@playwright/test';
 import AboutPage from '../pages/AboutPage';
 import HomePage from '../pages/HomePage';
 import ArticlePage from '../pages/ArticlePage';
@@ -29,4 +29,29 @@ export const test = base.extend<MyFixtures>({
     },
 });
 
-export { expect } from '@playwright/test';
+export const expect = baseExpect.extend({
+    async areVisible(locator: Locator, options?: { timeout?: number }) {
+        const assertionName = 'areVisible';
+        let pass: boolean;
+        let matcherResult: any;
+        try {
+            for (let i = 0; i < (await locator.count()); i++) {
+                const element = locator.nth(i);
+                await baseExpect(element).toBeVisible();
+            }
+            pass = true;
+        } catch (e: any) {
+            matcherResult = e.matcherResult;
+            pass = false;
+        }
+
+        const message = pass ? () => '' : () => '';
+
+        return {
+            message,
+            pass,
+            name: assertionName,
+            actual: matcherResult?.actual,
+        };
+    },
+});

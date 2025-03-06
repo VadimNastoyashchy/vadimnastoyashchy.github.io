@@ -1,13 +1,6 @@
 import { Locator, expect, APIRequestContext, request } from '@playwright/test';
 
-export async function elementsAreVisible(elements: Locator): Promise<void> {
-    for (let i = 0; i < (await elements.count()); i++) {
-        const element = elements.nth(i);
-        await expect(element).toBeVisible();
-    }
-}
-
-export async function getAllLinks(
+export async function getLinks(
     allReadMoreLinks: Locator,
     PageURL: string,
 ): Promise<Set<string>> {
@@ -26,7 +19,7 @@ export async function getAllLinks(
     return allValidHrefs;
 }
 
-export async function verifyLinksResponse(
+export async function verifyLinks(
     linksUrls: Set<string>,
 ): Promise<void> {
     const apiRequestContext: APIRequestContext = await request.newContext();

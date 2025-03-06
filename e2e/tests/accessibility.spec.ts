@@ -6,7 +6,7 @@ test.describe('Accessibility Tests', { tag: ['@accessibility'] }, () => {
 
         test.beforeEach(async ({ homePage, page }) => {
             await AccessibilityUtils.skipForMobileDevices(page);
-            await homePage.openAndVerify();
+            await homePage.open();
         });
 
         test('Check header for accessibility violations', async ({ axeBuilder }) => {
@@ -32,7 +32,7 @@ test.describe('Accessibility Tests', { tag: ['@accessibility'] }, () => {
 
         test('Check navigation menu accessibility', async ({ homePage, axeBuilder }) => {
             await homePage.header.clickOnBurgerMenu();
-            await homePage.sideMenu.sidebarContainer.isVisible();
+            await homePage.sideMenu.container.isVisible();
             const accUtils = new AccessibilityUtils(axeBuilder);
             await accUtils.checkAccessibility(['#sidebar']);
         });

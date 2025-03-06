@@ -1,4 +1,4 @@
-import { Page, expect } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 import SideMenu from '../components/SideMenu';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -26,16 +26,12 @@ export default abstract class BasePage {
         return this.page;
     }
 
-    public async open(): Promise<void> {
-        await this.page.goto(this.PAGE_URL);
-    }
-
     public async getPageUrl(): Promise<string> {
         return await this.page.url();
     }
 
-    public async openAndVerify(): Promise<void> {
-        await this.open();
+    public async open(): Promise<void> {
+        await this.page.goto(this.PAGE_URL);
         expect(this.page.url()).toContain(this.PAGE_URL);
     }
 }
