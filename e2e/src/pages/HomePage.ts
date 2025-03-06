@@ -4,12 +4,12 @@ import PostsPreview from '../components/PostsPreview';
 import Pagination from '../components/Pagination';
 
 export default class HomePage extends BasePage {
-    public postsPreview: PostsPreview;
-    public pagination: Pagination;
+  public postsPreview: PostsPreview;
+  public pagination: Pagination;
 
-    constructor(page: Page) {
-        super(page, 'Home Page', '');
-        this.postsPreview = new PostsPreview(page);
-        this.pagination = new Pagination(page);
-    }
+  constructor(page: Page) {
+    super(page, 'Home Page', '');
+    this.postsPreview = new PostsPreview(page);
+    this.pagination = new Pagination(page);
+  }
 }

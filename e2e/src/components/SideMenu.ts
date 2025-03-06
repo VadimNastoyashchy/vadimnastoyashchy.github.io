@@ -2,41 +2,35 @@ import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class SideMenu extends BaseComponent {
-    private readonly sidebarLocator = this.page.locator('#sidebar');
-    private readonly allLinksLocator = this.page.locator('#sidebar a');
-    private readonly aboutLinkLocator = this.page.locator(
-        '.menu-item a[href="/about"]',
-    );
-    private readonly homeLinkLocator = this.page.locator(
-        '.menu-item a[href="/"]',
-    );
+  constructor(page: Page) {
+    super(page);
+  }
 
+  get container(): Locator {
+    return this.page.locator('#sidebar');
+  }
 
-    constructor(page: Page) {
-        super(page);
-    }
+  get links(): Locator {
+    return this.page.locator('#sidebar a');
+  }
 
-    get sidebarContainer(): Locator {
-        return this.sidebarLocator;
-    }
+  get aboutLink(): Locator {
+    return this.page.locator('.menu-item a[href="/about"]');
+  }
 
-    get allLinks(): Locator {
-        return this.allLinksLocator;
-    }
+  get homeLink(): Locator {
+    return this.page.locator('.menu-item a[href="/"]');
+  }
 
-    get aboutLink(): Locator {
-        return this.aboutLinkLocator;
-    }
+  public async clickOnAboutLink(): Promise<void> {
+    await this.aboutLink.click();
+  }
 
-    public async clickOnAboutLink(): Promise<void> {
-        await this.aboutLinkLocator.click();
-    }
+  public async clickOnHomeLink(): Promise<void> {
+    await this.homeLink.click();
+  }
 
-    public async clickOnHomeLink(): Promise<void> {
-        await this.homeLinkLocator.click();
-    }
-
-    async getLinkByText(linkText: string): Promise<Locator> {
-        return this.allLinksLocator.filter({ hasText: linkText });
-    }
+  async getLinkByText(linkText: string): Promise<Locator> {
+    return this.links.filter({ hasText: linkText });
+  }
 }
