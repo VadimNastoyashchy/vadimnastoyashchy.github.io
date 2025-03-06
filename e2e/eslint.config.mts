@@ -35,17 +35,10 @@ export default [...compat.extends(
     },
 
     rules: {
-        quotes: ['error', 'single', {
-            allowTemplateLiterals: true,
-        }],
-
         'no-trailing-spaces': 'error',
 
         '@typescript-eslint/typedef': ['error', {
             parameter: true,
         }],
-
-        semi: ['error'],
-        '@typescript-eslint/explicit-function-return-type': ['error'],
     },
 }];
