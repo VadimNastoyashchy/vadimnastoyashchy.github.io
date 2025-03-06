@@ -1,4 +1,4 @@
-import { Locator, Page, expect } from '@playwright/test'
+import { Page, expect } from '@playwright/test'
 import SideMenu from '../components/SideMenu'
 import Header from '../components/Header'
 import Footer from '../components/Footer'

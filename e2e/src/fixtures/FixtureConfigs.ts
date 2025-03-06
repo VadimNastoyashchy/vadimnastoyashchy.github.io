@@ -29,10 +29,12 @@ export const test = base.extend<MyFixtures>({
   },
 })
 
+
 export const expect = baseExpect.extend({
-  async areVisible(locator: Locator, options?: { timeout?: number }) {
+  async areVisible(locator: Locator) {
     const assertionName = 'areVisible'
     let pass: boolean
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let matcherResult: any
     try {
       for (let i = 0; i < (await locator.count()); i++) {
@@ -40,6 +42,7 @@ export const expect = baseExpect.extend({
         await baseExpect(element).toBeVisible()
       }
       pass = true
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       matcherResult = e.matcherResult
       pass = false
