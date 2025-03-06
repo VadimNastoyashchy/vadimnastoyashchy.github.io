@@ -1,1 +1,1 @@
-export * from './commonFunctions'
+export * from './commonFunctions';

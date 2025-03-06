@@ -1,36 +1,36 @@
-import { Page, Locator } from '@playwright/test'
-import BaseComponent from '../base/BaseComponent'
+import { Page, Locator } from '@playwright/test';
+import BaseComponent from '../base/BaseComponent';
 
 export default class SideMenu extends BaseComponent {
   constructor(page: Page) {
-    super(page)
+    super(page);
   }
 
   get container(): Locator {
-    return this.page.locator('#sidebar')
+    return this.page.locator('#sidebar');
   }
 
   get links(): Locator {
-    return this.page.locator('#sidebar a')
+    return this.page.locator('#sidebar a');
   }
 
   get aboutLink(): Locator {
-    return this.page.locator('.menu-item a[href="/about"]')
+    return this.page.locator('.menu-item a[href="/about"]');
   }
 
   get homeLink(): Locator {
-    return this.page.locator('.menu-item a[href="/"]')
+    return this.page.locator('.menu-item a[href="/"]');
   }
 
   public async clickOnAboutLink(): Promise<void> {
-    await this.aboutLink.click()
+    await this.aboutLink.click();
   }
 
   public async clickOnHomeLink(): Promise<void> {
-    await this.homeLink.click()
+    await this.homeLink.click();
   }
 
   async getLinkByText(linkText: string): Promise<Locator> {
-    return this.links.filter({ hasText: linkText })
+    return this.links.filter({ hasText: linkText });
   }
 }
