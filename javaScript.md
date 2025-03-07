@@ -1,7 +1,7 @@
 ---
 title: Tag Archive
 layout: page
-permalink: /tags/
+permalink: /tags/#javascript
 ---
 
 <div>
@@ -10,15 +10,12 @@ permalink: /tags/
 <br>
 
 <div id="tags-list">
-{% for tag in site.tags %}
-  {% assign tag_name = tag | first %}
-  {% assign tag_name_pretty = tag_name | replace: "_", " " | capitalize %}
   <div class="tag-list">
-    <div id="#{{ tag_name | slugize }}"></div>
-    <h3 class="post-list-heading line-bottom"> In #{{ tag_name }}: </h3>
-    <a name="{{ tag_name | slugize }}"></a>
+    <div id="#javascript"></div>
+    <h3 class="post-list-heading line-bottom"> In #JavaScript: </h3>
+    <a name="javascript"></a>
     <ul class="post-list post-list-narrow">
-     {% for post in site.tags[tag_name] %}
+     {% for post in site.tags[JavaScript] %}
      <li>
        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
        <b>
@@ -30,5 +27,4 @@ permalink: /tags/
      {% endfor %}
     </ul>
   </div>
-{% endfor %}
 </div>
