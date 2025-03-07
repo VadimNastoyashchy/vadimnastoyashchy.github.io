@@ -1,7 +1,7 @@
 ---
 title: Tag Archive
 layout: page
-permalink: /tags/
+permalink: /tags
 ---
 
 <div>
