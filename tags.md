@@ -7,14 +7,14 @@ permalink: /tags/
 <div>
   Search through all of my posts by tag!
 </div> 
-</br>
+<br>
 
 <div id="tags-list">
 {% assign chosen_tag = page.url | split: "#" | last %}
 {% for tag in site.tags %}
   {% assign tag_name = tag | first %}
   {% assign tag_name_pretty = tag_name | replace: "_", " " | capitalize %}
-  {% assign tag_name_down = tag_name | downcase %}
+  {% assign tag_name_down = tag_name_pretty | downcase %}
   {% if tag_name_down == chosen_tag %}
   <div class="tag-list">
     <div id="#{{ tag_name | slugize }}"></div>
