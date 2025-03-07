@@ -1,6 +1,6 @@
 ---
 title: Tag Archive
-layout: page
+layout: default
 permalink: /tags/
 ---
 
