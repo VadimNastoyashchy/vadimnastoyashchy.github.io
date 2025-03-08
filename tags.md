@@ -12,9 +12,9 @@ permalink: /tags/
 <div id="tags-list">
 {% for tag in site.tags %}
   {% assign tag_name = tag | first %}
-  {% assign tag_name_pretty = tag_name | replace: "_", " " | capitalize %}
+  {% assign tag_name_pretty = tag_name | replace: " ", "-" | downcase %}
   <div class="tag-list">
-    <div id="#{{ tag_name | slugize }}"></div>
+    <div id="#{{ tag_name_pretty | slugize }}"></div>
     <h3 class="post-list-heading line-bottom"> #{{ tag_name }}: </h3>
     <a name="{{ tag_name | slugize }}"></a>
     <ul class="post-list post-list-narrow">
@@ -32,3 +32,16 @@ permalink: /tags/
   </div>
 {% endfor %}
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var hash = window.location.hash.substring(1);
+    if (hash) {
+      var element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView();
+      }
+    }
+  });
+  console.log(hash)
+</script>
