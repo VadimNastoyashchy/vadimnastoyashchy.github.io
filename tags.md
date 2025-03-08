@@ -33,6 +33,9 @@ permalink: /tags/
 </div>
 
 <div id="you-may-also-like" style="display: none;">
+<br>
+<br>
+<hr>
   <h3>You may also like:</h3>
   <div id="other-tags-list"></div>
 </div>
