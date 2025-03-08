@@ -46,18 +46,18 @@ permalink: /tags/
 
     if (hash) {
       var currentTagElement = document.getElementById(hash);
+      var allTags = Array.from(tagsList.children); 
       if (currentTagElement) {
         tagsList.innerHTML = "";
         tagsList.appendChild(currentTagElement);
         youMayAlsoLike.style.display = "block";
-      }
 
-      var allTags = document.querySelectorAll(".tag-list");
-      allTags.forEach(function(tag) {
-        if (tag.id !== hash) {
-          otherTagsList.appendChild(tag.cloneNode(true));
-        }
-      });
+        allTags.forEach(function(tag) {
+          if (tag.id !== hash) {
+            otherTagsList.appendChild(tag.cloneNode(true));
+          }
+        });
+      }
     }
   });
 </script>
