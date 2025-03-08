@@ -34,7 +34,6 @@ permalink: /tags/
 
 <div id="you-may-also-like" style="display: none;">
 <br>
-<br>
 <hr>
   <h3>You may also like:</h3>
   <div id="other-tags-list"></div>
@@ -52,6 +51,7 @@ permalink: /tags/
       var allTags = Array.from(tagsList.children); 
       if (currentTagElement) {
         tagsList.innerHTML = "";
+        currentTagElement.classList.add("highlighted-tag");
         tagsList.appendChild(currentTagElement);
         youMayAlsoLike.style.display = "block";
 
@@ -64,3 +64,12 @@ permalink: /tags/
     }
   });
 </script>
+
+<style>
+  .highlighted-tag {
+    font-size: 1.1em;
+  }
+  .highlighted-tag .post-list-heading {
+    font-size: 2em;
+  }
+</style>
