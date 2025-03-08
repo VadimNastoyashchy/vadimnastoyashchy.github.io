@@ -36,6 +36,7 @@ permalink: /tags/
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var hash = window.location.hash.substring(1);
+    console.log(hash);
     if (hash) {
       var element = document.getElementById(hash);
       if (element) {
@@ -43,5 +44,4 @@ permalink: /tags/
       }
     }
   });
-  console.log(hash)
 </script>
