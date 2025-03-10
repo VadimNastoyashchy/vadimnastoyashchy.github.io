@@ -7,7 +7,7 @@ test.describe('Footer', () => {
       tag: '@regression',
     },
     async ({ homePage }) => {
-      const copyrightText = '© 2025 Vadym Nastoiashchyi';
+      const copyrightText = '© 2025 Vadym Nastoiashchyii';
 
       await homePage.open();
 

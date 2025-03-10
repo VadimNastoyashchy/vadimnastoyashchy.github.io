@@ -5,6 +5,7 @@ import rpConfig from './rpConfig';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+    captureGitInfo: { commit: true, diff: true },
     testDir: './tests',
     fullyParallel: true,
     forbidOnly: !!process.env.CI,
