@@ -3,8 +3,8 @@ title: "💁‍♂️for, for…of, .forEach(). What to choose? JavaScript"
 image: /assets/images/posts/2025-04-06-for-forof-foreach-js-loops/0_yA0ziSTQn4H3IzX6.jpg
 excerpt: "I've already shared with you 🔝Top 10 useful Cypress plugins in 2024! but not all plugins are included in the article that I use. I want to add 5 more plugins that will be relevant in 2025 and that I use myself....
 "
-date: 2025-03-02 20:00:00 +01:00
-last_modified_at: 2025-03-02 20:00:00 +01:00
+date: 2025-04-06 20:00:00 +01:00
+last_modified_at: 2025-04-06 20:00:00 +01:00
 tags:
   - JavaScript
   - Cypress
