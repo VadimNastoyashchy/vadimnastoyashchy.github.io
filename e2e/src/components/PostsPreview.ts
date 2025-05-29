@@ -2,28 +2,12 @@ import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class PostsPreview extends BaseComponent {
-  private readonly titleLocator = this.page.locator('h1.entry-title');
-  private readonly descriptionLocator = this.page.locator('.entry-excerpt');
-  private readonly keywordsLocator = this.page.locator('.entry-tags');
-  private readonly imageLocator = this.page.locator(
-    'img.entry-image-thumbnail'
-  );
-  private readonly dateLocator = this.page.locator('time.entry-time');
-  private readonly readTimeLocator = this.page.locator(
-    '.entry-meta ul li:nth-child(2)'
-  );
-  private readonly readMoreLinkLocator = this.page.locator('.read-more a');
-  private readonly postLocator = this.page.locator('article.entry');
-  private readonly searchResultPostsLocator = this.page.locator(
-    '.search-content article.entry'
-  );
-
   constructor(page: Page) {
     super(page);
   }
 
   get allPosts(): Locator {
-    return this.postLocator;
+    return this.page.locator('article.entry');
   }
 
   get allReadMoreLinks(): Locator {
@@ -31,7 +15,7 @@ export default class PostsPreview extends BaseComponent {
   }
 
   get searchResultPosts(): Locator {
-    return this.searchResultPostsLocator;
+    return this.page.locator('.search-content article.entry');
   }
 
   public getAllImages(): Locator {
@@ -39,35 +23,37 @@ export default class PostsPreview extends BaseComponent {
   }
 
   public async getLatestPost(): Promise<Locator> {
-    return this.postLocator.nth(0);
+    return this.allPosts.nth(0);
   }
 
   public async title(): Promise<Locator> {
-    return (await this.getLatestPost()).locator(this.titleLocator);
+    return (await this.getLatestPost()).locator('h1.entry-title');
   }
 
   public async description(): Promise<Locator> {
-    return (await this.getLatestPost()).locator(this.descriptionLocator);
+    return (await this.getLatestPost()).locator('.entry-excerpt');
   }
 
   public async keywords(): Promise<Locator> {
-    return (await this.getLatestPost()).locator(this.keywordsLocator);
+    return (await this.getLatestPost()).locator('.entry-tags');
   }
 
   public async image(): Promise<Locator> {
-    return (await this.getLatestPost()).locator(this.imageLocator);
+    return (await this.getLatestPost()).locator('img.entry-image-thumbnail');
   }
 
   public async date(): Promise<Locator> {
-    return (await this.getLatestPost()).locator(this.dateLocator);
+    return (await this.getLatestPost()).locator('time.entry-time');
   }
 
   public async readTime(): Promise<Locator> {
-    return (await this.getLatestPost()).locator(this.readTimeLocator);
+    return (await this.getLatestPost()).locator(
+      '.entry-meta ul li:nth-child(2)'
+    );
   }
 
   private async getLastReadMore(): Promise<Locator> {
-    return this.readMoreLinkLocator.nth(0);
+    return this.page.locator('.read-more a').nth(0);
   }
 
   public async getPageUrlFromReadMoreLink(): Promise<null | string> {
@@ -99,11 +85,11 @@ export default class PostsPreview extends BaseComponent {
   }
 
   public async getAllPosts(): Promise<Locator[]> {
-    return await this.postLocator.all();
+    return await this.allPosts.all();
   }
 
   public async getAllReadMoreLinks(): Promise<Locator[]> {
-    return this.readMoreLinkLocator.all();
+    return this.page.locator('.read-more a').all();
   }
 
   public async getSearchResults(searchText: string): Promise<Locator[]> {

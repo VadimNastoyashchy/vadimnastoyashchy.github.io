@@ -6,7 +6,7 @@ import {
 import { Page } from 'playwright';
 
 test.describe('Website Performance Tests', () => {
-  test.beforeEach(async ({ homePage}) => {
+  test.beforeEach(async ({ homePage }) => {
     await homePage.open();
   });
   async function assertPerformanceStep(
@@ -20,23 +20,25 @@ test.describe('Website Performance Tests', () => {
     expect(lastMetric.timeElapsed).toBeLessThan(expectedTime);
   }
 
-  test('Complete Page Performance',
+  test(
+    'Complete Page Performance',
     { tag: '@performance' },
-    async ({ homePage }) => {
+    async ({ homePage, page }) => {
       await assertPerformanceStep(
         async () => {
           await homePage.open();
         },
         'HomePageLoad',
         1500,
-        homePage.getPage()
+        page
       );
     }
   );
 
-  test('Check image load times are within acceptable limits',
+  test(
+    'Check image load times are within acceptable limits',
     { tag: '@performance' },
-    async ({ homePage }) => {
+    async ({ homePage, page }) => {
       await assertPerformanceStep(
         async () => {
           const images = homePage.postsPreview.getAllImages();
@@ -47,14 +49,15 @@ test.describe('Website Performance Tests', () => {
         },
         'ImageLoad',
         1500,
-        homePage.getPage()
+        page
       );
     }
   );
 
-  test('Verify rapid page switches using pagination',
+  test(
+    'Verify rapid page switches using pagination',
     { tag: '@performance' },
-    async ({ homePage }) => {
+    async ({ homePage, page }) => {
       await assertPerformanceStep(
         async () => {
           await homePage.pagination.clickOnOlderButton();
@@ -62,14 +65,15 @@ test.describe('Website Performance Tests', () => {
         },
         'PaginationNavigation',
         1500,
-        homePage.getPage()
+        page
       );
     }
   );
 
-  test('Measure time to open and display a full post',
+  test(
+    'Measure time to open and display a full post',
     { tag: '@performance' },
-    async ({ homePage, articlePage }) => {
+    async ({ homePage, articlePage, page }) => {
       await assertPerformanceStep(
         async () => {
           await homePage.postsPreview.clickOnReadMore();
@@ -79,26 +83,27 @@ test.describe('Website Performance Tests', () => {
         },
         'SinglePostLoad',
         1500,
-        homePage.getPage()
+        page
       );
     }
   );
 
-  test('Main Page Response after Sidebar Navigation',
+  test(
+    'Main Page Response after Sidebar Navigation',
     { tag: '@performance' },
-    async ({ homePage }) => {
+    async ({ homePage, page }) => {
       await assertPerformanceStep(
         async () => {
-          await homePage.getPage().waitForLoadState('networkidle');
+          await page.waitForLoadState('networkidle');
           await homePage.header.clickOnBurgerMenu();
           const aboutLinkLocator =
             await homePage.sideMenu.getLinkByText('About');
           await aboutLinkLocator.click();
-          await expect(homePage.getPage()).toHaveURL(/about/);
+          await expect(page).toHaveURL(/about/);
         },
         'SidebarNavigation',
         2700,
-        homePage.getPage()
+        page
       );
     }
   );

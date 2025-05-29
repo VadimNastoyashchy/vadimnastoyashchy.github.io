@@ -6,7 +6,7 @@ export default class AboutPage extends BasePage {
   public content: AboutContent;
 
   constructor(page: Page) {
-    super(page, 'About Page', 'about');
+    super(page);
     this.content = new AboutContent(page);
   }
 }

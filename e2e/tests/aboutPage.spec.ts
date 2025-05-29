@@ -2,7 +2,8 @@ import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 
 test.describe('About', () => {
-  test('Page is available and all the elements are working as expected',
+  test(
+    'Page is available and all the elements are working as expected',
     {
       tag: '@regression',
     },
