@@ -2,35 +2,31 @@ import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class ArticleContent extends BaseComponent {
-  private readonly titleLocator = this.page.locator('#page-title');
-  private readonly dateLocator = this.page.locator('.byline-item').nth(0);
-  private readonly readTimeLocator = this.page.locator('.byline-item').nth(1);
-  private readonly imageLocator = this.page.locator('img');
-
   constructor(page: Page) {
     super(page);
   }
 
-  public async getTitle(): Promise<string> {
-    const title = await this.titleLocator.innerText();
-    return title;
+  get title(): Locator {
+    return this.page.locator('#page-title');
+  }
+
+  public async getTitleText(): Promise<string> {
+    return await this.title.innerText();
   }
 
   public async titleIsVisible(): Promise<boolean> {
-    return this.titleLocator.isVisible();
+    return this.title.isVisible();
   }
 
   public async getDate(): Promise<string> {
-    const date = await this.dateLocator.innerText();
-    return date;
+    return await this.page.locator('.byline-item').nth(0).innerText();
   }
 
   public async getReadTime(): Promise<string> {
-    const readTime = await this.readTimeLocator.innerText();
-    return readTime;
+    return this.page.locator('.byline-item').nth(1).innerText();
   }
 
   public async getAllImages(): Promise<Locator> {
-    return this.imageLocator;
+    return this.page.locator('img');
   }
 }

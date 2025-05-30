@@ -26,7 +26,7 @@ test.describe('Post', () => {
       await homePage.postsPreview.clickOnReadMore();
       expect(await articlePage.getPageUrl()).toContain(pageUrlFromReadMoreLink);
 
-      expect(await articlePage.articleContent.getTitle()).toEqual(
+      expect(await articlePage.articleContent.getTitleText()).toEqual(
         titlePreviewData
       );
       expect(await articlePage.articleContent.getDate()).toEqual(
