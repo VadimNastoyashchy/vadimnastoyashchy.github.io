@@ -2,7 +2,7 @@ import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 
 test.describe('Header', () => {
-  test('Section is visible and contains working links',
+  test('Is visible and contains working links',
     {
       tag: '@regression',
     },
@@ -28,7 +28,7 @@ test.describe('Header', () => {
     }
   );
 
-  test('Verify click on logo functionality',
+  test('Verify "click on logo functionality"',
     {
       tag: '@smoke',
     },

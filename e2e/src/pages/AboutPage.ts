@@ -11,11 +11,11 @@ export default class AboutPage extends BasePage {
   }
 
   get image(): Locator {
-    return this.page.locator('.about-description');
+    return this.page.locator('.author-picture');
   }
 
   get contactMe(): Locator {
-    return this.page.locator('contact-me');
+    return this.page.locator('#contact-me');
   }
 
   get textInfo(): Locator {
