@@ -16,7 +16,6 @@ test.describe('About Page', () => {
       await expect(aboutPage.title).toBeVisible();
       await expect(aboutPage.image).toBeVisible();
       await expect(aboutPage.contactMe).toBeVisible();
-      await expect(aboutPage.textInfo).areVisible();
 
       const links = await utils.getLinks(
         aboutPage.allLinks,

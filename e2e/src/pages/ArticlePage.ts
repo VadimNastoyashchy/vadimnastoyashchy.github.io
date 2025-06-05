@@ -1,12 +1,32 @@
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import BasePage from '../base/BasePage';
-import ArticleContent from '../components/ArticleContent';
 
 export default class ArticlePage extends BasePage {
-  public articleContent: ArticleContent;
-
   constructor(page: Page) {
     super(page);
-    this.articleContent = new ArticleContent(page);
+  }
+
+  get title(): Locator {
+    return this.page.locator('#page-title');
+  }
+
+  public async getTitleText(): Promise<string> {
+    return await this.title.innerText();
+  }
+
+  public async titleIsVisible(): Promise<boolean> {
+    return this.title.isVisible();
+  }
+
+  public async getDate(): Promise<string> {
+    return await this.page.locator('.byline-item').nth(0).innerText();
+  }
+
+  public async getReadTime(): Promise<string> {
+    return this.page.locator('.byline-item').nth(1).innerText();
+  }
+
+  public async getAllImages(): Promise<Locator> {
+    return this.page.locator('img');
   }
 }

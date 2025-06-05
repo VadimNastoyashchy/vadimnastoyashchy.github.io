@@ -2,10 +2,11 @@ import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 
 test.describe('Post', () => {
-  test.beforeEach(async ({ homePage}) => {
+  test.beforeEach(async ({ homePage }) => {
     await homePage.open();
   });
-  test('Verify user can open and read latest post',
+  test(
+    'Verify user can open and read latest post',
     {
       tag: ['@regression', '@smoke'],
     },
@@ -26,23 +27,16 @@ test.describe('Post', () => {
       await homePage.postsPreview.clickOnReadMore();
       expect(await articlePage.getPageUrl()).toContain(pageUrlFromReadMoreLink);
 
-      expect(await articlePage.articleContent.getTitleText()).toEqual(
-        titlePreviewData
-      );
-      expect(await articlePage.articleContent.getDate()).toEqual(
-        datePreviewData
-      );
-      expect(await articlePage.articleContent.getReadTime()).toEqual(
-        readTimePreviewData
-      );
+      expect(await articlePage.getTitleText()).toEqual(titlePreviewData);
+      expect(await articlePage.getDate()).toEqual(datePreviewData);
+      expect(await articlePage.getReadTime()).toEqual(readTimePreviewData);
 
-      await expect(
-        await articlePage.articleContent.getAllImages()
-      ).areVisible();
+      await expect(await articlePage.getAllImages()).areVisible();
     }
   );
 
-  test('Ensure the home page displays preview posts with correctly functioning links',
+  test(
+    'Ensure the home page displays preview posts with correctly functioning links',
     {
       tag: ['@regression', '@smoke'],
     },

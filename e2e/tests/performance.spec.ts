@@ -77,8 +77,7 @@ test.describe('Website Performance Tests', () => {
       await assertPerformanceStep(
         async () => {
           await homePage.postsPreview.clickOnReadMore();
-          const titleVisible =
-            await articlePage.articleContent.titleIsVisible();
+          const titleVisible = await articlePage.titleIsVisible();
           expect(titleVisible).toBe(true);
         },
         'SinglePostLoad',

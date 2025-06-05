@@ -18,11 +18,7 @@ export default class AboutPage extends BasePage {
     return this.page.locator('#contact-me');
   }
 
-  get textInfo(): Locator {
-    return this.page.locator('a[href="/contact"]');
-  }
-
   get allLinks(): Locator {
-    return this.page.locator('.entry-content a');
+    return this.page.locator('#main a');
   }
 }
