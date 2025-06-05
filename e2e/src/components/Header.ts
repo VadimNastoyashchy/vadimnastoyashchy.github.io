@@ -37,8 +37,4 @@ export default class Header extends BaseComponent {
   public async fillSearchInput(searchText: string): Promise<void> {
     await this.searchInput.fill(searchText);
   }
-
-  public async submitSearch(): Promise<void> {
-    await this.searchInput.press('Enter');
-  }
 }

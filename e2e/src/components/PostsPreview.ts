@@ -23,7 +23,7 @@ export default class PostsPreview extends BaseComponent {
   }
 
   public async getLatestPost(): Promise<Locator> {
-    return this.allPosts.nth(0);
+    return this.allPosts.first();
   }
 
   public async title(): Promise<Locator> {

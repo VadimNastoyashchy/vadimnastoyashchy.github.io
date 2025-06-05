@@ -10,7 +10,7 @@ test.describe('Pagination', () => {
       await homePage.open();
 
       await expect(homePage.postsPreview.allPosts).areVisible();
-      await homePage.pagination.paginationSection.isVisible();
+      await homePage.pagination.container.isVisible();
       await homePage.pagination.olderButton.isVisible();
 
       const olderButtonUrl = await utils.getHrefFromLink(

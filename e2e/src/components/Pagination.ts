@@ -6,16 +6,16 @@ export default class Pagination extends BaseComponent {
     super(page);
   }
 
-  get paginationSection(): Locator {
+  get container(): Locator {
     return this.page.locator('nav.pager');
   }
 
   get olderButton(): Locator {
-    return this.page.locator('nav.pager a.next');
+    return this.container.locator('a.next');
   }
 
   get newerButton(): Locator {
-    return this.page.locator('nav.pager a.previous');
+    return this.container.locator('a.previous');
   }
 
   public async clickOnOlderButton(): Promise<void> {

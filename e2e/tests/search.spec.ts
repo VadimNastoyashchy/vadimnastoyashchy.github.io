@@ -13,7 +13,6 @@ test.describe('Search', () => {
 
       await homePage.header.fillSearchInput(inputText);
       await expect(homePage.header.searchInput).toHaveValue(inputText);
-      await homePage.header.submitSearch();
 
       await expect(homePage.postsPreview.searchResultPosts).areVisible();
       await homePage.postsPreview.getSearchResults(inputText);
