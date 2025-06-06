@@ -2,23 +2,12 @@ import { Page, Locator } from '@playwright/test';
 import BasePage from '../base/BasePage';
 
 export default class AboutPage extends BasePage {
+  public title: Locator = this.page.locator('#hi-im-vadym');
+  public image: Locator = this.page.locator('.author-picture');
+  public contactMe: Locator = this.page.locator('#contact-me');
+  public allLinks: Locator = this.page.locator('#main a');
+
   constructor(page: Page) {
     super(page);
-  }
-
-  get title(): Locator {
-    return this.page.locator('#hi-im-vadym');
-  }
-
-  get image(): Locator {
-    return this.page.locator('.author-picture');
-  }
-
-  get contactMe(): Locator {
-    return this.page.locator('#contact-me');
-  }
-
-  get allLinks(): Locator {
-    return this.page.locator('#main a');
   }
 }

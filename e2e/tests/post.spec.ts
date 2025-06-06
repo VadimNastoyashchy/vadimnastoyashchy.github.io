@@ -11,27 +11,26 @@ test.describe('Post', () => {
       tag: ['@regression', '@smoke'],
     },
     async ({ homePage, articlePage }) => {
-      (await homePage.postsPreview.title()).isVisible();
-      (await homePage.postsPreview.description()).isVisible();
-      (await homePage.postsPreview.keywords()).isVisible();
-      (await homePage.postsPreview.image()).isVisible();
-      (await homePage.postsPreview.date()).isVisible();
-      (await homePage.postsPreview.readTime()).isVisible();
+      expect(await homePage.postsPreview.title).toBeVisible();
+      expect(await homePage.postsPreview.description).toBeVisible();
+      expect(await homePage.postsPreview.keywords).toBeVisible();
+      expect(await homePage.postsPreview.image).toBeVisible();
+      expect(await homePage.postsPreview.date).toBeVisible();
+      expect(await homePage.postsPreview.readTime).toBeVisible();
 
-      const titlePreviewData = await homePage.postsPreview.getTitle();
-      const datePreviewData = await homePage.postsPreview.getDate();
-      const readTimePreviewData = await homePage.postsPreview.getReadTime();
-      const pageUrlFromReadMoreLink =
+      const previewTitle = await homePage.postsPreview.getTitleText();
+      const previewDate = await homePage.postsPreview.getDateText();
+      const previewReadTime = await homePage.postsPreview.getReadTimeText();
+      const readMoreLink =
         await homePage.postsPreview.getPageUrlFromReadMoreLink();
 
       await homePage.postsPreview.clickOnReadMore();
-      expect(await articlePage.getPageUrl()).toContain(pageUrlFromReadMoreLink);
 
-      expect(await articlePage.getTitleText()).toEqual(titlePreviewData);
-      expect(await articlePage.getDate()).toEqual(datePreviewData);
-      expect(await articlePage.getReadTime()).toEqual(readTimePreviewData);
-
-      await expect(await articlePage.getAllImages()).areVisible();
+      expect(await articlePage.getPageUrl()).toContain(readMoreLink);
+      expect(await articlePage.getTitleText()).toEqual(previewTitle);
+      expect(await articlePage.getDate()).toEqual(previewDate);
+      expect(await articlePage.getReadTime()).toEqual(previewReadTime);
+      await expect(await articlePage.images).areVisible();
     }
   );
 

@@ -41,7 +41,7 @@ test.describe('Website Performance Tests', () => {
     async ({ homePage, page }) => {
       await assertPerformanceStep(
         async () => {
-          const images = homePage.postsPreview.getAllImages();
+          const images = homePage.postsPreview.images;
           const count = await images.count();
           for (let i = 0; i < count; i++) {
             await expect(images.nth(i)).toBeVisible();

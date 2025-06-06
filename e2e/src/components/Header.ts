@@ -2,24 +2,13 @@ import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class Header extends BaseComponent {
+  public burgerMenu: Locator = this.page.locator('.navicon-button');
+  public logo: Locator = this.page.locator('.site-title a[href="/"]');
+  public search: Locator = this.page.locator('.search-toggle');
+  public searchInput: Locator = this.page.locator('.search-input');
+
   constructor(page: Page) {
     super(page);
-  }
-
-  get burgerMenu(): Locator {
-    return this.page.locator('.navicon-button');
-  }
-
-  get logo(): Locator {
-    return this.page.locator('.site-title a[href="/"]');
-  }
-
-  get search(): Locator {
-    return this.page.locator('.search-toggle');
-  }
-
-  get searchInput(): Locator {
-    return this.page.locator('.search-input');
   }
 
   public async clickOnBurgerMenu(): Promise<void> {
