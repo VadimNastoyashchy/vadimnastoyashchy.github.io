@@ -2,7 +2,7 @@ import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class Pagination extends BaseComponent {
-  private container: Locator = this.page.locator('nav.pager');
+  public container: Locator = this.page.locator('nav.pager');
   public olderButton: Locator = this.container.locator('a.next');
   public newerButton: Locator = this.container.locator('a.previous');
 

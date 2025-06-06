@@ -1,27 +1,30 @@
 import { Locator, expect, APIRequestContext, request } from '@playwright/test';
 
+export async function getHrefFromLink(
+  locator: Locator
+): Promise<null | string> {
+  return await locator.getAttribute('href');
+}
+
 export async function getLinks(
-  allReadMoreLinks: Locator,
+  locator: Locator,
   PageURL: string
 ): Promise<Set<string>> {
-  const links = allReadMoreLinks.getByRole('link');
-  const allLinks = await links.all();
-  const allhrefs = await Promise.all(
-    allLinks.map((link) => link.getAttribute('href'))
-  );
-  const allValidHrefs = allhrefs.reduce((links, link) => {
+  const links = await locator.getByRole('link').all();
+  const hrefs = await Promise.all(links.map((link) => getHrefFromLink(link)));
+  const validHrefs = hrefs.reduce((links, link) => {
     expect.soft(link).toBeTruthy();
     if (link && !link?.startsWith('mailto:') && !link?.startsWith('#')) {
       links.add(new URL(link, PageURL).href);
     }
     return links;
   }, new Set<string>());
-  return allValidHrefs;
+  return validHrefs;
 }
 
-export async function verifyLinks(linksUrls: Set<string>): Promise<void> {
+export async function verifyLinks(urls: Set<string>): Promise<void> {
   const apiRequestContext: APIRequestContext = await request.newContext();
-  for (const url of linksUrls) {
+  for (const url of urls) {
     try {
       const response = await apiRequestContext.get(url);
       const isSuccessful = response.ok() || response.status() === 999;
@@ -32,11 +35,4 @@ export async function verifyLinks(linksUrls: Set<string>): Promise<void> {
       expect.soft(false, `Failed to fetch URL ${url}: ${error}`).toBeTruthy();
     }
   }
-}
-
-export async function getHrefFromLink(
-  locator: Locator
-): Promise<null | string> {
-  const href = await locator.getAttribute('href');
-  return href;
 }
