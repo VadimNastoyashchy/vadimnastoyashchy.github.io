@@ -11,12 +11,12 @@ test.describe('Post', () => {
       tag: ['@regression', '@smoke'],
     },
     async ({ homePage, articlePage }) => {
-      expect(await homePage.postsPreview.title).toBeVisible();
-      expect(await homePage.postsPreview.description).toBeVisible();
-      expect(await homePage.postsPreview.keywords).toBeVisible();
-      expect(await homePage.postsPreview.image).toBeVisible();
-      expect(await homePage.postsPreview.date).toBeVisible();
-      expect(await homePage.postsPreview.readTime).toBeVisible();
+      await expect(homePage.postsPreview.title).toBeVisible();
+      await expect(homePage.postsPreview.description).toBeVisible();
+      await expect(homePage.postsPreview.keywords).toBeVisible();
+      await expect(homePage.postsPreview.image).toBeVisible();
+      await expect(homePage.postsPreview.date).toBeVisible();
+      await expect(homePage.postsPreview.readTime).toBeVisible();
 
       const previewTitle = await homePage.postsPreview.getTitleText();
       const previewDate = await homePage.postsPreview.getDateText();
