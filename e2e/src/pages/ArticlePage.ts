@@ -1,12 +1,16 @@
 import { Page, Locator } from '@playwright/test';
 import BasePage from '../base/BasePage';
+import Mailchimp from '../components/Mailchimp';
 
 export default class ArticlePage extends BasePage {
+  public mailchimp: Mailchimp;
+
   public title: Locator = this.page.locator('#page-title');
   public images: Locator = this.page.locator('img');
 
   constructor(page: Page) {
     super(page);
+    this.mailchimp = new Mailchimp(page);
   }
 
   public async getTitleText(): Promise<string> {
