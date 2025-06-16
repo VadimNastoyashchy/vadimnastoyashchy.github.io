@@ -2,7 +2,7 @@ import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 
 test.describe('Footer', () => {
-  test('Section is visible and contains working links',
+  test('Is visible and contains working links',
     {
       tag: '@regression',
     },

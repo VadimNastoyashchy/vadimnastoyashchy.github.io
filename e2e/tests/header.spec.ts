@@ -2,7 +2,8 @@ import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 
 test.describe('Header', () => {
-  test('Section is visible and contains working links',
+  test(
+    'Is visible and contains working links',
     {
       tag: '@regression',
     },
@@ -11,9 +12,9 @@ test.describe('Header', () => {
 
       await homePage.open();
 
-      await homePage.header.burgerMenu.isVisible();
-      await homePage.header.logo.isVisible();
-      await homePage.header.search.isVisible();
+      await expect(homePage.header.burgerMenu).toBeVisible();
+      await expect(homePage.header.logo).toBeVisible();
+      await expect(homePage.header.search).toBeVisible();
 
       await homePage.header.clickOnSearch();
       await homePage.header.fillSearchInput(inputText);
@@ -23,12 +24,14 @@ test.describe('Header', () => {
       expect(await homePage.getPageUrl()).toBe(page.url());
 
       await homePage.header.clickOnBurgerMenu();
-      await homePage.sideMenu.container.isVisible();
+
+      await expect(homePage.sideMenu.container).toBeVisible();
       await expect(homePage.sideMenu.links).areVisible();
     }
   );
 
-  test('Verify click on logo functionality',
+  test(
+    'Verify "click on logo functionality"',
     {
       tag: '@smoke',
     },

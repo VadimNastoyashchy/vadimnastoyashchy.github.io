@@ -2,47 +2,40 @@ import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 
 test.describe('Post', () => {
-  test.beforeEach(async ({ homePage}) => {
+  test.beforeEach(async ({ homePage }) => {
     await homePage.open();
   });
-  test('Verify user can open and read latest post',
+  test(
+    'Verify user can open and read latest post',
     {
       tag: ['@regression', '@smoke'],
     },
     async ({ homePage, articlePage }) => {
-      (await homePage.postsPreview.title()).isVisible();
-      (await homePage.postsPreview.description()).isVisible();
-      (await homePage.postsPreview.keywords()).isVisible();
-      (await homePage.postsPreview.image()).isVisible();
-      (await homePage.postsPreview.date()).isVisible();
-      (await homePage.postsPreview.readTime()).isVisible();
+      await expect(homePage.postsPreview.title).toBeVisible();
+      await expect(homePage.postsPreview.description).toBeVisible();
+      await expect(homePage.postsPreview.keywords).toBeVisible();
+      await expect(homePage.postsPreview.image).toBeVisible();
+      await expect(homePage.postsPreview.date).toBeVisible();
+      await expect(homePage.postsPreview.readTime).toBeVisible();
 
-      const titlePreviewData = await homePage.postsPreview.getTitle();
-      const datePreviewData = await homePage.postsPreview.getDate();
-      const readTimePreviewData = await homePage.postsPreview.getReadTime();
-      const pageUrlFromReadMoreLink =
+      const previewTitle = await homePage.postsPreview.getTitleText();
+      const previewDate = await homePage.postsPreview.getDateText();
+      const previewReadTime = await homePage.postsPreview.getReadTimeText();
+      const readMoreLink =
         await homePage.postsPreview.getPageUrlFromReadMoreLink();
 
       await homePage.postsPreview.clickOnReadMore();
-      expect(await articlePage.getPageUrl()).toContain(pageUrlFromReadMoreLink);
 
-      expect(await articlePage.articleContent.getTitle()).toEqual(
-        titlePreviewData
-      );
-      expect(await articlePage.articleContent.getDate()).toEqual(
-        datePreviewData
-      );
-      expect(await articlePage.articleContent.getReadTime()).toEqual(
-        readTimePreviewData
-      );
-
-      await expect(
-        await articlePage.articleContent.getAllImages()
-      ).areVisible();
+      expect(await articlePage.getPageUrl()).toContain(readMoreLink);
+      expect(await articlePage.getTitleText()).toEqual(previewTitle);
+      expect(await articlePage.getDate()).toEqual(previewDate);
+      expect(await articlePage.getReadTime()).toEqual(previewReadTime);
+      await expect(await articlePage.images).areVisible();
     }
   );
 
-  test('Ensure the home page displays preview posts with correctly functioning links',
+  test(
+    'Ensure the home page displays preview posts with correctly functioning links',
     {
       tag: ['@regression', '@smoke'],
     },

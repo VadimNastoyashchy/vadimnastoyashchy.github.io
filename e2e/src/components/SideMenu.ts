@@ -2,24 +2,13 @@ import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class SideMenu extends BaseComponent {
+  public container: Locator = this.page.locator('#sidebar');
+  public links: Locator = this.container.locator('a');
+  public aboutLink: Locator = this.container.locator('.menu-item a[href="/about"]');
+  public homeLink: Locator = this.container.locator('.menu-item a[href="/"]');
+
   constructor(page: Page) {
     super(page);
-  }
-
-  get container(): Locator {
-    return this.page.locator('#sidebar');
-  }
-
-  get links(): Locator {
-    return this.page.locator('#sidebar a');
-  }
-
-  get aboutLink(): Locator {
-    return this.page.locator('.menu-item a[href="/about"]');
-  }
-
-  get homeLink(): Locator {
-    return this.page.locator('.menu-item a[href="/"]');
   }
 
   public async clickOnAboutLink(): Promise<void> {

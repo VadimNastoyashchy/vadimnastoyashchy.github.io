@@ -8,7 +8,7 @@ export default class HomePage extends BasePage {
   public pagination: Pagination;
 
   constructor(page: Page) {
-    super(page, 'Home Page', '');
+    super(page);
     this.postsPreview = new PostsPreview(page);
     this.pagination = new Pagination(page);
   }
