@@ -161,14 +161,6 @@ npx scripterio --file="api-test.js"
 yarn scripterio --file="api-test.js"  
 ```
 
-or 
-
-```bash
-npx scripterio --folder="api-test.js"
-# or
-yarn scripterio --folder="api-test.js"  
-```
-
 ### Generating Detailed Reports
 
 ScripterI/O offers reporting functionality, including an HTML report. To generate an HTML report, use the **--reporter=html** flag:
