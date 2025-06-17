@@ -3,8 +3,8 @@ title: "Performing API Testing Using ScripterI/O as a JavaScript Test Runner"
 image: /assets/images/posts/2025-06-17-scripterio-js-test-runner-api-tests/logo.png
 excerpt: "API (Application Programming Interface) testing is an integral part of modern software development processes. It involves testing the interactions between different software components through endpoints and validating their behavior against expected outcomes. Unlike UI testing, API testing focuses exclusively on backend functionality...
 "
-date: 2025-06-17 20:00:00 +01:00
-last_modified_at: 2025-06-17 20:00:00 +01:00
+date: 2025-06-17 09:00:00 +01:00
+last_modified_at: 2025-06-17 09:00:00 +01:00
 tags:
   - JavaScript
   - ScripterI/O
