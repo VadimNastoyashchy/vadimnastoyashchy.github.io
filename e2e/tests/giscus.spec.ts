@@ -8,6 +8,9 @@ test.describe('Giscus integration', () => {
   });
   test(
     'Is loaded and displays elements',
+    {
+      tag: '@regression',
+    },
     async ({ articlePage }) => {
       await expect(articlePage.giscusComments.reactionsCount).toBeVisible();
       await expect(articlePage.giscusComments.commentsCount).toBeVisible();
@@ -20,6 +23,9 @@ test.describe('Giscus integration', () => {
   );
   test(
     'Signed out user should not be able to leave reactions and comments',
+    {
+      tag: '@regression',
+    },
     async ({ articlePage }) => {
       await articlePage.giscusComments.clickOnReactionsButton();
 
