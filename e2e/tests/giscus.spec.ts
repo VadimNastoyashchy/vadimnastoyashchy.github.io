@@ -24,7 +24,7 @@ test.describe('Giscus integration', () => {
       await articlePage.giscusComments.clickOnReactionsButton();
 
       await expect(articlePage.giscusComments.reactionsPopover).toBeVisible();
-      await expect(articlePage.giscusComments.reactionsPopoverMessage).toHaveSplitText('Sign in to add your reaction.');
+      await expect(articlePage.giscusComments.reactionsPopoverMessage).toHaveText('Sign in to add your reaction.');
       await expect(articlePage.giscusComments.reactionsEmojiButtons).areDisabled();
       await expect(articlePage.giscusComments.commentInputBox).toBeDisabled();
       await expect(articlePage.giscusComments.commentInputBox).toHaveAttribute('placeholder', 'Sign in to comment');
