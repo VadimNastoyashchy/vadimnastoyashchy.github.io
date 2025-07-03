@@ -56,4 +56,45 @@ export const expect = baseExpect.extend({
       actual: matcherResult?.actual,
     };
   },
+
+  async areDisabled(locator: Locator) {
+    const assertionName: string = 'areDisabled';
+    const pass: boolean = true;
+
+    const count: number = await locator.count();
+
+    if (count === 0) {
+      return {
+        message: (): string =>
+          `expect(locator).areDisabled()\n\n` +
+          `Expected at least one element, but locator matched zero.`,
+        pass: false,
+        name: assertionName,
+      };
+    }
+
+    for (let i = 0; i < count; i++) {
+      const element: Locator = locator.nth(i);
+      const disabled: boolean = await element.isDisabled();
+
+      if (!disabled) {
+        const html: string = await element.evaluate(el => el.outerHTML);
+
+        return {
+          message: (): string =>
+          `expect(locator).areDisabled()\n\n` +
+          `Expected all ${count} elements to be disabled,\n` +
+          `but found an enabled element:\n\n${html}`,
+          pass: false,
+          name: assertionName,
+        };
+      }
+    }
+
+    return {
+      message: (): string => '',
+      pass,
+      name: assertionName,
+    };
+  }
 });
