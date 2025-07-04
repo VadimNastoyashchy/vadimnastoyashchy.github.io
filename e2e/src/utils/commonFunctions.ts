@@ -40,3 +40,30 @@ export async function verifyLinks(urls: Set<string>): Promise<void> {
 export function getSearchParamsFromUrl(url: string, param: string): string | null {
   return new URL(url).searchParams.get(param);
 }
+
+export function areRelatedPostLinksCorrect(
+  recentPostUrls: Set<string>,
+  relatedPostUrls: Set<string>,
+  currentPostUrl: string
+): boolean {
+  const recentPosts = [...recentPostUrls];
+  const relatedPosts = [...relatedPostUrls];
+
+  let relatedIndex = 0;
+
+  for (let i = 0; relatedIndex < 3; i++) {
+    const url = recentPosts[i];
+
+    if (url === currentPostUrl) {
+      continue;
+    }
+
+    if (url !== relatedPosts[relatedIndex]) {
+      return false;
+    }
+
+    relatedIndex++;
+  }
+
+  return true;
+}
