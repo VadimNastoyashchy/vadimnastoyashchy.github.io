@@ -12,7 +12,7 @@ permalink: /tags/
 <div id="tags-list">
 {% for tag in site.tags %}
   {% assign tag_name = tag | first %}
-  {% assign tag_name_pretty = tag_name | replace: " ", "-" | replace: "/", "-" | downcase %}
+  {% assign tag_name_pretty = tag_name | replace: " ", "-" | downcase %}
   <div class="tag-list" id="{{ tag_name_pretty | slugize }}">
     <h3 class="post-list-heading line-bottom"> #{{ tag_name }}: </h3>
     <a name="{{ tag_name | slugize }}"></a>

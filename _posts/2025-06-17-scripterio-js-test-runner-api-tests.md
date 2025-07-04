@@ -7,7 +7,7 @@ date: 2025-06-17 09:00:00 +01:00
 last_modified_at: 2025-06-17 09:00:00 +01:00
 tags:
   - JavaScript
-  - ScripterI/O
+  - Scripterio
 ---
 
 ![_config.yml]({{ site.url }}/assets/images/posts/2025-06-17-scripterio-js-test-runner-api-tests/logo.png){: .align-center .border .max-width-600px}
