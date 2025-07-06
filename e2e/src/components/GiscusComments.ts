@@ -2,7 +2,7 @@ import { FrameLocator, Locator, Page } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
 
 export default class GiscusComments extends BaseComponent {
-  public container: Locator = this.page.locator('.giscus');
+  private readonly container: Locator = this.page.locator('.giscus');
   public frame: FrameLocator = this.page.frameLocator('iframe.giscus-frame');
   public reactionsCount: Locator = this.frame.locator('.gsc-reactions-count');
   public reactionsButton: Locator = this.frame.locator('summary[aria-label="Add reactions"]');
