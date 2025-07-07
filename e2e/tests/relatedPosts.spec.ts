@@ -20,13 +20,12 @@ test.describe('Related posts section', () => {
       await expect(articlePage.relatedPosts.postLinks).areVisible();
       await expect(articlePage.relatedPosts.postLinks).toHaveCount(3);
 
-      const pageUrl = await articlePage.getPageUrl();
       const relatedPostUrls =  await utils.getLinks(
         articlePage.relatedPosts.postLinks,
-        pageUrl
+        await articlePage.getPageUrl()
       );
 
-      await expect(utils.areRelatedPostLinksCorrect(recentPostUrls, relatedPostUrls, pageUrl)).toBeTruthy();
+      await utils.areRelatedPostLinksCorrect([...recentPostUrls], [...relatedPostUrls]);
       await utils.verifyLinks(relatedPostUrls);
     }
   );

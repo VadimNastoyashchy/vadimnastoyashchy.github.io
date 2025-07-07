@@ -42,28 +42,10 @@ export function getSearchParamsFromUrl(url: string, param: string): string | nul
 }
 
 export function areRelatedPostLinksCorrect(
-  recentPostUrls: Set<string>,
-  relatedPostUrls: Set<string>,
-  currentPostUrl: string
-): boolean {
-  const recentPosts = [...recentPostUrls];
-  const relatedPosts = [...relatedPostUrls];
-
-  let relatedIndex = 0;
-
-  for (let i = 0; relatedIndex < 3; i++) {
-    const url = recentPosts[i];
-
-    if (url === currentPostUrl) {
-      continue;
-    }
-
-    if (url !== relatedPosts[relatedIndex]) {
-      return false;
-    }
-
-    relatedIndex++;
-  }
-
-  return true;
+  recentPostUrls: Array<string>,
+  relatedPostUrls: Array<string>
+): void {
+  relatedPostUrls.forEach((url, i) => {
+    expect(url).toEqual(recentPostUrls[i + 1]);
+  });
 }
