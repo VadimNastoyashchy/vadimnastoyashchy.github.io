@@ -14,7 +14,7 @@ test.describe('Search', () => {
 
       await homePage.header.fillSearchInput(inputText);
       await expect(homePage.header.searchInput).toHaveValue(inputText);
-      await expect(
+      expect(
         (await homePage.postsPreview.getSearchResults(inputText)).length
       ).toBeGreaterThan(0);
     }
