@@ -2,7 +2,7 @@ import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 
 test.describe('Related posts section', () => {
-  test(
+  test.only(
     'Is visible on the page and contains working links to the 3 most recent post',
     {
       tag: '@regression',
@@ -25,7 +25,10 @@ test.describe('Related posts section', () => {
         await articlePage.getPageUrl()
       );
 
-      await utils.areRelatedPostLinksCorrect([...recentPostUrls], [...relatedPostUrls]);
+        [...relatedPostUrls].forEach((url, i) => {
+          expect(url).toEqual([...recentPostUrls][++i]);
+        });
+
       await utils.verifyLinks(relatedPostUrls);
     }
   );
