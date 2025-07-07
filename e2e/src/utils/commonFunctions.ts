@@ -37,6 +37,9 @@ export async function verifyLinks(urls: Set<string>): Promise<void> {
   }
 }
 
-export function getSearchParamsFromUrl(url: string, param: string): string | null {
+export function getSearchParamsFromUrl(
+  url: string,
+  param: string
+): string | null {
   return new URL(url).searchParams.get(param);
 }

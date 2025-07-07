@@ -21,7 +21,7 @@ export default abstract class BasePage {
   }
 
   public async getPageUrl(): Promise<string> {
-    return await this.page.url();
+    return this.page.url();
   }
 
   public async open(): Promise<void> {

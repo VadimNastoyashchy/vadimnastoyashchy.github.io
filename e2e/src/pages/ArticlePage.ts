@@ -2,10 +2,12 @@ import { Page, Locator } from '@playwright/test';
 import BasePage from '../base/BasePage';
 import Mailchimp from '../components/Mailchimp';
 import GiscusComments from '../components/GiscusComments';
+import RelatedPosts from '../components/RelatedPosts';
 
 export default class ArticlePage extends BasePage {
   public mailchimp: Mailchimp;
   public giscusComments: GiscusComments;
+  public relatedPosts: RelatedPosts;
 
   public title: Locator = this.page.locator('#page-title');
   public images: Locator = this.page.locator('img');
@@ -14,6 +16,7 @@ export default class ArticlePage extends BasePage {
     super(page);
     this.mailchimp = new Mailchimp(page);
     this.giscusComments = new GiscusComments(page);
+    this.relatedPosts = new RelatedPosts(page);
   }
 
   public async getTitleText(): Promise<string> {

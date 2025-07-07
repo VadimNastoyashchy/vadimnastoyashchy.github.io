@@ -1,3 +1,4 @@
+/* eslint-disable playwright/no-standalone-expect */
 import { test as base, expect as baseExpect, Locator } from '@playwright/test';
 import AboutPage from '../pages/AboutPage';
 import HomePage from '../pages/HomePage';

@@ -1,3 +1,4 @@
+/* eslint-disable playwright/no-networkidle */
 import { test, expect } from '../src/fixtures/FixtureConfigs';
 import {
   measurePerformance,
