@@ -4,12 +4,14 @@ import AboutPage from '../pages/AboutPage';
 import HomePage from '../pages/HomePage';
 import ArticlePage from '../pages/ArticlePage';
 import AxeBuilder from '@axe-core/playwright';
+import TagArchivePage from '../pages/TagArchivePage';
 
 type MyFixtures = {
   aboutPage: AboutPage;
   homePage: HomePage;
   articlePage: ArticlePage;
   axeBuilder: AxeBuilder;
+  tagArchivePage: TagArchivePage;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -27,6 +29,10 @@ export const test = base.extend<MyFixtures>({
   },
   axeBuilder: async ({ page }, use) => {
     await use(new AxeBuilder({ page }));
+  },
+  tagArchivePage: async ({ page }, use) => {
+    const tagArchivePage = new TagArchivePage(page);
+    await use(tagArchivePage);
   },
 });
 

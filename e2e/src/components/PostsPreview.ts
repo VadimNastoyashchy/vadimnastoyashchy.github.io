@@ -55,4 +55,12 @@ export default class PostsPreview extends BaseComponent {
       .locator(`.entry-title:has-text("${searchText}")`)
       .all();
   }
+
+  public async getTagLinks(): Promise<Locator[]> {
+    return await this.keywords.locator('[rel="tag"]').all();
+  }
+
+  public async getFirstTagLink(): Promise<Locator> {
+    return this.keywords.locator('[rel="tag"]').nth(0);
+  }
 }
