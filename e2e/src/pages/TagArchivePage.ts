@@ -16,11 +16,11 @@ export default class TagArchivePage extends BasePage {
   }
 
   public async getTagRelatedPosts(tag: Locator): Promise<Locator> {
-    return await tag.locator('.post-list li');
+    return tag.locator('.post-list li');
   }
 
   public async getOtherTagNames(): Promise<Locator> {
-    return await this.otherTagsContainer.locator('.post-list-heading');
+    return this.otherTagsContainer.locator('.post-list-heading');
   }
 
   public async getAllTags(): Promise<Locator[]> {
