@@ -2,28 +2,29 @@ import { Page, Locator } from '@playwright/test';
 import BasePage from '../base/BasePage';
 
 export default class TagArchivePage extends BasePage {
+  private readonly youMayAlsoLikeContainer: Locator = this.page.locator('#you-may-also-like');
+
   public title: Locator = this.page.locator('#page-title');
   public subTitle: Locator = this.page.getByText('Search through all of my posts by tag!');
-  private readonly currentTagContainer: Locator = this.page.locator('#tags-list');
-  public currentTag: Locator = this.currentTagContainer.locator('.highlighted-tag');
-  public currentTagName: Locator = this.currentTag.locator('.post-list-heading');
-  private readonly otherTagsContainer: Locator = this.page.locator('#you-may-also-like');
-  public otherTagsSectionTitle: Locator = this.otherTagsContainer.getByText('You may also like:');
-  public otherTags: Locator = this.otherTagsContainer.locator('.tag-list');
+  public selectedTag: Locator = this.page.locator('#tags-list .post-list-heading');
+  public otherTags: Locator = this.youMayAlsoLikeContainer.locator('.post-list-heading');
+  public youMayAlsoLikeHeading: Locator = this.youMayAlsoLikeContainer.getByText('You may also like:');
 
   constructor(page: Page) {
     super(page);
   }
 
   public async getTagRelatedPosts(tag: Locator): Promise<Locator> {
-    return tag.locator('.post-list li');
+    return tag.locator('xpath=following-sibling::ul[1]/li');
   }
 
-  public async getOtherTagNames(): Promise<Locator> {
-    return this.otherTagsContainer.locator('.post-list-heading');
+  public async getTagRelatedPostDates(posts: Locator): Promise<Locator> {
+    return posts.locator('i');
   }
 
-  public async getAllTags(): Promise<Locator[]> {
-    return await this.page.locator('.tag-list').all();
+  public async getDateTimestamps(dates: Locator): Promise<number[]> {
+    const dateTexts = await dates.allTextContents();
+
+    return dateTexts.map(date => new Date(date).getTime());
   }
 }

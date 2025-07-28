@@ -103,5 +103,24 @@ export const expect = baseExpect.extend({
       pass,
       name: assertionName,
     };
+  },
+
+  async toBeSortedDescending(received: number[]) {
+    const assertionName: string = 'toBeSortedDescending';
+
+    const isSorted = received.every((el, i, arr) => i === 0 || arr[i - 1] >= el);
+
+    const message = isSorted
+    ? (): string => ''
+    : (): string =>
+      `expect(locator).toBeSortedDescending()\n\n` +
+      `Expected array to be sorted in descending order,\n` +
+      `but got: [${received.join(', ')}]`;
+
+    return {
+      pass: isSorted,
+      message,
+      name: assertionName,
+    };
   }
 });

@@ -56,11 +56,15 @@ export default class PostsPreview extends BaseComponent {
       .all();
   }
 
-  public async getTagLinks(): Promise<Locator[]> {
+  public async getTags(): Promise<Locator[]> {
     return await this.keywords.locator('[rel="tag"]').all();
   }
 
-  public async getFirstTagLink(): Promise<Locator> {
-    return this.keywords.locator('[rel="tag"]').nth(0);
+  public async getTagName(tag: Locator): Promise<string> {
+    return await tag.innerText();
+  }
+
+  public async clickOnTag(tag: Locator): Promise<void> {
+    await tag.click();
   }
 }

@@ -6,88 +6,57 @@ test.describe('Tag archive', () => {
   });
 
   test(
-    'Verify user can open each tag archive from a recent post and see the expected content',
+    'User can open each tag archive from recent posts and see correct content',
     {
       tag: '@regression',
     },
     async ({ homePage, tagArchivePage, page }) => {
-      const tagLinks = await homePage.postsPreview.getTagLinks();
+      const tags = await homePage.postsPreview.getTags();
 
-      for (const tagLink of tagLinks) {
-        const tagName = await tagLink.innerText();
+      for (const tag of tags) {
+        const expectedTagName = await homePage.postsPreview.getTagName(tag);
 
-        await test.step(`Test for ${tagName} tag`, async () => {
-          await tagLink.click();
-          await expect(tagArchivePage.title).toHaveText('Tag Archive');
-          await expect(tagArchivePage.subTitle).toBeVisible();
+        await test.step(`Test for ${expectedTagName} tag`, async () => {
+          await homePage.postsPreview.clickOnTag(tag);
 
-          const currentTag = await tagArchivePage.currentTag;
+          await test.step(
+            'Main section displays the page title, subtitle, and selected tag',
+            async () => {
+              await expect(tagArchivePage.title).toHaveText('Tag Archive');
+              await expect(tagArchivePage.subTitle).toBeVisible();
+              await expect(tagArchivePage.selectedTag).toBeVisible();
+              await expect(tagArchivePage.selectedTag).toContainText(expectedTagName);
+            });
 
-          await expect(tagArchivePage.currentTagName).toContainText(tagName);
-          await expect(await tagArchivePage.getTagRelatedPosts(currentTag)).areVisible();
-          await expect(tagArchivePage.otherTagsSectionTitle).toBeVisible();
-          await expect(tagArchivePage.otherTags).areVisible();
+          await test.step(
+            'Selected tag shows at least one related post with its publish date, ordered from most recent to oldest.',
+            async () => {
+              const tagRelatedPosts = await tagArchivePage.getTagRelatedPosts(tagArchivePage.selectedTag);
+              const tagRelatedPostDates = await tagArchivePage.getTagRelatedPostDates(tagRelatedPosts);
+              const dateTimestamps = await tagArchivePage.getDateTimestamps(tagRelatedPostDates);
+              const numberOfTags = await tagRelatedPosts.count();
+
+              expect(numberOfTags).toBeGreaterThan(0);
+              expect(numberOfTags).toEqual(await tagRelatedPostDates.count());
+              expect(dateTimestamps).toBeSortedDescending();
+            });
+
+          await test.step(
+            '"You may also like" section shows only tags excluding selected tag',
+            async () => {
+              await expect(tagArchivePage.youMayAlsoLikeHeading).toBeVisible();
+
+              const otherTags = await tagArchivePage.otherTags.all();
+
+              for (const tag of otherTags) {
+                await expect(tag).toBeVisible();
+                await expect(tag).not.toContainText(expectedTagName);
+              }
+            });
+
           await page.goBack();
         });
       };
     }
   );
-
-  test(
-    'Verify that the "You may also like" section displays only tags other than the current tag',
-    {
-      tag: '@regression',
-    },
-    async ({ homePage, tagArchivePage }) => {
-      const firstTagLink = await homePage.postsPreview.getFirstTagLink();
-      const currentTagName = await firstTagLink.innerText();
-
-      await firstTagLink.click();
-
-      const otherTagNames = await (await tagArchivePage.getOtherTagNames()).all();
-
-      for (const name of otherTagNames) {
-        await expect(name).not.toContainText(currentTagName);
-        await expect(name).toBeVisible();
-      }
-  });
-
-  test(
-    'Verify each tag displays at least one related post with the publish date, listed in descending chronological order',
-    {
-      tag: '@regression',
-    },
-    async ({ homePage, tagArchivePage }) => {
-      const firstTagLink = await homePage.postsPreview.getFirstTagLink();
-
-      await firstTagLink.click();
-
-      const tags = await tagArchivePage.getAllTags();
-
-      for (const tag of tags) {
-        const tagPosts = await tagArchivePage.getTagRelatedPosts(tag);
-        const tagsCount = await tagPosts.count();
-        const timeStamps: number[] = [];
-
-        expect(tagsCount).toBeGreaterThan(0);
-
-        for (let i = 0; i < tagsCount; i++) {
-          const post = tagPosts.nth(i);
-          const link = post.locator('a');
-          const date = post.locator('i');
-
-          await expect(link).toBeVisible();
-          await expect(date).toBeVisible();
-
-          const dateText = await date.innerText();
-          const parsed = new Date(dateText);
-
-          timeStamps.push(parsed.getTime());
-        }
-
-        for (let i = 0; i < timeStamps.length - 1; i++) {
-          expect(timeStamps[i]).toBeGreaterThanOrEqual(timeStamps[i + 1]);
-        }
-      }
-  });
 });
