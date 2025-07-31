@@ -4,12 +4,14 @@ import AboutPage from '../pages/AboutPage';
 import HomePage from '../pages/HomePage';
 import ArticlePage from '../pages/ArticlePage';
 import AxeBuilder from '@axe-core/playwright';
+import TagArchivePage from '../pages/TagArchivePage';
 
 type MyFixtures = {
   aboutPage: AboutPage;
   homePage: HomePage;
   articlePage: ArticlePage;
   axeBuilder: AxeBuilder;
+  tagArchivePage: TagArchivePage;
 };
 
 export const test = base.extend<MyFixtures>({
@@ -27,6 +29,10 @@ export const test = base.extend<MyFixtures>({
   },
   axeBuilder: async ({ page }, use) => {
     await use(new AxeBuilder({ page }));
+  },
+  tagArchivePage: async ({ page }, use) => {
+    const tagArchivePage = new TagArchivePage(page);
+    await use(tagArchivePage);
   },
 });
 
@@ -95,6 +101,25 @@ export const expect = baseExpect.extend({
     return {
       message: (): string => '',
       pass,
+      name: assertionName,
+    };
+  },
+
+  async toBeSortedDescending(received: number[]) {
+    const assertionName: string = 'toBeSortedDescending';
+
+    const isSorted = received.every((el, i, arr) => i === 0 || arr[i - 1] >= el);
+
+    const message = isSorted
+    ? (): string => ''
+    : (): string =>
+      `expect(locator).toBeSortedDescending()\n\n` +
+      `Expected array to be sorted in descending order,\n` +
+      `but got: [${received.join(', ')}]`;
+
+    return {
+      pass: isSorted,
+      message,
       name: assertionName,
     };
   }
