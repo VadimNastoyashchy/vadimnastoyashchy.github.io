@@ -14,7 +14,8 @@
     "mobile": "npx playwright test --project=mobile",
     "desktop": "npx playwright test --project=desktop",
     "performance": "npx playwright test --grep @performance",
-    "accessibility": "npx playwright test --project=desktop --grep  @accessibility"
+    "accessibility": "npx playwright test --project=desktop --grep  @accessibility",
+    "prepare": "cd .. && husky e2e/.husky"
   },
   "keywords": [],
   "author": "",
@@ -34,11 +35,22 @@
     "eslint": "^9.30.1",
     "eslint-plugin-playwright": "^2.2.0",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
     "jiti": "^2.4.2",
     "prettier": "3.6.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "dotenv": "^17.0.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "tests/**/*.{js,ts}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
   }
 }
