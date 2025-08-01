@@ -25,7 +25,10 @@ test.describe('Tag archive', () => {
               await expect(tagArchivePage.title).toHaveText('Tag Archive');
               await expect(tagArchivePage.subTitle).toBeVisible();
               await expect(tagArchivePage.selectedTag).toBeVisible();
-              await expect(tagArchivePage.selectedTag).toContainText(expectedTagName);
+
+              const selectedTagName = await tagArchivePage.getTagName(tagArchivePage.selectedTag);
+
+              expect(selectedTagName).toBe(expectedTagName);
             });
 
           await test.step(
@@ -49,8 +52,10 @@ test.describe('Tag archive', () => {
               const otherTags = await tagArchivePage.otherTags.all();
 
               for (const tag of otherTags) {
+                const tagName = await tagArchivePage.getTagName(tag);
+
                 await expect(tag).toBeVisible();
-                await expect(tag).not.toContainText(expectedTagName);
+                expect(tagName).not.toBe(expectedTagName);
               }
             });
 
