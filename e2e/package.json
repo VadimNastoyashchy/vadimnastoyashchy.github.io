@@ -44,11 +44,7 @@
     "dotenv": "^17.0.1"
   },
   "lint-staged": {
-    "src/**/*.{js,ts}": [
-      "eslint --cache --fix",
-      "prettier --write"
-    ],
-    "tests/**/*.{js,ts}": [
+    "{src,tests}/**/*.{js,ts}": [
       "eslint --cache --fix",
       "prettier --write"
     ]
