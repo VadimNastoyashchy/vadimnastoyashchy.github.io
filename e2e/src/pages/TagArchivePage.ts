@@ -27,4 +27,11 @@ export default class TagArchivePage extends BasePage {
 
     return dateTexts.map(date => new Date(date).getTime());
   }
+
+  public async getTagName(tag: Locator): Promise<string> {
+    const tagText = await tag.innerText();
+    const match = tagText.match(/#(.*?):/);
+
+    return match?.[1] ?? '';
+  }
 }
