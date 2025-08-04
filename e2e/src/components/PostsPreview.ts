@@ -1,5 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
+import { step } from '../utils/step';
 
 export default class PostsPreview extends BaseComponent {
   public allPosts: Locator = this.page.locator('article.entry');
@@ -20,50 +21,61 @@ export default class PostsPreview extends BaseComponent {
     super(page);
   }
 
+  @step()
   public async getPageUrlFromReadMoreLink(): Promise<null | string> {
     return (await this.readMore).getAttribute('href');
   }
 
+  @step()
   public async clickOnReadMore(): Promise<void> {
     return await this.readMore.click();
   }
 
+  @step()
   public async getTitleText(): Promise<string> {
     return await this.latestPost.locator('h1.entry-title').innerText();
   }
 
+  @step()
   public async getDateText(): Promise<string> {
     return await this.latestPost.locator('time.entry-time').innerText();
   }
 
+  @step()
   public async getReadTimeText(): Promise<string> {
     return await this.latestPost
       .locator('.entry-meta ul li:nth-child(2)')
       .innerText();
   }
 
+  @step()
   public async getAllPosts(): Promise<Locator[]> {
     return await this.allPosts.all();
   }
 
+  @step()
   public async getAllReadMoreLinks(): Promise<Locator[]> {
     return this.page.locator('.read-more a').all();
   }
 
+  @step()
   public async getSearchResults(searchText: string): Promise<Locator[]> {
     return await this.page
       .locator(`.entry-title:has-text("${searchText}")`)
       .all();
   }
 
+  @step()
   public async getTags(): Promise<Locator[]> {
     return await this.keywords.locator('[rel="tag"]').all();
   }
 
+  @step()
   public async getTagName(tag: Locator): Promise<string> {
     return await tag.innerText();
   }
 
+  @step()
   public async clickOnTag(tag: Locator): Promise<void> {
     await tag.click();
   }

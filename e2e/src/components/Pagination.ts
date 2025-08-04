@@ -1,5 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
+import { step } from '../utils/step';
 
 export default class Pagination extends BaseComponent {
   public container: Locator = this.page.locator('nav.pager');
@@ -10,10 +11,12 @@ export default class Pagination extends BaseComponent {
     super(page);
   }
 
+  @step()
   public async clickOnOlderButton(): Promise<void> {
     await this.olderButton.click();
   }
 
+  @step()
   public async clickOnNewerButton(): Promise<void> {
     await this.newerButton.click();
   }
