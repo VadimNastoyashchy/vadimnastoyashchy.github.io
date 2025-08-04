@@ -1,5 +1,6 @@
 import { Page } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
+import { step } from '../utils/step';
 
 export default class Mailchimp extends BaseComponent {
   private readonly container = this.page.locator('#mc_embed_signup');
@@ -20,6 +21,7 @@ export default class Mailchimp extends BaseComponent {
     super(page);
   }
 
+  @step()
   public async clickOnSubscribeButton(): Promise<void> {
     await this.subscribeButton.click();
   }

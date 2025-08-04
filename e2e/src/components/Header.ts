@@ -1,5 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
+import { step } from '../utils/step';
 
 export default class Header extends BaseComponent {
   public burgerMenu: Locator = this.page.locator('.navicon-button');
@@ -11,18 +12,22 @@ export default class Header extends BaseComponent {
     super(page);
   }
 
+  @step()
   public async clickOnBurgerMenu(): Promise<void> {
     await this.burgerMenu.click();
   }
 
+  @step()
   public async clickOnSearch(): Promise<void> {
     await this.search.click();
   }
 
+  @step()
   public async clickOnLogo(): Promise<void> {
     await this.logo.click();
   }
 
+  @step()
   public async fillSearchInput(searchText: string): Promise<void> {
     await this.searchInput.fill(searchText);
   }

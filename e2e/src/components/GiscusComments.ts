@@ -1,5 +1,6 @@
 import { FrameLocator, Locator, Page } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
+import { step } from '../utils/step';
 
 export default class GiscusComments extends BaseComponent {
   private readonly container: Locator = this.page.locator('.giscus');
@@ -19,10 +20,12 @@ export default class GiscusComments extends BaseComponent {
     super(page);
   }
 
+  @step()
   public async scrollIntoView(): Promise<void> {
     await this.container.scrollIntoViewIfNeeded();
   }
 
+  @step()
   public async clickOnReactionsButton(): Promise<void> {
     await this.reactionsButton.click();
   }

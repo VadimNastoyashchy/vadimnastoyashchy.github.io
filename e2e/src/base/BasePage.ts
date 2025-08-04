@@ -2,6 +2,7 @@ import { Page, expect } from '@playwright/test';
 import SideMenu from '../components/SideMenu';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { step } from '../utils/step';
 
 export default abstract class BasePage {
   protected readonly page: Page;
@@ -20,10 +21,12 @@ export default abstract class BasePage {
     this.footer = new Footer(page);
   }
 
+  @step()
   public async getPageUrl(): Promise<string> {
     return this.page.url();
   }
 
+  @step()
   public async open(): Promise<void> {
     await this.page.goto(this.PAGE_URL);
     expect(this.page.url()).toContain(this.PAGE_URL);
