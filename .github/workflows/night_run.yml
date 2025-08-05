@@ -1,8 +1,8 @@
-name: Nightly run
+name: Nightly Run
 
 on:
   schedule:
-    - cron: "0 3 * * *" # Runs at 3:00 AM UTC which is 6:00 AM in Kyiv timezone (UTC+3)
+    - cron: "0 3 * * *" # Runs at 3:00 AM UTC (6:00 AM Kyiv UTC+3)
 
 jobs:
   tests:
@@ -12,7 +12,10 @@ jobs:
       REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
       REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
       REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      REPORT_PORTAL_LAUNCH_NAME: "Nightly Smoke Tests"
+    strategy:
+      matrix:
+        test_type: [smoke, performance]
+        artifact_name: ["playwright-smoke-report-night-run", "playwright-performance-report-night-run"]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -30,18 +33,14 @@ jobs:
         run: npx playwright install --with-deps
         working-directory: ./e2e
 
-      - name: Run smoke tests
-        run: npm run smoke
+      - name: Run ${{ matrix.test_type }} tests
+        run: npm run ${{ matrix.test_type }}
         working-directory: ./e2e
 
-      - name: Run performance tests
-        run: npm run performance
-        working-directory: ./e2e
-
-      - name: Upload Smoke Test Report Artifact
+      - name: Upload ${{ matrix.test_type }} Test Report Artifact
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-smoke-report-night-run
+          name: ${{ matrix.artifact_name }}
           path: e2e/playwright-report/
           retention-days: 30
