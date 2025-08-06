@@ -37,7 +37,7 @@ jobs:
         run: npm run format
         working-directory: ./e2e
 
-  ts:
+  ts_check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -55,7 +55,7 @@ jobs:
 
   e2e_tests:
     runs-on: ubuntu-latest
-    needs: [eslint, prettier, ts]
+    needs: ts_check
     env:
       REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
       REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
