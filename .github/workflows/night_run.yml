@@ -1,21 +1,54 @@
-name: Nightly Run
+name: Nightly run
 
 on:
   schedule:
-    - cron: "0 3 * * *" # Runs at 3:00 AM UTC (6:00 AM Kyiv UTC+3)
+    - cron: "0 3 * * *" # Runs at 3:00 AM UTC which is 6:00 AM in Kyiv timezone (UTC+3)
+
+env:
+  REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
+  REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
+  REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
+  REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
 jobs:
-  tests:
+  smoke_tests:
     runs-on: ubuntu-latest
     env:
-      REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
-      REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
-      REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
-      REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-    strategy:
-      matrix:
-        test_type: [smoke, performance]
-        artifact_name: ["playwright-smoke-report-night-run", "playwright-performance-report-night-run"]
+      REPORT_PORTAL_LAUNCH_NAME: "Nightly Smoke Tests"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22' # Ensure compatibility with your environment
+
+      - name: Install E2E dependencies
+        run: npm install
+        working-directory: ./e2e
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+        working-directory: ./e2e
+
+      - name: Run smoke tests
+        run: npm run smoke
+        working-directory: ./e2e
+
+      - name: Upload Smoke Test Report Artifact
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-smoke-report-night-run
+          path: e2e/playwright-report/
+          retention-days: 30
+
+  performance_tests:
+    runs-on: ubuntu-latest
+    needs: smoke_tests
+    env:
+      REPORT_PORTAL_LAUNCH_NAME: "Nightly Performance Tests"
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -33,14 +66,14 @@ jobs:
         run: npx playwright install --with-deps
         working-directory: ./e2e
 
-      - name: Run ${{ matrix.test_type }} tests
-        run: npm run ${{ matrix.test_type }}
+      - name: Run performance tests
+        run: npm run performance
         working-directory: ./e2e
 
-      - name: Upload ${{ matrix.test_type }} Test Report Artifact
+      - name: Upload Performance Test Report Artifact
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: ${{ matrix.artifact_name }}
+          name: playwright-performance-report-night-run
           path: e2e/playwright-report/
           retention-days: 30
