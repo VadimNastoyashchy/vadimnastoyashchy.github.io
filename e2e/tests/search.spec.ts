@@ -9,7 +9,7 @@ test.describe('Search', () => {
   test(
     'should return matching results for specific input',
     {
-      tag: '@regression',
+      tag: ['@regression', '@smoke'],
     },
     async ({ homePage }) => {
       await homePage.header.clickOnSearch();
