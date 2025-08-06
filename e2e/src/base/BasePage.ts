@@ -2,6 +2,7 @@ import { Page, expect } from '@playwright/test';
 import SideMenu from '../components/SideMenu';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SearchModal from '../components/SearchModal';
 import { step } from '../utils/step';
 
 export default abstract class BasePage {
@@ -11,6 +12,7 @@ export default abstract class BasePage {
   public sideMenu: SideMenu;
   public header: Header;
   public footer: Footer;
+  public searchModal: SearchModal;
 
   // eslint-disable-next-line @typescript-eslint/typedef
   constructor(page: Page, pageUrl = '') {
@@ -19,6 +21,7 @@ export default abstract class BasePage {
     this.sideMenu = new SideMenu(page);
     this.header = new Header(page);
     this.footer = new Footer(page);
+    this.searchModal = new SearchModal(page);
   }
 
   @step()

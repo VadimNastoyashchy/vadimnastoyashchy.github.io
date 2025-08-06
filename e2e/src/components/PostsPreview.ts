@@ -59,13 +59,6 @@ export default class PostsPreview extends BaseComponent {
   }
 
   @step()
-  public async getSearchResults(searchText: string): Promise<Locator[]> {
-    return await this.page
-      .locator(`.entry-title:has-text("${searchText}")`)
-      .all();
-  }
-
-  @step()
   public async getTags(): Promise<Locator[]> {
     return await this.keywords.locator('[rel="tag"]').all();
   }

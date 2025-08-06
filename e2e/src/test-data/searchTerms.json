@@ -1,0 +1,8 @@
+{
+  "specificInput": "Playwright",
+  "emptyInput": "",
+  "lowercaseInput": "javascript",
+  "uppercaseInput": "JAVASCRIPT",
+  "specialCharactersInput": "scripteri/o",
+  "noMatchInput": "тест"
+}
