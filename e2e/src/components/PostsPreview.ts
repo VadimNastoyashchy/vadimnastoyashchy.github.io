@@ -72,4 +72,19 @@ export default class PostsPreview extends BaseComponent {
   public async clickOnTag(tag: Locator): Promise<void> {
     await tag.click();
   }
+
+  @step()
+  public async getAllDates(): Promise<Locator[]> {
+    return this.allPosts.locator('time.entry-time').all();
+  }
+
+  @step()
+  public async getDateTimestamps(dates: Locator[]): Promise<number[]> {
+    return await Promise.all(
+      dates.map(async (date) => {
+        const dateTimeAttribute = await date.getAttribute('datetime');
+        return dateTimeAttribute ? new Date(dateTimeAttribute).getTime() : NaN;
+      })
+    );
+  }
 }
