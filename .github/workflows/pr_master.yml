@@ -85,7 +85,7 @@ jobs:
         working-directory: ./e2e
 
       - name: Run regression tests
-        run: npm run regression --shard ${{ matrix.shard }}
+        run: npm run regression -- --shard ${{ matrix.shard }}
         working-directory: ./e2e
 
       - name: Upload blob report to GitHub Actions Artifacts
