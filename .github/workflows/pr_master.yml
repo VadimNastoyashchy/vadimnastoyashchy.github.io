@@ -49,7 +49,7 @@ jobs:
       - name: Install E2E dependencies
         run: npm install
         working-directory: ./e2e
-      - name: Run TypeScrip
+      - name: Run TypeScript
         run: npm run tsc
         working-directory: ./e2e
 
@@ -66,16 +66,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1/4, 2/4,3/4,4/4]
+        shard: [1/4, 2/4, 3/4, 4/4]
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '22'
-        
+
       - name: Install E2E dependencies
         run: npm install
         working-directory: ./e2e
@@ -98,26 +98,29 @@ jobs:
 
   merge-reports:
     if: always()
-    needs: [playwright-tests]
+    needs: [e2e_tests]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '22'
 
       - name: Install dependencies
         run: npm install
-        
+
       - name: Download blob reports from GitHub Actions Artifacts
-       uses: actions/download-artifact@v3
-       with:
+        uses: actions/download-artifact@v3
+        with:
           name: blob-report
           path: blob-report
 
       - name: Merge into HTML Report
         run: npx playwright merge-reports --reporter html ./blob-report
-        
+
       - name: Upload HTML report
         uses: actions/upload-artifact@v3
         with:
