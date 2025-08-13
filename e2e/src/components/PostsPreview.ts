@@ -3,7 +3,7 @@ import BaseComponent from '../base/BaseComponent';
 import { step } from '../utils/step';
 
 export default class PostsPreview extends BaseComponent {
-  public allPosts = this.page.locator('article.entry');
+  public allPosts: Locator = this.page.locator('article.entry');
   public allReadMoreLinks: Locator = this.page.locator('.read-more');
   public images: Locator = this.page.locator('img.entry-image-thumbnail');
   public latestPost: Locator = this.allPosts.first();
