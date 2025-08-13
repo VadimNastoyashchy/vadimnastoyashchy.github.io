@@ -3,18 +3,24 @@ name: End-to-end tests
 on: [deployment_status]
 
 jobs:
-  e2e:
+  e2e_tests:
     if: github.event.deployment_status.state == 'success'
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
+      CI: true
       REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
       REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
       REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
       REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       REPORT_PORTAL_LAUNCH_NAME: "End-to-End Deployment Tests"
-    
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4]
+        shardTotal: [4]
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
         with:
           ref: 'master'
@@ -24,22 +30,56 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Install E2E dependencies
+        run: npm install
+        working-directory: ./e2e
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+        working-directory: ./e2e
+
+      - name: Run regression tests
+        run: npm run regression -- --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        working-directory: ./e2e
+
+      - name: Upload blob report to GitHub Actions Artifacts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: blob-report-${{ matrix.shardIndex }}
+          path: ./e2e/blob-report
+          retention-days: 1
+
+  merge-reports:
+    if: github.event.deployment_status.state == 'success'
+    needs: [e2e_tests]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 'master'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Install dependencies
         run: npm install
         working-directory: ./e2e
 
-      - name: Install Playwright
-        run: npx playwright install --with-deps
-        working-directory: ./e2e
-
-      - name: Run E2E tests
-        run: npm run regression
-        working-directory: ./e2e
-
-      - name: Upload E2E Test Report Artifact
-        uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4
         with:
-          name: playwright-report-e2e
-          path: e2e/playwright-report/
-          retention-days: 30
+          path: ./e2e/all-blob-reports
+          pattern: blob-report-*
+          merge-multiple: true
+
+      - name: Merge into HTML Report
+        run: npx playwright merge-reports --reporter html ./all-blob-reports
+        working-directory: ./e2e
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report--attempt-${{ github.run_attempt }}
+          path: ./e2e/playwright-report
+          retention-days: 14
