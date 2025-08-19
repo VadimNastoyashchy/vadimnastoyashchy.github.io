@@ -1,7 +1,24 @@
 import { test, expect } from '../src/fixtures/FixtureConfigs';
 import * as utils from '../src/utils';
 test.describe('Side Menu', () => {
-  test('Verify functionality and link navigation',
+  test(
+    'Verify menu opens and closes properly when clicking the menu icon',
+    {
+      tag: '@regression',
+    },
+    async ({ homePage }) => {
+      await homePage.open();
+
+      await homePage.header.clickOnBurgerMenu();
+      await expect(homePage.sideMenu.container).toBeVisible();
+
+      await homePage.header.clickOnBurgerMenu();
+      await expect(homePage.sideMenu.container).toBeHidden();
+    }
+  );
+
+  test(
+    'Verify functionality and link navigation',
     {
       tag: '@regression',
     },
@@ -20,7 +37,8 @@ test.describe('Side Menu', () => {
     }
   );
 
-  test('Navigation to the Home page from the side bar',
+  test(
+    'Navigation to the Home page from the side bar',
     {
       tag: '@regression',
     },
@@ -36,6 +54,28 @@ test.describe('Side Menu', () => {
       const getUrl = await utils.getHrefFromLink(homePage.header.logo);
 
       expect(await homePage.getPageUrl()).toContain(getUrl);
+    }
+  );
+
+  test(
+    'Verify menu auto-closes when navigating to another page via the menu',
+    {
+      tag: '@regression',
+    },
+    async ({ homePage, aboutPage }) => {
+      await homePage.open();
+
+      await homePage.header.clickOnBurgerMenu();
+      await expect(homePage.sideMenu.container).toBeVisible();
+
+      const aboutLink = await utils.getHrefFromLink(
+        homePage.sideMenu.aboutLink
+      );
+      await homePage.sideMenu.clickOnAboutLink();
+
+      expect(await aboutPage.getPageUrl()).toContain(aboutLink);
+
+      await expect(aboutPage.sideMenu.container).toBeHidden();
     }
   );
 });
