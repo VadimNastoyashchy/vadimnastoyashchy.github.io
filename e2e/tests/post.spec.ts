@@ -59,7 +59,7 @@ test.describe('Post', () => {
   );
 
   test(
-    'Verify home page displays posts in chronological order (from newest to oldest)',
+    'Verify that posts on the home page are displayed in the correct chronological order (from newest to oldest)',
     {
       tag: '@regression',
     },
