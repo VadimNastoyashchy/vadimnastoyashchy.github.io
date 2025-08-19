@@ -72,4 +72,34 @@ export default class PostsPreview extends BaseComponent {
   public async clickOnTag(tag: Locator): Promise<void> {
     await tag.click();
   }
+
+  @step()
+  public async getAllDates(): Promise<Locator[]> {
+    return this.allPosts.locator('time.entry-time').all();
+  }
+
+  @step()
+  public async getDateTimestamps(dates: Locator[]): Promise<number[]> {
+    return await Promise.all(
+      dates.map(async (date, index) => {
+        const dateTimeAttribute = await date.getAttribute('datetime');
+
+        if (!dateTimeAttribute) {
+          throw new Error(
+            `Missing 'datetime' attribute on element at index ${index}`
+          );
+        }
+
+        const timestamp = new Date(dateTimeAttribute).getTime();
+
+        if (isNaN(timestamp)) {
+          throw new Error(
+            `Invalid date format in 'datetime' attribute: "${dateTimeAttribute}" at index ${index}`
+          );
+        }
+
+        return timestamp;
+      })
+    );
+  }
 }

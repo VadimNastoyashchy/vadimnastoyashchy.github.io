@@ -57,4 +57,18 @@ test.describe('Post', () => {
       await utils.verifyLinks(linksUrls);
     }
   );
+
+  test(
+    'Verify that posts on the home page are displayed in the correct chronological order (from newest to oldest)',
+    {
+      tag: '@regression',
+    },
+    async ({ homePage }) => {
+      const allDates = await homePage.postsPreview.getAllDates();
+      const dateTimestamps =
+        await homePage.postsPreview.getDateTimestamps(allDates);
+
+      expect(dateTimestamps).toBeSortedDescending();
+    }
+  );
 });
