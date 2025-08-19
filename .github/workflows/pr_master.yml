@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '22'
       - name: Install E2E dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./e2e
       - name: Run Eslint
         run: npm run lint
@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '22'
       - name: Install E2E dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./e2e
       - name: Run Prettier
         run: npm run format
@@ -47,7 +47,7 @@ jobs:
         with:
           node-version: '22'
       - name: Install E2E dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./e2e
       - name: Run TypeScript
         run: npm run tsc
@@ -79,7 +79,7 @@ jobs:
           node-version: '22'
 
       - name: Install E2E dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./e2e
 
       - name: Install Playwright browsers
@@ -109,7 +109,7 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./e2e
 
       - name: Download blob reports from GitHub Actions Artifacts
