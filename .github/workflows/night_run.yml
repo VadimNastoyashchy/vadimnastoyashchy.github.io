@@ -25,7 +25,7 @@ jobs:
           node-version: '22' # Ensure compatibility with your environment
 
       - name: Install E2E dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./e2e
 
       - name: Install Playwright browsers
@@ -59,7 +59,7 @@ jobs:
           node-version: '22'
 
       - name: Install E2E dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./e2e
 
       - name: Install Playwright browsers
