@@ -26,7 +26,7 @@ test.describe('Side Menu', () => {
       await homePage.open();
 
       await homePage.header.clickOnBurgerMenu();
-      await homePage.sideMenu.container.isVisible();
+      await expect(homePage.sideMenu.container).toBeVisible();
       await expect(homePage.sideMenu.links).areVisible();
 
       const linksUrls = await utils.getLinks(
@@ -46,7 +46,7 @@ test.describe('Side Menu', () => {
       await aboutPage.open();
 
       await aboutPage.header.clickOnBurgerMenu();
-      await aboutPage.sideMenu.container.isVisible();
+      await expect(aboutPage.sideMenu.container).toBeVisible();
 
       const homeLink = await aboutPage.sideMenu.getLinkByText('Home');
       await homeLink.click();
