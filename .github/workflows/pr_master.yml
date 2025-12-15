@@ -2,7 +2,7 @@ name: PR to master
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   eslint:
@@ -63,7 +63,7 @@ jobs:
       REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
       REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
       REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      REPORT_PORTAL_LAUNCH_NAME: "PR Master Regression Tests"
+      REPORT_PORTAL_LAUNCH_NAME: "PR Main Regression Tests"
     strategy:
       fail-fast: false
       matrix:
