@@ -27,7 +27,7 @@ test.describe('Header', () => {
 
       await expect(homePage.sideMenu.container).toBeVisible();
       await expect(homePage.sideMenu.links).areVisible();
-    }
+    },
   );
 
   test(
@@ -41,6 +41,6 @@ test.describe('Header', () => {
 
       const getUrl = await utils.getHrefFromLink(homePage.header.logo);
       expect(await homePage.getPageUrl()).toContain(getUrl);
-    }
+    },
   );
 });

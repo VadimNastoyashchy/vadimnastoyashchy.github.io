@@ -14,7 +14,7 @@ test.describe('Side Menu', () => {
 
       await homePage.header.clickOnBurgerMenu();
       await expect(homePage.sideMenu.container).toBeHidden();
-    }
+    },
   );
 
   test(
@@ -29,12 +29,9 @@ test.describe('Side Menu', () => {
       await expect(homePage.sideMenu.container).toBeVisible();
       await expect(homePage.sideMenu.links).areVisible();
 
-      const linksUrls = await utils.getLinks(
-        homePage.sideMenu.container,
-        await homePage.getPageUrl()
-      );
+      const linksUrls = await utils.getLinks(homePage.sideMenu.container, await homePage.getPageUrl());
       await utils.verifyLinks(linksUrls);
-    }
+    },
   );
 
   test(
@@ -54,7 +51,7 @@ test.describe('Side Menu', () => {
       const getUrl = await utils.getHrefFromLink(homePage.header.logo);
 
       expect(await homePage.getPageUrl()).toContain(getUrl);
-    }
+    },
   );
 
   test(
@@ -68,14 +65,12 @@ test.describe('Side Menu', () => {
       await homePage.header.clickOnBurgerMenu();
       await expect(homePage.sideMenu.container).toBeVisible();
 
-      const aboutLink = await utils.getHrefFromLink(
-        homePage.sideMenu.aboutLink
-      );
+      const aboutLink = await utils.getHrefFromLink(homePage.sideMenu.aboutLink);
       await homePage.sideMenu.clickOnAboutLink();
 
       expect(await aboutPage.getPageUrl()).toContain(aboutLink);
 
       await expect(aboutPage.sideMenu.container).toBeHidden();
-    }
+    },
   );
 });

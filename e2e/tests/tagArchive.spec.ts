@@ -19,49 +19,43 @@ test.describe('Tag archive', () => {
         await test.step(`Test for ${expectedTagName} tag`, async () => {
           await homePage.postsPreview.clickOnTag(tag);
 
-          await test.step(
-            'Main section displays the page title, subtitle, and selected tag',
-            async () => {
-              await expect(tagArchivePage.title).toHaveText('Tag Archive');
-              await expect(tagArchivePage.subTitle).toBeVisible();
-              await expect(tagArchivePage.selectedTag).toBeVisible();
+          await test.step('Main section displays the page title, subtitle, and selected tag', async () => {
+            await expect(tagArchivePage.title).toHaveText('Tag Archive');
+            await expect(tagArchivePage.subTitle).toBeVisible();
+            await expect(tagArchivePage.selectedTag).toBeVisible();
 
-              const selectedTagName = await tagArchivePage.getTagName(tagArchivePage.selectedTag);
+            const selectedTagName = await tagArchivePage.getTagName(tagArchivePage.selectedTag);
 
-              expect(selectedTagName).toBe(expectedTagName);
-            });
+            expect(selectedTagName).toBe(expectedTagName);
+          });
 
-          await test.step(
-            'Selected tag shows at least one related post with its publish date, ordered from most recent to oldest.',
-            async () => {
-              const tagRelatedPosts = await tagArchivePage.getTagRelatedPosts(tagArchivePage.selectedTag);
-              const tagRelatedPostDates = await tagArchivePage.getTagRelatedPostDates(tagRelatedPosts);
-              const dateTimestamps = await tagArchivePage.getDateTimestamps(tagRelatedPostDates);
-              const numberOfTags = await tagRelatedPosts.count();
+          await test.step('Selected tag shows at least one related post with its publish date, ordered from most recent to oldest.', async () => {
+            const tagRelatedPosts = await tagArchivePage.getTagRelatedPosts(tagArchivePage.selectedTag);
+            const tagRelatedPostDates = await tagArchivePage.getTagRelatedPostDates(tagRelatedPosts);
+            const dateTimestamps = await tagArchivePage.getDateTimestamps(tagRelatedPostDates);
+            const numberOfTags = await tagRelatedPosts.count();
 
-              expect(numberOfTags).toBeGreaterThan(0);
-              expect(numberOfTags).toEqual(await tagRelatedPostDates.count());
-              expect(dateTimestamps).toBeSortedDescending();
-            });
+            expect(numberOfTags).toBeGreaterThan(0);
+            expect(numberOfTags).toEqual(await tagRelatedPostDates.count());
+            expect(dateTimestamps).toBeSortedDescending();
+          });
 
-          await test.step(
-            '"You may also like" section shows only tags excluding selected tag',
-            async () => {
-              await expect(tagArchivePage.youMayAlsoLikeHeading).toBeVisible();
+          await test.step('"You may also like" section shows only tags excluding selected tag', async () => {
+            await expect(tagArchivePage.youMayAlsoLikeHeading).toBeVisible();
 
-              const otherTags = await tagArchivePage.otherTags.all();
+            const otherTags = await tagArchivePage.otherTags.all();
 
-              for (const tag of otherTags) {
-                const tagName = await tagArchivePage.getTagName(tag);
+            for (const tag of otherTags) {
+              const tagName = await tagArchivePage.getTagName(tag);
 
-                await expect(tag).toBeVisible();
-                expect(tagName).not.toBe(expectedTagName);
-              }
-            });
+              await expect(tag).toBeVisible();
+              expect(tagName).not.toBe(expectedTagName);
+            }
+          });
 
           await page.goBack();
         });
-      };
-    }
+      }
+    },
   );
 });

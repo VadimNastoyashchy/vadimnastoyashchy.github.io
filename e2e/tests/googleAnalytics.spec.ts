@@ -8,7 +8,7 @@ test.describe('Google Analytics', () => {
       tag: '@regression',
     },
     async ({ homePage, page }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let gaEvent: any;
       await page.route('**/g/collect*', (route) => {
         gaEvent = route.request();
@@ -21,6 +21,6 @@ test.describe('Google Analytics', () => {
 
       expect(dlParam).toEqual(await homePage.getPageUrl());
       expect(enParam).toEqual('page_view');
-    }
+    },
   );
 });

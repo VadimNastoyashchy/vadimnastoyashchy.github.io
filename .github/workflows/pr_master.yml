@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  eslint:
+  check_lint_format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,24 +17,8 @@ jobs:
       - name: Install E2E dependencies
         run: npm ci
         working-directory: ./e2e
-      - name: Run Eslint
-        run: npm run lint
-        working-directory: ./e2e
-
-  prettier:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '22'
-      - name: Install E2E dependencies
-        run: npm ci
-        working-directory: ./e2e
-      - name: Run Prettier
-        run: npm run format
+      - name: Run Biome Check
+        run: npm run check
         working-directory: ./e2e
 
   ts_check:
@@ -59,11 +43,6 @@ jobs:
     needs: ts_check
     env:
       CI: true
-      REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
-      REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
-      REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
-      REPORT_PORTAL_DESCRIPTION: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      REPORT_PORTAL_LAUNCH_NAME: "PR Main Regression Tests"
     strategy:
       fail-fast: false
       matrix:

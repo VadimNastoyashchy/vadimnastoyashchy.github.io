@@ -15,16 +15,12 @@ test.describe('Search', () => {
       await homePage.header.clickOnSearch();
       await expect(homePage.searchModal.searchInput).toBeVisible();
       await homePage.searchModal.search(searchTerms.specificInput);
-      await expect(homePage.searchModal.searchInput).toHaveValue(
-        searchTerms.specificInput
-      );
+      await expect(homePage.searchModal.searchInput).toHaveValue(searchTerms.specificInput);
 
-      const filteredResults = await homePage.searchModal.getResultsContaining(
-        searchTerms.specificInput
-      );
+      const filteredResults = await homePage.searchModal.getResultsContaining(searchTerms.specificInput);
 
       expect(await filteredResults.count()).toBeGreaterThan(0);
-    }
+    },
   );
 
   test(
@@ -37,7 +33,7 @@ test.describe('Search', () => {
       await expect(homePage.searchModal.searchInput).toBeVisible();
       await homePage.header.clickOnSearch();
       await expect(homePage.searchModal.searchInput).toBeHidden();
-    }
+    },
   );
 
   test(
@@ -52,11 +48,10 @@ test.describe('Search', () => {
       await expect(homePage.searchModal.resultCounter).toBeVisible();
 
       const resultItemsCount = await homePage.searchModal.searchResults.count();
-      const resultCounterValue =
-        await homePage.searchModal.getResultCounterValue();
+      const resultCounterValue = await homePage.searchModal.getResultCounterValue();
 
       expect(resultCounterValue).toEqual(resultItemsCount);
-    }
+    },
   );
 
   test(
@@ -69,7 +64,7 @@ test.describe('Search', () => {
       await expect(homePage.searchModal.searchInput).toBeVisible();
       await homePage.searchModal.search(searchTerms.emptyInput);
       expect(await homePage.searchModal.searchResults.count()).toBe(0);
-    }
+    },
   );
 
   test(
@@ -82,7 +77,7 @@ test.describe('Search', () => {
       await expect(homePage.searchModal.searchInput).toBeVisible();
       await homePage.searchModal.search(searchTerms.noMatchInput);
       expect(await homePage.searchModal.searchResults.count()).toBe(0);
-    }
+    },
   );
 
   test(
@@ -95,12 +90,10 @@ test.describe('Search', () => {
       await expect(homePage.searchModal.searchInput).toBeVisible();
       await homePage.searchModal.search(searchTerms.specialCharactersInput);
 
-      const filteredResults = await homePage.searchModal.getResultsContaining(
-        searchTerms.specialCharactersInput
-      );
+      const filteredResults = await homePage.searchModal.getResultsContaining(searchTerms.specialCharactersInput);
 
       expect(await filteredResults.count()).toBeGreaterThan(0);
-    }
+    },
   );
 
   test(
@@ -113,17 +106,15 @@ test.describe('Search', () => {
       await expect(homePage.searchModal.searchInput).toBeVisible();
       await homePage.searchModal.search(searchTerms.lowercaseInput);
 
-      const lowercaseResultsCount =
-        await homePage.searchModal.searchResults.count();
+      const lowercaseResultsCount = await homePage.searchModal.searchResults.count();
 
       await homePage.searchModal.clearSearchInput();
       await homePage.searchModal.search(searchTerms.uppercaseInput);
 
-      const uppercaseResultsCount =
-        await homePage.searchModal.searchResults.count();
+      const uppercaseResultsCount = await homePage.searchModal.searchResults.count();
 
       expect(lowercaseResultsCount).toEqual(uppercaseResultsCount);
-    }
+    },
   );
 
   test(
@@ -136,16 +127,10 @@ test.describe('Search', () => {
       await expect(homePage.searchModal.searchInput).toBeVisible();
       await homePage.searchModal.search(searchTerms.specificInput);
 
-      const firstSearchResult = (
-        await homePage.searchModal.searchResults.all()
-      )[0];
+      const firstSearchResult = (await homePage.searchModal.searchResults.all())[0];
 
-      await expect(
-        await homePage.searchModal.getSearchResultTitle(firstSearchResult)
-      ).toBeVisible();
-      await expect(
-        await homePage.searchModal.getSearchResultDescription(firstSearchResult)
-      ).toBeVisible();
-    }
+      await expect(await homePage.searchModal.getSearchResultTitle(firstSearchResult)).toBeVisible();
+      await expect(await homePage.searchModal.getSearchResultDescription(firstSearchResult)).toBeVisible();
+    },
   );
 });

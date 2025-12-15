@@ -21,8 +21,7 @@ test.describe('Post', () => {
       const previewTitle = await homePage.postsPreview.getTitleText();
       const previewDate = await homePage.postsPreview.getDateText();
       const previewReadTime = await homePage.postsPreview.getReadTimeText();
-      const readMoreLink =
-        await homePage.postsPreview.getPageUrlFromReadMoreLink();
+      const readMoreLink = await homePage.postsPreview.getPageUrlFromReadMoreLink();
 
       await homePage.postsPreview.clickOnReadMore();
 
@@ -31,7 +30,7 @@ test.describe('Post', () => {
       expect(await articlePage.getDate()).toEqual(previewDate);
       expect(await articlePage.getReadTime()).toEqual(previewReadTime);
       await expect(await articlePage.images).areVisible();
-    }
+    },
   );
 
   test(
@@ -43,19 +42,12 @@ test.describe('Post', () => {
       const amountOfPosts = 15;
 
       await expect(homePage.postsPreview.allPosts).areVisible();
-      expect(await homePage.postsPreview.getAllPosts()).toHaveLength(
-        amountOfPosts
-      );
-      expect(await homePage.postsPreview.getAllReadMoreLinks()).toHaveLength(
-        amountOfPosts
-      );
+      expect(await homePage.postsPreview.getAllPosts()).toHaveLength(amountOfPosts);
+      expect(await homePage.postsPreview.getAllReadMoreLinks()).toHaveLength(amountOfPosts);
 
-      const linksUrls = await utils.getLinks(
-        homePage.postsPreview.allReadMoreLinks,
-        await homePage.getPageUrl()
-      );
+      const linksUrls = await utils.getLinks(homePage.postsPreview.allReadMoreLinks, await homePage.getPageUrl());
       await utils.verifyLinks(linksUrls);
-    }
+    },
   );
 
   test(
@@ -65,10 +57,9 @@ test.describe('Post', () => {
     },
     async ({ homePage }) => {
       const allDates = await homePage.postsPreview.getAllDates();
-      const dateTimestamps =
-        await homePage.postsPreview.getDateTimestamps(allDates);
+      const dateTimestamps = await homePage.postsPreview.getDateTimestamps(allDates);
 
       expect(dateTimestamps).toBeSortedDescending();
-    }
+    },
   );
 });

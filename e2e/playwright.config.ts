@@ -1,9 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import rpConfig from './rpConfig';
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -11,7 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI
-    ? [['blob'], ['@reportportal/agent-js-playwright', rpConfig]]
+    ? [['blob']]
     : 'html',
   use: {
     baseURL: 'https://vadimnastoyashchy.github.io/',
