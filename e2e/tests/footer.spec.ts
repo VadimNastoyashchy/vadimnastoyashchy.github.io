@@ -1,25 +1,19 @@
-import { test, expect } from '../src/fixtures/FixtureConfigs';
-import * as utils from '../src/utils';
+import { test, expect } from '../src/FixtureConfigs';
 
-test.describe('Footer', () => {
-  test('Is visible and contains working links',
-    {
-      tag: '@regression',
-    },
-    async ({ homePage }) => {
-      const copyrightText = '© 2025 Vadym Nastoiashchyi';
+test.describe('Footer visibility', () => {
+    test('Footer section is visible and contains working links', {
+        tag: '@regression'
+    }, async ({ page, homePage }) => {
+        const copyrightText = '© 2025 Vadym Nastoiashchyi';
 
-      await homePage.open();
+        await homePage.open();
+        expect(page.url()).toContain(await homePage.getPageUrl());
 
-      await expect(homePage.footer.container).toBeVisible();
-      await expect(homePage.footer.urls).areVisible();
-      await expect(homePage.footer.copyright).toHaveText(copyrightText);
+        await expect(homePage.footer.footerSection).toBeVisible();
+        await homePage.footer.elementsAreVisible(await homePage.footer.allFooterUrls());
+        await expect(homePage.footer.copyright).toHaveText(copyrightText);
 
-      const links = await utils.getLinks(
-        homePage.footer.container,
-        await homePage.getPageUrl()
-      );
-      await utils.verifyLinks(links);
-    }
-  );
+        const linksUrls = await homePage.footer.getAllLinks(homePage.footer.footerSection);
+        await homePage.footer.verifyLinksResponse(linksUrls);
+    });
 });

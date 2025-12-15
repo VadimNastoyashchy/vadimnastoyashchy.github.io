@@ -30,22 +30,17 @@ There are a lot of articles, videos, and tutorials on the Internet regarding the
 
 (if you want additional examples, please navigate to > [https://github.com/VadimNastoyashchy/playwright-saucedemo.com](https://github.com/VadimNastoyashchy/playwright-saucedemo.com))
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_OKGGP_VSOoayYVPOKZaxjA.webp){: .align-center .border .max-width-600px}
-`test.js`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_OKGGP_VSOoayYVPOKZaxjA.webp" description="test.js" %}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_VfkjxXJme7o6Kltu3hVETQ.webp){: .align-center .border .max-width-600px}
-`Login page`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_VfkjxXJme7o6Kltu3hVETQ.webp" description="Login page" %}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_E7zy9fJ_Qh9Yns5LPFyY5A.webp){: .align-center .border .max-width-600px}
-`Abstraction for Page’s`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_E7zy9fJ_Qh9Yns5LPFyY5A.webp" description="Abstraction for Page’s" %}
 
 For components, I prefer the same level of detail:
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_cb25bT4812A-xR8VQq81xQ.webp){: .align-center .border .max-width-600px}
-`Header component`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_cb25bT4812A-xR8VQq81xQ.webp" description="Header component" %}
 
-![_config.yml]({{ site.url }}/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_8cEpaRu9ce_Q7dukj-85kA.webp){: .align-center .border .max-width-600px}
-`Abstraction for Components`
+{% include image.html url="/assets/images/posts/2024-1-22-Playwright-how-to-pom/1_8cEpaRu9ce_Q7dukj-85kA.webp" description="Abstraction for Components" %}
 
 Now it looks better. But still, we need to initialize our pages with { page } fixture in each test block:
 
