@@ -1,51 +1,34 @@
 import { Page, Locator } from '@playwright/test';
 import BaseComponent from '../base/BaseComponent';
+import { step } from '../utils/step';
 
 export default class Header extends BaseComponent {
-    private readonly burgerMenuLocator = this.page.locator('.navicon-button');
-    private readonly logoLocator = this.page.locator(
-        '//span[contains(text(), "Vadym Nastoiashchyi")]',
-    );
-    private readonly searchLocator = this.page.locator('.search-toggle');
-    private readonly searchInputLocator = this.page.locator('.search-input');
+  public burgerMenu: Locator = this.page.locator('.navicon-button');
+  public logo: Locator = this.page.locator('.site-title a[href="/"]');
+  public search: Locator = this.page.locator('.search-toggle');
+  public searchInput: Locator = this.page.locator('.search-input');
 
-    constructor(page: Page) {
-        super(page);
-    }
+  constructor(page: Page) {
+    super(page);
+  }
 
-    get burgerMenu(): Locator {
-        return this.burgerMenuLocator;
-    }
+  @step()
+  public async clickOnBurgerMenu(): Promise<void> {
+    await this.burgerMenu.click();
+  }
 
-    get logo(): Locator {
-        return this.logoLocator;
-    }
+  @step()
+  public async clickOnSearch(): Promise<void> {
+    await this.search.click();
+  }
 
-    get search(): Locator {
-        return this.searchLocator;
-    }
+  @step()
+  public async clickOnLogo(): Promise<void> {
+    await this.logo.click();
+  }
 
-    get searchInput(): Locator {
-        return this.searchInputLocator;
-    }
-
-    public async clickOnBurgerMenu(): Promise<void> {
-        return this.burgerMenuLocator.click();
-    }
-
-    public async clickOnSearch(): Promise<void> {
-        return this.searchLocator.click();
-    }
-
-    public async clickOnLogo(): Promise<void> {
-        return this.logoLocator.click();
-    }
-
-    public async fillSearchInput(searchText: string): Promise<void> {
-        return this.searchInputLocator.fill(searchText);
-    }
-
-    public async submitSearch(): Promise<void> {
-        return this.searchInputLocator.press('Enter');
-    }
+  @step()
+  public async fillSearchInput(searchText: string): Promise<void> {
+    await this.searchInput.fill(searchText);
+  }
 }
