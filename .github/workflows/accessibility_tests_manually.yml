@@ -5,13 +5,6 @@ on: [workflow_dispatch]
 jobs:
   accessibility_tests:
     runs-on: ubuntu-latest
-    env:
-      REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
-      REPORT_PORTAL_APIKEY: ${{ secrets.REPORT_PORTAL_APIKEY }}
-      REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
-      REPORT_PORTAL_DESCRIPTION: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-      REPORT_PORTAL_LAUNCH_NAME: "Accessibility Tests"
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
