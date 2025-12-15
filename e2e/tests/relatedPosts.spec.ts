@@ -10,26 +10,20 @@ test.describe('Related posts section', () => {
     async ({ homePage, articlePage }) => {
       await homePage.open();
 
-      const recentPostUrls = await utils.getLinks(
-        homePage.postsPreview.allReadMoreLinks,
-        await homePage.getPageUrl()
-      );
+      const recentPostUrls = await utils.getLinks(homePage.postsPreview.allReadMoreLinks, await homePage.getPageUrl());
 
       await homePage.postsPreview.clickOnReadMore();
       await expect(articlePage.relatedPosts.title).toBeVisible();
       await expect(articlePage.relatedPosts.postLinks).areVisible();
       await expect(articlePage.relatedPosts.postLinks).toHaveCount(3);
 
-      const relatedPostUrls = await utils.getLinks(
-        articlePage.relatedPosts.postLinks,
-        await articlePage.getPageUrl()
-      );
+      const relatedPostUrls = await utils.getLinks(articlePage.relatedPosts.postLinks, await articlePage.getPageUrl());
 
       [...relatedPostUrls].forEach((url, i) => {
         expect(url).toEqual([...recentPostUrls][++i]);
       });
 
       await utils.verifyLinks(relatedPostUrls);
-    }
+    },
   );
 });

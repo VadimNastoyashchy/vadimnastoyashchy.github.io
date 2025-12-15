@@ -14,22 +14,18 @@ test.describe('Pagination', () => {
       await expect(homePage.pagination.container).toBeVisible();
       await expect(homePage.pagination.olderButton).toBeVisible();
 
-      const olderButtonUrl = await utils.getHrefFromLink(
-        homePage.pagination.olderButton
-      );
+      const olderButtonUrl = await utils.getHrefFromLink(homePage.pagination.olderButton);
 
       await homePage.pagination.clickOnOlderButton();
 
       await expect(homePage.postsPreview.allPosts).areVisible();
-      expect(olderButtonUrl).not.toBe(
-        await utils.getHrefFromLink(homePage.pagination.newerButton)
-      );
+      expect(olderButtonUrl).not.toBe(await utils.getHrefFromLink(homePage.pagination.newerButton));
       await expect(homePage.pagination.newerButton).toBeVisible();
 
       await homePage.pagination.clickOnNewerButton();
 
       await expect(homePage.postsPreview.allPosts).areVisible();
       expect(page.url()).toContain(await homePage.getPageUrl());
-    }
+    },
   );
 });

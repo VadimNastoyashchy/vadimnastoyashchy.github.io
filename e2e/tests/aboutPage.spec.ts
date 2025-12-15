@@ -17,11 +17,8 @@ test.describe('About Page', () => {
       await expect(aboutPage.image).toBeVisible();
       await expect(aboutPage.contactMe).toBeVisible();
 
-      const links = await utils.getLinks(
-        aboutPage.allLinks,
-        await aboutPage.getPageUrl()
-      );
+      const links = await utils.getLinks(aboutPage.allLinks, await aboutPage.getPageUrl());
       await utils.verifyLinks(links);
-    }
+    },
   );
 });

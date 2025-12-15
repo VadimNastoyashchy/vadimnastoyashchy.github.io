@@ -23,6 +23,6 @@ test.describe('Mailchimp integration', () => {
       const newTab = await newTabPromise;
       await newTab.waitForEvent('domcontentloaded');
       await expect(newTab).toHaveURL(mailchimpUrl);
-    }
+    },
   );
 });
