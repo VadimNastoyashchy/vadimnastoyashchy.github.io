@@ -6,7 +6,7 @@ description: >-
   Software quality fanatic | Software Engineer in Test
 baseurl: ""
 url: 
-use_logo: false
+use_logo: true
 use_copyright: true
 timezone: Europe/Kyiv
 
