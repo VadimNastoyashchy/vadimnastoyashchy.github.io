@@ -1,1 +1,0 @@
-mediumexporter https://javascript.plainenglish.io/%EF%B8%8Ffor-for-of-foreach-what-to-choose-javascript-ca448d4a9710 > exported-blog.md
