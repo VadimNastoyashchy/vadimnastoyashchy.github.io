@@ -36,14 +36,82 @@ ul.entry-tags {
 // Own styles
 header#masthead {
   border-bottom: 1px solid $border-color;
+  background-color: #091a28;
+  color: white;
+}
+header#masthead .site-title a {
+  color: white;
 }
 div.inner {
   margin: 0 auto;
 }
+
+// Sidebar styling
+#sidebar {
+  background-color: #091a28 !important;
+  color: white !important;
+}
+
+#sidebar > .inner {
+  background-color: #091a28 !important;
+  box-shadow: none !important;
+}
+
+#sidebar a,
+#sidebar li a {
+  color: white !important;
+}
+
+#sidebar a:hover,
+#sidebar li a:hover {
+  color: white !important;
+}
+
+#sidebar li a::before {
+  background-color: white !important;
+}
+
+#sidebar .menu::after {
+  background-color: white !important;
+}
+
+#sidebar .icon svg {
+  fill: white !important;
+}
+
+#sidebar img {
+  filter: brightness(0) invert(1) !important;
+}
+
+#sidebar .site-nav,
+#sidebar nav {
+  color: white !important;
+}
+
+#sidebar .menu-item,
+#sidebar .menu-item a {
+  color: white !important;
+}
+
+#sidebar .contact-list a {
+  color: white !important;
+}
+
 .sidebar-toggle-wrapper {
   @include breakpoint($large) {
     right: 8vw;
   }
+  background-color: #091a28;
+}
+.sidebar-toggle-wrapper .search-toggle svg {
+  fill: white;
+}
+.sidebar-toggle-wrapper .navicon {
+  background: white;
+}
+.sidebar-toggle-wrapper .navicon::before,
+.sidebar-toggle-wrapper .navicon::after {
+  background: white;
 }
 .results .entry-title a:hover {
   color: $accent-color;
@@ -75,7 +143,7 @@ div#related {
   order: 1;
 }
 
-.site-logo { width: 55px; height: 60px; border-radius: 50%; }
+.site-logo { width: 55px; height: 60px; border-radius: 50%; border: 1.5px solid white; }
 
 .site-title {
   font-weight: 300;
@@ -86,11 +154,16 @@ div#related {
 }
 footer .contact-list a {
   text-decoration: none;
-  color: tint($text-color, 30%);
+  color: white;
+}
+footer .contact-list a .icon svg {
+  fill: white !important;
 }
 footer.site-footer {
   border-top: 1px solid $border-color;
   padding: 20px 0;
+  background-color: #091a28;
+  color: white;
 }
 .pager a {
   max-width: 250px;
