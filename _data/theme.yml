@@ -13,7 +13,7 @@ t:
   results_found: "Result(s) found"
   search_placeholder_text: "Enter your search term..."
   related_posts: "You may also like"
-  home: "Home"
+  home: "Blog"
   newer: "Newer"
   older: "Older"
   email: "Email"
@@ -35,4 +35,4 @@ google_fonts:
 navigation_pages:
   - about.md
   - newsletter.md
-  - privacy.md
+  - tags.md
