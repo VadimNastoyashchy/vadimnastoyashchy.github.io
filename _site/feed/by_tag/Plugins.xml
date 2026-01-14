@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed/by_tag/Plugins.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2026-01-14T13:53:07+02:00</updated><id>http://localhost:4000/feed/by_tag/Plugins.xml</id><title type="html">Vadym Nastoiashchyi</title><subtitle>Software quality fanatic | Software Engineer in Test</subtitle><author><name>Vadym Nastoiashchyi</name></author><entry><title type="html">💁‍♂️for, for…of, .forEach(). What to choose? JavaScript</title><link href="http://localhost:4000/for-forof-foreach-js-loops" rel="alternate" type="text/html" title="💁‍♂️for, for…of, .forEach(). What to choose? JavaScript" /><published>2025-04-06T22:00:00+03:00</published><updated>2025-04-06T22:00:00+03:00</updated><id>http://localhost:4000/for-forof-foreach-js-loops</id><content type="html" xml:base="http://localhost:4000/for-forof-foreach-js-loops"><![CDATA[<p>We often need to work with different data sets in our daily work. Usually, these sets are stored in an array. JavaScript allows you to go through an array and get your desired values. But it’s important to know the details of the different ways of doing this. Today, we will look at all the options, like for, for…of, and forEach().</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2025-04-06-for-forof-foreach-js-loops/0_yA0ziSTQn4H3IzX6.jpg" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<h2 id="for">for</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>for (initialization; condition; afterthought)
+    statement
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <strong>‘for’</strong> loop is the classic, traditional way to go through an array. It gives you total control over the process and lets you change the loop counter.</p>
+
+<h3 id="pros">Pros:</h3>
+
+<ul>
+  <li>You can control the loop very precisely, including changing the loop counter.</li>
+  <li>You can use it with arrays and any other iterable object.</li>
+  <li>
+    <p>It’s usually faster than other ways to go through an array.</p>
+  </li>
+  <li>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break">break</a> stops statement execution and goes to the first statement after the loop.</p>
+  </li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue">continue</a> stops statement execution and re-evaluates afterthought then condition.</li>
+</ul>
+
+<h3 id="cons">Cons:</h3>
+
+<ul>
+  <li>It’s more complicated and prone to errors, especially off-by-one errors.
+It also requires manual management of the loop counter and exit condition.</li>
+</ul>
+
+<p><em>Example:</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>    let numbers = [1, 2, 3, 4, 5];
+    for (let i = 0; i &lt; numbers.length; i++) {
+     console.log(numbers[i]);
+    }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="forof">for…of</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>    for (variable of iterable)
+      statement
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>The <strong>“for…of”</strong> loop, introduced in ECMAScript 2015, lets you go through the values of objects that can be iterated, like arrays, maps, and sets.</p>
+
+<h3 id="pros-1">Pros:</h3>
+
+<ul>
+  <li>The syntax is cleaner and less prone to errors compared to the traditional for loop.</li>
+  <li>
+    <p>It automatically goes through the values of the object.</p>
+  </li>
+  <li>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break">break</a> stops statement execution and goes to the first statement after the loop.</p>
+  </li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue">continue</a> stops statement execution and goes to the next iteration of the loop.</li>
+</ul>
+
+<h3 id="cons-1">Cons:</h3>
+
+<ul>
+  <li>
+    <p>You can’t use the index of the current element within the loop.</p>
+  </li>
+  <li>
+    <p>It’s usually slower than the traditional for loop.</p>
+  </li>
+</ul>
+
+<p><em>Example:</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>    let numbers = [1, 2, 3, 4, 5];
+    for (let number of numbers) {
+     console.log(number);
+    }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="foreach-method">.forEach() Method</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>    forEach(callbackFn)
+    forEach(callbackFn, thisArg)
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>The <strong>‘forEach’</strong> method is a special function that works with Arrays. It runs a provided function once for each item in the array.</p>
+
+<p>A function to execute for each element in the array. Its return value is discarded. The function is called with the following arguments:</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#element">element</a> The current element being processed in the array.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#index">index</a> The index of the current element being processed in the array.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#array">array</a> The array forEach() was called upon.</p>
+
+<h3 id="pros-2">Pros:</h3>
+
+<ul>
+  <li>It’s a simple and clear way to go through each item in the array.</li>
+  <li>You can access the item, its position in the array, and the array itself within the callback.</li>
+</ul>
+
+<h3 id="cons-2">Cons:</h3>
+
+<ul>
+  <li>You can’t use ‘break’ or ‘continue’ to leave the loop.</li>
+  <li>It’s usually the slowest way if making things run quickly is important.</li>
+</ul>
+
+<p><em>Example:</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>    let numbers = [1, 2, 3, 4, 5];
+    numbers.forEach((number, index /*, array */) =&gt; {
+     console.log(number, index);
+    });
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="for-vs-while">for vs while</h2>
+
+<p>You may also have heard that “while” is faster than “for”. However, the question is how faster is “while”? Here are some results, but first, let’s take a look at the JavaScript code:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>    console.time('for');
+    for (var i = 0; i &lt; 10000000; i++) {
+     i / 2;
+    }
+    console.timeEnd('for');
+
+    console.time('while');
+    var i = 0;
+    while (i++ &lt; 10000000) {
+     i / 2;
+    }
+    console.timeEnd('while');
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p><strong>The while loop is slightly faster</strong>. However, we should be aware that these performance gains are significant for a large number of iterations!</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>The best option depends on the specific needs of your project. If you want the highest performance and control, a traditional ‘for’ loop is best. If you prefer cleaner code and are working with objects that can be iterated, ‘for…of’ is a good choice. If you need a simple and expressive way to go through the elements of an array and do not need to stop the loop, ‘forEach’ is ideal. Each method has its place, and understanding its characteristics will help you make the best choice for your JavaScript code.</p>
+
+<hr />
+
+<p><strong><em>Thanks to everyone who read this article, I hope you found it useful.</em></strong></p>
+
+<p><em>Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development.</em></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="Cypress" /><category term="Plugins" /><summary type="html"><![CDATA[I've already shared with you 🔝Top 10 useful Cypress plugins in 2024! but not all plugins are included in the article that I use. I want to add 5 more plugins that will be relevant in 2025 and that I use myself....]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2025-04-06-for-forof-foreach-js-loops/0_yA0ziSTQn4H3IzX6.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2025-04-06-for-forof-foreach-js-loops/0_yA0ziSTQn4H3IzX6.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🔝TOP 5 useful Cypress plugins in 2025!</title><link href="http://localhost:4000/top-5-useful-cypress-plugins-in-2025" rel="alternate" type="text/html" title="🔝TOP 5 useful Cypress plugins in 2025!" /><published>2025-03-02T21:00:00+02:00</published><updated>2025-03-02T21:00:00+02:00</updated><id>http://localhost:4000/top-5-useful-cypress-plugins-in-2025</id><content type="html" xml:base="http://localhost:4000/top-5-useful-cypress-plugins-in-2025"><![CDATA[<p>I’ve already shared with you <a href="http://localhost:4000/top-10-useful-cypress-plugins-in-2024">🔝Top 10 useful Cypress plugins in 2024!</a> but not all plugins are included in the article that I use. I want to add 5 more plugins that will be relevant in 2025 and that I use myself.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p><strong><em>Why Enhance Cypress with Plugins?</em></strong></p>
+
+<p>Despite the growing popularity of Playwright, Cypress is still a relevant tool and occupies its specific niche in the field of automation. While Cypress offers a comprehensive set of features out of the box, some testing scenarios have specific needs that aren’t addressed by the default configuration. This is where plugins prove invaluable. So here are my next 5 plugins that I want to share with you and that I think you will find useful.</p>
+
+<p><strong>Cypress plugins facilitate the ability to:</strong></p>
+
+<blockquote>
+  <ul>
+    <li>Deepen interaction with browsers, providing functionalities beyond the default browser capabilities.</li>
+    <li>Gain greater control over the Cypress server, enabling modifications to Cypress’s internal operations.</li>
+    <li>Enhance or modify the behavior of existing commands or introduce new custom commands.</li>
+    <li>Execute tasks within Node.js, allowing direct access to file systems or databases.</li>
+  </ul>
+</blockquote>
+
+<p><strong>Advantages of Using Cypress Plugins:</strong></p>
+
+<blockquote>
+  <ul>
+    <li>Enhanced Capabilities: Plugins extend Cypress’s functionality with new commands, integration with other testing tools, and modifications to test execution processes.</li>
+    <li>Customization: Plugins offer the flexibility to tailor the testing environment to the specific needs of an application, including setting custom environment variables, customizing error messages, or configuring sophisticated stubbing and spying.</li>
+    <li>Increased Efficiency: Some plugins boost test efficiency by automating actions like clearing app data between tests, automating test data input, or distributing test runs across several machines.</li>
+  </ul>
+</blockquote>
+
+<p><strong>Drawbacks of Using Cypress Plugins:</strong></p>
+
+<blockquote>
+  <ul>
+    <li>Dependency Management: Integrating plugins into a project multiplies the number of dependencies that must be managed and updated, possibly leading to version compatibility issues and more maintenance.</li>
+    <li>Added Complexity: Although plugins enhance functionality, they can also complicate test suites, making them challenging to navigate for developers who aren’t familiar with the additional tools.</li>
+    <li>Performance Impact: Utilizing numerous or poorly constructed plugins might slow down the test runner, consequently diminishing the performance of your tests.</li>
+  </ul>
+</blockquote>
+
+<p><br /></p>
+<hr />
+
+<h2 id="top-5-useful-cypress-plugins-in2025">TOP 5 useful Cypress plugins in 2025:</h2>
+
+<h3 id="cypress-plugin-api"><a href="https://github.com/filiphric/cypress-plugin-api">cypress-plugin-api</a></h3>
+
+<blockquote>
+  <p>Cypress plugin for effective API testing. Imagine Postman, but in Cypress. Prints out information about the API call in the Cypress App UI.</p>
+</blockquote>
+
+<blockquote>
+  <p>cy.api() command, that will information about the API call, such as URL, headers, response and more to the UI frame</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>all of the info can be viewed in a time-travel snapshots</li>
+    <li>simple table for viewing cookies</li>
+    <li>JSON data object and array folding</li>
+    <li>color coding of methods in UI view and in timeline</li>
+    <li>calculating size of the response</li>
+    <li>calculating size of the response</li>
+  </ul>
+</blockquote>
+
+<p><strong><em>This plugin allows me to visualize networks (request, response) in open mode while testing the application API.</em></strong></p>
+
+<hr />
+
+<h3 id="cypress-performance"><a href="https://github.com/Valiantsin2021/cypress-performance">cypress-performance</a></h3>
+
+<blockquote>
+  <p>The cypress-performance plugin introduces a powerful way to measure and assert on web performance metrics directly in your Cypress tests. Unlike traditional end-to-end testing that focuses on functionality, this plugin enables teams to catch performance regressions early and maintain high performance standards through automated testing.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>it(`using preset SLOW_3G`, () =&gt; {
+      // Using setNetworkConditions should be called first before navigating to the page
+      cy.setNetworkConditions('SLOW_3G')
+      cy.visit(url)
+      cy.performance().then((metrics) =&gt; {
+        expect(metrics.pageloadTiming).to.be.greaterThan(12000)
+        expect(metrics.domCompleteTiming).to.be.greaterThan(12000)
+      })
+      cy.resetNetworkConditions()
+  })
+</pre></td></tr></tbody></table></code></pre></div></div>
+<hr />
+
+<h3 id="cypress-grep"><a href="https://www.npmjs.com/package/@cypress/grep#install">cypress-grep</a></h3>
+
+<blockquote>
+  <p>Filter tests using substring
+All other tests will be marked pending, see why in the Cypress test statuses blog post. If you have multiple spec files, all specs will be loaded, and every test will be filtered the same way, since the grep is run-time operation and cannot eliminate the spec files without loading them. If you want to run only specific tests, use the built-in - spec CLI argument.</p>
+</blockquote>
+
+<p><strong><em>Useful plugin when running the particular test that provides part of the test name</em></strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre># run only tests with "hello" in their names
+npx cypress run --env grep=hello
+
+✓ hello world
+  - works
+  - works 2 @tag1
+  - works 2 @tag1 @tag2
+  1 passing (38ms)
+  3 pending
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<hr />
+
+<h3 id="cypress-mochawesome-reporter"><a href="https://github.com/LironEr/cypress-mochawesome-reporter">cypress-mochawesome-reporter</a></h3>
+
+<blockquote>
+  <p>Zero config Mochawesome reporter for Cypress with screenshots attached to tests.</p>
+</blockquote>
+
+<p><strong><em>Must have a plugin to visualize the test result in an HTML way</em></strong></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*xzmZJ3wuMcaUtkQE.png" alt="alt text" /></p>
+
+<hr />
+
+<h3 id="cypress-recurse"><a href="https://github.com/bahmutov/cypress-recurse">cypress-recurse</a></h3>
+
+<blockquote>
+  <p>A way to re-run Cypress commands until a predicate function returns true</p>
+</blockquote>
+
+<p><strong><em>It’s quite a useful plugin if you need to execute some code recursively under certain conditions.</em></strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>import { recurse } from 'cypress-recurse'
+
+it('gets 7', () =&gt; {
+  recurse(
+    () =&gt; cy.task('randomNumber'),
+    (n) =&gt; n === 7,
+  )
+})
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Cypress plugins offer many opportunities for enhancing web application testing, providing customized solutions that address diverse business needs. However, it is crucial to carefully select these plugins, keeping in mind their potential limitations. It is important to meticulously evaluate the costs and benefits of each plugin to your specific scenario, ensuring that they serve as valuable assets rather than obstacles in your Cypress testing endeavors.</p>
+
+<hr />
+
+<p><strong><em>Thanks to everyone who read this article, I hope you found it useful.</em></strong></p>
+
+<p><em>Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development.</em></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="Cypress" /><category term="Plugins" /><summary type="html"><![CDATA[I've already shared with you 🔝Top 10 useful Cypress plugins in 2024! but not all plugins are included in the article that I use. I want to add 5 more plugins that will be relevant in 2025 and that I use myself....]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">😱HOW TO get free parallelization in Cypress IO?</title><link href="http://localhost:4000/how-to-get-free-parallelization-in-cypress-io" rel="alternate" type="text/html" title="😱HOW TO get free parallelization in Cypress IO?" /><published>2024-06-04T22:00:00+03:00</published><updated>2024-06-04T22:00:00+03:00</updated><id>http://localhost:4000/how-to-get-free-parallelization-in-cypress-io</id><content type="html" xml:base="http://localhost:4000/how-to-get-free-parallelization-in-cypress-io"><![CDATA[<p><img src="http://localhost:4000/assets/images/posts/2024-06-04-how-to-get-free-parallelization-in-cypress-io/1_1d4Sq-oR7636pTikDR0fbQ.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p>End-to-end testing is an integral part of any application development pipeline, to simulate real-world user workflows and ensure that they perform as expected. One of the most popular tools for this task is Cypress IO. While Cypress IO offers several benefits, running extensive test suites can be time-consuming. However, you can address this issue by enabling parallel test execution. In this article, we’ll take a step-by-step approach to achieving free parallelization in Cypress IO using the open-source <code class="language-plaintext highlighter-rouge">cy-split</code> plugin.</p>
+
+<h3 id="understanding-cypress-io-parallelization"><strong><em>Understanding Cypress IO Parallelization</em></strong></h3>
+
+<p>Cypress IO offers built-in parallelization functionality, allowing tests to be executed faster by distributing them across multiple machines or processors. However, this service comes with a cost, which may be unfeasible for smaller projects or teams. Here is where the <code class="language-plaintext highlighter-rouge">cy-split</code> plugin enters the picture. This open-source Cypress plugin is a straightforward solution for running your tests in parallel during Continuous Integration (CI) — with no extra cost.</p>
+
+<h3 id="installing-cy-split">Installing <code class="language-plaintext highlighter-rouge">cy-split</code></h3>
+
+<p>To begin, make sure you have Cypress installed in your project. Follow the official documentation to do so. Once completed, install <code class="language-plaintext highlighter-rouge">[cy-split](https://www.npmjs.com/package/cypress-split)</code> using npm:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npm install cy-split
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><em>Or, if you prefer using yarn:</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>yarn add cy-split
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="setting-up-cy-split">Setting Up <code class="language-plaintext highlighter-rouge">cy-split</code></h3>
+
+<p>With the plugin installed, we can now add it to our config file.</p>
+
+<p><strong><em>cypress.config.ts</em></strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="rouge-code"><pre>import { defineConfig } from 'cypress';
+const cypressSplit = require('cypress-split');
+
+export default defineConfig({
+  e2e: {
+    supportFile: 'cypress/support/e2e.ts',
+    video: false,
+    viewportHeight: 1080,
+    viewportWidth: 1920,
+    chromeWebSecurity: false,
+    env: {},
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'cypress/results',
+      overwrite: false,
+      html: false,
+      json: true,
+    },
+    setupNodeEvents(on, config) {
+      cypressSplit(on, config);
+      return config;
+    },
+  },
+});
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This facilitates the plugin’s setup and ensures that your tests are recorded correctly when executed in parallel mode.</p>
+
+<h3 id="implementing-parallelization-in-ci">Implementing Parallelization in CI</h3>
+
+<p>The last step is to configure your CI pipeline to take advantage of parallelization when running tests. As detailed in the <a href="https://github.com/VadimNastoyashchy/cypress-split-ci-parallel">example</a> achieving this depends on your CI provider’s splitting mechanism.</p>
+
+<p>For instance, in GitHub Actions, you can leverage the matrix strategy to create separate jobs representing each parallel instance:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+</pre></td><td class="rouge-code"><pre>name: GitHub Actions Manually
+on: [workflow_dispatch]
+jobs:
+  # example splitting all tests across GitHub machines
+  prepare:
+    runs-on: ubuntu-20.04
+    # explicitly set the output of this job
+    # so that other jobs can use it
+    outputs:
+      matrix: $
+    steps:
+      # generate the list using a bash script
+      - name: Create matrix ⊹
+        id: prepare
+        # for reusable workflow, must use the full action reference
+        uses: bahmutov/gh-build-matrix@main
+        with:
+          n: 3 # number of containers to output
+
+      - name: Print result 🖨
+        run: echo '$'
+
+  test-split:
+    needs: prepare
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix: $
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3
+
+      - name: Print GitHub variables 🖨
+        run: npx @bahmutov/print-env GITHUB
+
+      - name: Print GitHub strategy context 🖨
+        run: echo '$'
+
+      - name: Run split Cypress tests 🧪
+        uses: cypress-io/github-action@v5
+        env:
+          SPLIT: $
+          SPLIT_INDEX: $
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Parallelization is a powerful way to manage lengthy test suites in Cypress IO. With the <code class="language-plaintext highlighter-rouge">cy-split</code> plugin, we can tap into this functionality at no cost, enhancing our CI/CD pipelines, minimizing test times, and maximizing productivity. While it requires some tweaking of your test cases and CI configuration, the performance benefits are worth the effort. Happy parallel testing!</p>
+
+<p><strong><em>Disclaimer:</em></strong> The code shared in this tutorial may require modifications depending on your project setup, test suite, and CI provider. Always refer to your provider’s documentation when setting up new configurations.</p>
+
+<p><strong><em>Thanks to everyone who read this article to the end, I hope you found it useful.</em></strong></p>
+
+<p>Sources used in the article:
+<a href="https://github.com/VadimNastoyashchy/cypress-split-ci-parallel">https://github.com/VadimNastoyashchy/cypress-split-ci-parallel</a>
+<a href="https://www.npmjs.com/package/cypress-split">https://www.npmjs.com/package/cypress-split</a></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="Cypress" /><category term="Plugins" /><summary type="html"><![CDATA[End-to-end testing is an integral part of any application development pipeline, to simulate real-world user workflows and ensure that they perform as expected. One of the most popular tools for this task is Cypress IO. While Cypress IO offers several benefits, running extensive test suites can be time-consuming. However, you can address this issue by enabling parallel test execution. In this article, we’ll take a step-by-step approach to achieving free parallelization in Cypress IO using the open-source `cy-split` plugin...]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2024-06-04-how-to-get-free-parallelization-in-cypress-io/1_1d4Sq-oR7636pTikDR0fbQ.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2024-06-04-how-to-get-free-parallelization-in-cypress-io/1_1d4Sq-oR7636pTikDR0fbQ.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">🔝TOP 10 useful Cypress plugins in 2024!</title><link href="http://localhost:4000/top-10-useful-cypress-plugins-in-2024" rel="alternate" type="text/html" title="🔝TOP 10 useful Cypress plugins in 2024!" /><published>2024-04-24T22:00:00+03:00</published><updated>2024-04-24T22:00:00+03:00</updated><id>http://localhost:4000/top-10-useful-cypress-plugins-in-2024</id><content type="html" xml:base="http://localhost:4000/top-10-useful-cypress-plugins-in-2024"><![CDATA[<p><img src="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p><a href="https://www.cypress.io/">Cypress</a> is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications.</p>
+
+<p><strong><em>Why Extend Cypress With Plugins?</em></strong></p>
+
+<p>Cypress provides an excellent out-of-the-box experience with a wide array of features. However, every testing suite has unique issues and requirements that may not be covered by the default settings. That’s where plugins come into play.</p>
+<blockquote>
+  <p><strong><em>Cypress plugins enable the ability to:</em></strong></p>
+  <ul>
+    <li>Interact with the browser at a deeper level, offering functionality that is not available in the default browser animations.</li>
+    <li>Get more control over the Cypress server, enabling you to modify the internal behavior of Cypress.</li>
+    <li>Extend or alter the behavior of built-in commands or add custom ones.</li>
+    <li>Implement tasks that run within Node.js enabling you to access the file system or the database directly.</li>
+  </ul>
+</blockquote>
+
+<h3 id="pros-of-using-cypress-plugins">Pros of Using Cypress Plugins</h3>
+<blockquote>
+  <p><strong><em>Enhanced Functionality: **</em>Plugins can enhance the functionality of Cypress by adding new commands, integrating with other testing tools, or even altering how the tests run.
+**<em>Customization:</em></strong> Plugins can be used to customize the testing environment to suit an application’s unique needs, such as setting custom environment variables, customizing error messages, or configuring advanced stubbing and spying behaviors.
+<em>**Improved Efficiency: **</em>Some plugins can improve the efficiency of your tests by doing things like clearing app data between tests, automating the input of test data, or even parallelizing test runs across multiple machines.</p>
+</blockquote>
+
+<h3 id="cons-of-using-cypress-plugins">Cons of Using Cypress Plugins</h3>
+<blockquote>
+  <p><strong><em>Dependency Management:</em></strong> Adding plugins to a project increases the number of dependencies that need to be managed and updated, which can sometimes result in version compatibility issues and increased maintenance work.
+<strong><em>Increased Complexity:</em></strong> While plugins can add significant functionality, they can also make test suites more complex and harder to understand for developers not familiar with them.
+<em>**Performance Impact: **</em>Using too many plugins or poorly written ones could potentially slow down the test runner, affecting the performance of your tests.</p>
+</blockquote>
+
+<h2 id="top-10-useful-cypress-plugins-in-2024">TOP 10 useful Cypress plugins in 2024:</h2>
+
+<h3 id="cypress-cucumber-preprocessor"><a href="https://github.com/badeball/cypress-cucumber-preprocessor">cypress-cucumber-preprocessor</a></h3>
+<blockquote>
+  <p>The preprocessor (with its dependencies) parses Gherkin documents and allows you to write tests as shown below.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>    # cypress/e2e/duckduckgo.feature
+    Feature: duckduckgo.com
+      Scenario: visiting the frontpage
+        When I visit duckduckgo.com
+        Then I should see a search bar
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="cypress-real-events"><a href="https://github.com/dmtrKovalenko/cypress-real-events">cypress-real-events</a></h3>
+<blockquote>
+  <p>Cypress default events are simulated. That means that all events like cy.click or cy.type are fired from javascript. That’s why these events will be untrusted (event.isTrusted will be false) and they can behave a little different from real native events. But for some cases, it can be impossible to use simulated events, for example, to fill a native alert or copy to the clipboard. This plugin solves this problem.</p>
+</blockquote>
+
+<h3 id="cypress-split"><a href="https://github.com/bahmutov/cypress-split">cypress-split</a></h3>
+<blockquote>
+  <p>This plugin finds the Cypress specs using <a href="https://github.com/bahmutov/find-cypress-specs">find-cypress-specs</a> and then splits the list into chunks using the machine index and the total number of machines. On some CIs (GitLab, Circle), the machine index and the total number of machines are available in the environment variables. On other CIs, you have to be explicit and pass these numbers yourself.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>    // it works something like this:
+    setupNodeEvents(on, config) {
+      const allSpecs = findCypressSpecs()
+      // allSpecs is a list of specs
+      const chunk = getChunk(allSpecs, k, n)
+      // chunk is a subset of specs for this machine "k" of "n"
+      // set the list as the spec pattern
+      // for Cypress to run
+      config.specPattern = chunk
+      return config
+    }
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="eslint-plugin-cypress"><a href="https://github.com/cypress-io/eslint-plugin-cypress#readme">eslint-plugin-cypress</a></h3>
+<blockquote>
+  <p>An <a href="https://eslint.org/">ESLint</a> plugin for your <a href="https://cypress.io/">Cypress</a> tests.
+Note: If you installed ESLint globally then you must also install eslint-plugin-cypress globally.</p>
+</blockquote>
+
+<h3 id="cypress-file-upload"><a href="https://github.com/abramenal/cypress-file-upload#readme">cypress-file-upload</a></h3>
+<blockquote>
+  <p>File upload testing made easy.
+This package adds a custom <a href="https://cypress.io/">Cypress</a> command that allows you to make an abstraction on how exactly you upload files through HTML controls and focus on testing user workflows.</p>
+</blockquote>
+
+<h3 id="cypress-axe"><a href="https://github.com/component-driven/cypress-axe">cypress-axe</a></h3>
+<blockquote>
+  <p>Test accessibility with <a href="https://github.com/dequelabs/axe-core">axe-core</a> in <a href="https://cypress.io/">Cypress</a>.</p>
+</blockquote>
+
+<h3 id="cypress-iframe"><a href="https://gitlab.com/kgroat/cypress-iframe#readme">cypress-iframe</a></h3>
+<blockquote>
+  <p>Adds iframe support to <a href="https://www.cypress.io/">Cypress</a>.</p>
+</blockquote>
+
+<h3 id="github-action"><a href="https://github.com/cypress-io/github-action">github-action</a></h3>
+<blockquote>
+  <p><a href="https://docs.github.com/en/actions">GitHub Action</a> for running <a href="https://www.cypress.io/">Cypress</a> end-to-end and component tests. Includes npm, pnpm and Yarn installation, custom caching and lots of configuration options.</p>
+</blockquote>
+
+<h3 id="cypress-multi-reporters"><a href="https://github.com/YOU54F/cypress-plugins/tree/master/cypress-multi-reporters">cypress-multi-reporters</a></h3>
+<blockquote>
+  <p>Generate multiple mocha reports in a single mocha execution.</p>
+</blockquote>
+
+<h3 id="cypress-if"><a href="https://github.com/bahmutov/cypress-if#readme">cypress-if</a></h3>
+<blockquote>
+  <p>Easy conditional if-else logic for your Cypress tests</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre>    cy.contains('Accept cookies')
+      .if('visible')
+      .click()
+      .else()
+      .log('no cookie banner')
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Cypress plugins open a new horizon of possibilities for testing web applications, enabling tailored solutions to cater to various business requirements. However, they should be picked wisely, considering their potential drawbacks. Always thoroughly assess the cost versus the benefit each plugin provides for your scenario to ensure that plugins turn out to be a helping hand rather than a stumbling block in your Cypress testing journey.</p>
+
+<p><strong><em>Thanks to everyone who read this article to the end, I hope you found it useful.</em></strong></p>
+
+<p>Sources used in the article:
+<a href="https://docs.cypress.io/guides/tooling/plugins-guide">https://docs.cypress.io/guides/tooling/plugins-guide</a></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="Cypress" /><category term="Plugins" /><summary type="html"><![CDATA[Cypress is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications...]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

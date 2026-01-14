@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed/by_tag/Accessability.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2026-01-14T13:53:07+02:00</updated><id>http://localhost:4000/feed/by_tag/Accessability.xml</id><title type="html">Vadym Nastoiashchyi</title><subtitle>Software quality fanatic | Software Engineer in Test</subtitle><author><name>Vadym Nastoiashchyi</name></author><entry><title type="html">How to automate Accessibility testing using CypressIO?</title><link href="http://localhost:4000/accessability-Cypress" rel="alternate" type="text/html" title="How to automate Accessibility testing using CypressIO?" /><published>2024-02-05T21:00:00+02:00</published><updated>2024-02-05T21:00:00+02:00</updated><id>http://localhost:4000/accessability-Cypress</id><content type="html" xml:base="http://localhost:4000/accessability-Cypress"><![CDATA[<p><img src="http://localhost:4000/assets/images/posts/2024-2-5-Access-Cypress/1_Bq0kJ6Q4QfK3KfTzxnH47Q.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p>This article is useful for test automation engineers or developers who are involved in testing and want to improve their test framework skills to apply such type of testing in the project.
+Let’s start with a quick overview of accessibility testing itself. ↓↓↓</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2024-2-5-Access-Cypress/1_S5PQQmdSCUuDHem-psFvQg.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<h3 id="digital-accessibility-standards">Digital Accessibility Standards</h3>
+
+<p>The international standards for coding and accessibility are the Web Content Accessibility Guidelines (WCAG), both versions 2.0 and 2.1. They are based on the following four fundamental aspects, known as POUR, that are necessary for everyone to access and use web content:</p>
+<h4 id="perceivable-operable-understandable-robust">Perceivable, Operable, Understandable, Robust.</h4>
+
+<p>WCAG provides criteria for testing your content based on three levels of conformance with a progressively larger set of success criteria:</p>
+
+<h4 id="level-a">Level A:</h4>
+<p>To meet this level, you must meet 25 success criteria. For example, at this level, you can’t identify something by the color, as in “Press the yellow arrow to continue.</p>
+
+<h4 id="level-aa">Level AA:</h4>
+<p>To achieve this level, you have to meet 13 additional success criteria in addition to the 25 from Level A. An example of a Level AA criterion is meeting color contrast standards.</p>
+
+<h4 id="level-aaa">Level AAA:</h4>
+<p>This level has 24 additional pass criteria (for a total of 62). Examples of Level AAA success would be increasing color contrast or removing any item that blinks or flashes three times per second to reduce the likelihood of a user having a seizure.</p>
+
+<p>Now that we are done with the terminology, we can start the automation process.
+First of all, we need Cypress as a test runner itself.
+This command will install Cypress locally as a dev dependency for your project:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npm install cypress --save-dev
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>To continue with testing accessibility, we should use the axe-core library as a plugin for Cypress cypress-axe
+<a href="https://github.com/component-driven/cypress-axe">https://github.com/component-driven/cypress-axe</a></p>
+
+<p>Install cypress-axe from npm:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npm install --save-dev cypress-axe
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Install peer dependencies:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npm install --save-dev cypress axe-core
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The next step is to register our plugin in the Cypress support file to be able to use cypress-axe commands. Update <code class="language-plaintext highlighter-rouge">cypress/support/e2e.js</code> or <code class="language-plaintext highlighter-rouge">cypress/support/e2e.ts</code> file to include the cypress-axe commands by adding:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>import 'cypress-axe'
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><img src="http://localhost:4000/assets/images/posts/2024-2-5-Access-Cypress/1_aGTfz0kBdInRGV5ktGWEBg.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<blockquote>
+  <p><em>If you use TypeScript update tsconfig.json file with adding cypress-axe types↓↓↓</em></p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es5",
+    "lib": ["esnext", "dom"],
+    "types": ["cypress", "cypress-axe"]
+  },
+  "include": ["."]
+}
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Now we are ready to use <code class="language-plaintext highlighter-rouge">cypress-axe</code> library to test our application.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>describe('template spec', () =&gt; {
+  it('passes', () =&gt; {
+    cy.visit('https://example.cypress.io')
+    cy.injectAxe()
+    cy.checkA11y()
+  })
+})
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><em>cy.injectAxe()</em>
+This will inject the <code class="language-plaintext highlighter-rouge">axe-core</code> runtime into the page under test. You have to run this after a call to <code class="language-plaintext highlighter-rouge">cy.visit()</code> and before you run the <code class="language-plaintext highlighter-rouge">checkA11y</code> command.</p>
+
+<p><em>cy.checkA11y()</em>
+This will run axe against the document at the point in which it is called. This means you can call this after interacting with your page and uncover accessibility issues introduced as a result of rendering in response to user actions.</p>
+
+<p>If something does not conform to the accessibility rules, an error is thrown after the tests are ran.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2024-2-5-Access-Cypress/1_MPUOxdaDOOBxRuBoco-ZIg.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p>Additionally, there is an option to pass a configuration object to axe, you can configure which rules to use for validations and more. 
+<a href="https://www.deque.com/axe/core-documentation/api-documentation/#api-name-axeconfigure">https://www.deque.com/axe/core-documentation/api-documentation/#api-name-axeconfigure</a></p>
+
+<p>Example of additional settings:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>cy.configureAxe({
+    branding: {
+      brand: String,
+      application: String
+    },
+    reporter: 'option',
+    checks: [Object],
+    rules: [Object],
+    locale: Object
+  })
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>For more informative error output, you can also add your own Cypress command, which should be included in the <code class="language-plaintext highlighter-rouge">cypress/support/commands.js</code> or <code class="language-plaintext highlighter-rouge">cypress/support/commands.ts</code> file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre>Cypress.Commands.add('checkAccessability', (context, options) =&gt; {
+    const terminalLog = violations =&gt; {
+      cy.task(
+        'log',
+        `${violations.length} accessibility violation${
+          violations.length === 1 ? '' : 's'
+        } ${violations.length === 1 ? 'was' : 'were'} detected`,
+      )
+      const violationData = violations.map(
+        ({ id, impact, description, nodes }) =&gt; ({
+          id,
+          impact,
+          description,
+          nodes: nodes.length,
+        }),
+      )
+  
+      cy.task('table', violationData)
+    }
+  
+    cy.checkA11y(context || null, options || null, terminalLog)
+  })
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>And don’t forget to update <code class="language-plaintext highlighter-rouge">setupNodeEvents(){}</code> function in <code class="language-plaintext highlighter-rouge">cypress.config.js</code> file to print logs to the console.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre>const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+      on("task", {
+        log(message) {
+          console.log(message);
+
+          return null;
+        },
+        table(message) {
+          console.table(message);
+
+          return null;
+        },
+      });
+    },
+  },
+});
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Accessibility errors are now also displayed in the console in a more informative way.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2024-2-5-Access-Cypress/1_4vQctMSMRsLE4vrT4yGRjQ.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p>For a complete Cypress and Cypress-axe integration solution, follow this link:
+<a href="https://github.com/VadimNastoyashchy/https---github.com-VadimNastoyashchy-cypress-accessability">https://github.com/VadimNastoyashchy/https—github.com-VadimNastoyashchy-cypress-accessability</a></p>
+
+<p>Thanks to everyone who read this article to the end, I hope you found it useful.</p>
+
+<p>Sources used in the article:
+<a href="https://info.usablenet.com/accessibility-testing">https://info.usablenet.com/accessibility-testing</a>
+<a href="https://github.com/component-driven/cypress-axe">https://github.com/component-driven/cypress-axe</a></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="Cypress" /><category term="Accessability" /><summary type="html"><![CDATA[This article is useful for test automation engineers or developers who are involved in testing and want to improve their test framework skills to apply such type of testing in the project. Let’s start with a quick overview of accessibility testing itself. ↓↓↓]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2024-2-5-Access-Cypress/1_Bq0kJ6Q4QfK3KfTzxnH47Q.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2024-2-5-Access-Cypress/1_Bq0kJ6Q4QfK3KfTzxnH47Q.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

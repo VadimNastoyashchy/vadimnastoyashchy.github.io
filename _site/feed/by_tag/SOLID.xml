@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed/by_tag/SOLID.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2026-01-14T13:53:07+02:00</updated><id>http://localhost:4000/feed/by_tag/SOLID.xml</id><title type="html">Vadym Nastoiashchyi</title><subtitle>Software quality fanatic | Software Engineer in Test</subtitle><author><name>Vadym Nastoiashchyi</name></author><entry><title type="html">👨‍🏫A beginner’s guide to SOLID principles in JavaScript: Made Simple</title><link href="http://localhost:4000/a-beginners-guide-to-solid-principles-in-javascript-made-simple" rel="alternate" type="text/html" title="👨‍🏫A beginner’s guide to SOLID principles in JavaScript: Made Simple" /><published>2024-07-29T22:00:00+03:00</published><updated>2024-07-29T22:00:00+03:00</updated><id>http://localhost:4000/a-beginners-guide-to-solid-principles-in-javascript-made-simple</id><content type="html" xml:base="http://localhost:4000/a-beginners-guide-to-solid-principles-in-javascript-made-simple"><![CDATA[<p><img src="http://localhost:4000/assets/images/posts/2024-07-29-a-beginners-guide-to-solid-principles-in-javascript-made-simple/1_jPROahDWDQ2fWnKixUZhAw.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p>The SOLID Principles are guidelines that help software developers design and maintain clear, robust, and flexible systems. They are essential in object-oriented programming, but they can also be useful in understanding structured coding practices in JavaScript. Here, I’ll break down each principle with simple explanations and examples to make them accessible to everyone.</p>
+
+<h2 id="1-single-responsibility-principle-srp">1. Single Responsibility Principle (SRP)</h2>
+<blockquote>
+  <p><em>*What it means:</em> ***
+Imagine that your job is to make coffee. That’s all you need to focus on. If you also have to serve snacks, manage inventory, and clean tables, your primary task of making coffee may suffer. In programming, the single responsibility principle suggests that a piece of code, such as a function or class, should focus on only one task or activity.</p>
+</blockquote>
+
+<p><strong>Example in JavaScript:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="rouge-code"><pre>    // Not following SRP
+    class RestaurantManager {
+      prepareCoffee() {
+        console.log("Coffee prepared");
+      }
+      
+      serveFood() {
+        console.log("Food served");
+      }
+    }
+    
+    // Following SRP
+    class CoffeeMaker {
+      prepareCoffee() {
+        console.log("Coffee prepared");
+      }
+    }
+    
+    class FoodServer {
+      serveFood() {
+        console.log("Food served");
+      }
+    }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="2-openclosed-principle-ocp">2. Open/Closed Principle (OCP)</h2>
+<blockquote>
+  <p>**What it means: **
+Think of a vending machine. Once it’s built and up and running, you don’t want to keep opening it up to add new products. Instead, it should be designed so that you can easily add more items without having to change its inner workings. Similarly, when writing code, it should be open to adding new features, but closed to changes in its existing code.</p>
+</blockquote>
+
+<p><strong>Example in JavaScript:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="rouge-code"><pre>    class VendingMachine {
+      constructor(products) {
+        this.products = products;
+      }
+    
+      getProducts() {
+        return this.products;
+      }
+    }
+    
+    // Extend behavior
+    class EnhancedVendingMachine extends VendingMachine {
+      addProduct(product) {
+        this.products.push(product);
+      }
+    }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="3-liskov-substitution-principle-lsp">3. Liskov Substitution Principle (LSP)</h2>
+<blockquote>
+  <p>**What it means: **
+If you have a program that uses a bird, you should be able to replace it with any specific type of bird, such as a parrot or an eagle, without breaking the program. If you suddenly replace the bird with a penguin, which cannot fly, the program should not suddenly break if the required action was flight.</p>
+</blockquote>
+
+<p><strong>Example in JavaScript:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre>    class Bird {
+        fly() {
+            console.log("Flying high!");
+        }
+    }
+    
+    class Duck extends Bird {}
+    
+    class Penguin extends Bird {
+        fly() {
+            throw new Error("Cannot fly!"); // This breaks the substitution principle
+        }
+    }
+    
+    // Better approach
+    class FlightlessBird {
+        walk() {
+            console.log("Walking!");
+        }
+    }
+    
+    class Penguin extends FlightlessBird {}
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="4-interface-segregation-principle-isp">4. Interface Segregation Principle (ISP)</h2>
+<blockquote>
+  <p>**What it means: **
+If you’re asked to sign a lease that includes clauses that have nothing to do with you, like pet rules when you don’t even own a pet, that’s overwhelming. Similarly, ISP in software development dictates that a program should not force interfaces onto classes where they do not make sense.</p>
+</blockquote>
+
+<p><strong>Example in JavaScript:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre>    // Too generic, not all employees drive.
+    class Employee {
+      let name
+      work() {}
+      driveCar() {}
+    }
+    
+    // Better approach
+    class Employee {
+      let name
+    }
+    
+    class Driver extends Employee {
+      this.name = 'John'
+      driveCar() {
+        console.log("Driving a car");
+      }
+    }
+    
+    class Programmer extends Employee {
+      this.name = 'Sarah'
+      work() {
+        console.log("Working...");
+      }
+    }
+</pre></td></tr></tbody></table></code></pre></div></div>
+<h2 id="5-dependency-inversion-principle-dip">5. Dependency Inversion Principle (DIP)</h2>
+<blockquote>
+  <p>**What it means: **
+Instead of a network of dependencies where high-level modules depend heavily on low-level modules, think of a structure where these dependencies are reversed through a common contract or interface. This is like having a contractor who relies on abstract contracts or blueprints instead of relying directly on electricians or plumbers.</p>
+</blockquote>
+
+<p><strong>Example in JavaScript:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre>    class Book {
+      getContent() {
+        return "Reading is good";
+      }
+    }
+    
+    class Reader {
+      read(contentProvider) {
+        console.log(contentProvider.getContent());
+      }
+    }
+    
+    let myBook = new Book();
+    let me = new Reader();
+    me.read(myBook); // Abides by DIP
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>By following the SOLID principles in JavaScript, you can create code that is more understandable, easier to maintain, and more flexible to change, making it easier to manage as projects grow and evolve.</p>
+
+<p><strong><em>Thanks to everyone who read this article, I hope you found it useful.</em></strong></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="SOLID" /><category term="Patterns" /><category term="JavaScript" /><summary type="html"><![CDATA[The SOLID Principles are guidelines that help software developers design and maintain clear, robust, and flexible systems. They are essential in object-oriented programming, but they can also be useful in understanding structured coding practices in JavaScript. Here, I’ll break down each principle with simple explanations and examples to make them accessible to everyone...]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2024-07-29-a-beginners-guide-to-solid-principles-in-javascript-made-simple/1_jPROahDWDQ2fWnKixUZhAw.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2024-07-29-a-beginners-guide-to-solid-principles-in-javascript-made-simple/1_jPROahDWDQ2fWnKixUZhAw.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

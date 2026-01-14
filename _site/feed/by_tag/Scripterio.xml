@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed/by_tag/Scripterio.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2026-01-14T13:53:07+02:00</updated><id>http://localhost:4000/feed/by_tag/Scripterio.xml</id><title type="html">Vadym Nastoiashchyi</title><subtitle>Software quality fanatic | Software Engineer in Test</subtitle><author><name>Vadym Nastoiashchyi</name></author><entry><title type="html">Performing API Testing Using ScripterI/O as a JavaScript Test Runner</title><link href="http://localhost:4000/scripterio-js-test-runner-api-tests" rel="alternate" type="text/html" title="Performing API Testing Using ScripterI/O as a JavaScript Test Runner" /><published>2025-06-17T11:00:00+03:00</published><updated>2025-06-17T11:00:00+03:00</updated><id>http://localhost:4000/scripterio-js-test-runner-api-tests</id><content type="html" xml:base="http://localhost:4000/scripterio-js-test-runner-api-tests"><![CDATA[<p><img src="http://localhost:4000/assets/images/posts/2025-06-17-scripterio-js-test-runner-api-tests/logo.png" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p><em>API (Application Programming Interface) testing is an integral part of modern software development processes. It involves testing the interactions between different software components through endpoints and validating their behavior against expected outcomes. Unlike UI testing, API testing focuses exclusively on backend functionality, ensuring data communication and processing are robust, secure, and error-free.</em></p>
+
+<h3 id="api-testing-commonly-evaluates-whether">API testing commonly evaluates whether:</h3>
+
+<ul>
+  <li>Endpoints return expected responses for various request methods (GET, POST, PUT, PATCH, DELETE, etc.).</li>
+  <li>Validations, error handling, and HTTP status codes behave as expected.</li>
+  <li>HTTP request/response payloads meet integration requirements.</li>
+</ul>
+
+<p><strong><em>ScripterI/O, a lightweight JavaScript test runner with built-in HTTP client support, simplifies API testing by offering an intuitive setup and execution process. It enables developers to run test cases programmatically and generate detailed reports for debugging or documentation purposes.</em></strong></p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2025-06-17-scripterio-js-test-runner-api-tests/api.png" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<h2 id="setting-up-and-configuring-scripterio-for-api-testing">Setting Up and Configuring ScripterI/O for API Testing</h2>
+
+<p>Prerequisites
+Before using ScripterI/O for testing, ensure that:</p>
+
+<blockquote>
+  <p><em>Node.js is installed globally on your system</em></p>
+</blockquote>
+
+<blockquote>
+  <p><em>Your project has a valid package.json file (created using npm init)</em></p>
+</blockquote>
+
+<h3 id="installation">Installation</h3>
+
+<p>Install ScripterI/O using either npm or yarn:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>npm <span class="nb">install </span>scripterio <span class="nt">--save-dev</span>
+<span class="c"># or</span>
+yarn add scripterio <span class="nt">--dev</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="writing-api-tests">Writing API Tests</h3>
+
+<p>Let’s create an API test suite to demonstrate API testing. We’ll check CRUD operations against a public REST API (https://api.restful-api.dev/objects) and validate the responses.</p>
+
+<p>Creating the Test File (api-test.js)
+Below is an example test file written using ScripterI/O’s syntax:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">,</span>
+  <span class="nx">test</span><span class="p">,</span>
+  <span class="nx">expect</span><span class="p">,</span>
+  <span class="nx">request</span><span class="p">,</span>
+  <span class="nx">beforeEach</span><span class="p">,</span>
+  <span class="nx">afterAll</span><span class="p">,</span>
+<span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">scripterio</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">BASE_ENDPOINT</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://api.restful-api.dev/objects</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">preparedData</span><span class="p">;</span>
+
+<span class="c1">// Helper function to delete test data</span>
+<span class="kd">const</span> <span class="nx">cleanData</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="nx">delate</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">BASE_ENDPOINT</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Helper function to create test data</span>
+<span class="kd">const</span> <span class="nx">createData</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Apple MacBook Pro 2020</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">year</span><span class="p">:</span> <span class="mi">2020</span><span class="p">,</span>
+      <span class="na">price</span><span class="p">:</span> <span class="mf">1999.99</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">CPU model</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">M1 pro</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">Hard disk size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1 TB</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">color</span><span class="p">:</span> <span class="dl">"</span><span class="s2">space gray</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+
+  <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">BASE_ENDPOINT</span><span class="p">,</span> <span class="nx">product</span><span class="p">);</span>
+  <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">"</span><span class="s2">API Testing with ScripterI/O</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Setup and teardown logic</span>
+  <span class="nx">beforeEach</span><span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">preparedData</span><span class="p">)</span> <span class="k">await</span> <span class="nx">cleanData</span><span class="p">(</span><span class="nx">preparedData</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">preparedData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">createData</span><span class="p">();</span>
+  <span class="p">});</span>
+
+  <span class="nx">afterAll</span><span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">preparedData</span><span class="p">)</span> <span class="k">await</span> <span class="nx">cleanData</span><span class="p">(</span><span class="nx">preparedData</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Test GET method to fetch a single object</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">"</span><span class="s2">Check GET method to retrieve a single object</span><span class="dl">"</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">BASE_ENDPOINT</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">preparedData</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Test GET method to fetch all objects</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">"</span><span class="s2">Check GET method to retrieve all objects</span><span class="dl">"</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">BASE_ENDPOINT</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBeGreaterThan</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Ensure at least one object exists</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Test PUT method to update an object</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">"</span><span class="s2">Check PUT method to update a single object</span><span class="dl">"</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Apple MacBook Pro 2021</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">year</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span>
+        <span class="na">price</span><span class="p">:</span> <span class="mf">1999.99</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">CPU model</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">M2 pro</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">Hard disk size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1 TB</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">color</span><span class="p">:</span> <span class="dl">"</span><span class="s2">silver</span><span class="dl">"</span><span class="p">,</span>
+      <span class="p">},</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span>
+      <span class="s2">`</span><span class="p">${</span><span class="nx">BASE_ENDPOINT</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">preparedData</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="nx">product</span>
+    <span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">updatedAt</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="nx">preparedData</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="nx">product</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// Test PATCH method to partially update an object</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">"</span><span class="s2">Check PATCH method to partially update a single object</span><span class="dl">"</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">product</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Apple MacBook Air</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">request</span><span class="p">.</span><span class="nx">patch</span><span class="p">(</span>
+      <span class="s2">`</span><span class="p">${</span><span class="nx">BASE_ENDPOINT</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">preparedData</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="nx">product</span>
+    <span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">updatedAt</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">();</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="nx">preparedData</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="nx">product</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="running-your-tests">Running Your Tests</h3>
+
+<p>To execute the test suite, use the ScripterI/O runner:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>npx scripterio <span class="nt">--file</span><span class="o">=</span><span class="s2">"api-test.js"</span>
+<span class="c"># or</span>
+yarn scripterio <span class="nt">--file</span><span class="o">=</span><span class="s2">"api-test.js"</span>  
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="generating-detailed-reports">Generating Detailed Reports</h3>
+
+<p>ScripterI/O offers reporting functionality, including an HTML report. To generate an HTML report, use the <strong>–reporter=html</strong> flag:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npx scripterio <span class="nt">--file</span><span class="o">=</span>api-test.js <span class="nt">--reporter</span><span class="o">=</span>html
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The report will be saved in the scripterio-report directory and include details about passed/failed tests, HTTP client interactions, and network request data.</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2025-06-17-scripterio-js-test-runner-api-tests/report-demo.gif" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>API testing is a critical component of ensuring application reliability and backend functionality. ScripterI/O provides a streamlined approach to API testing with built-in methods for HTTP requests, flexible assertion capabilities, and reporting features to simplify debugging.</p>
+
+<p>By following this guide, you can set up ScripterI/O for API testing, write robust test cases, and generate insightful reports. Whether it’s testing GET, POST, PUT, PATCH, or DELETE operations, ScripterI/O’s lightweight and dependency-free runner is an excellent solution for developers aiming to enhance software quality.</p>
+
+<h2 id="ps">P.S.</h2>
+<p><em>ScripterI/O was created by me to use as a native ESM test runner that does not use third-party dependencies at all and to use own runner for all my personal projects. On the other hand, I am interested in developing a production (open source) tool for general purpose.</em></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="Scripterio" /><summary type="html"><![CDATA[API (Application Programming Interface) testing is an integral part of modern software development processes. It involves testing the interactions between different software components through endpoints and validating their behavior against expected outcomes. Unlike UI testing, API testing focuses exclusively on backend functionality...]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2025-06-17-scripterio-js-test-runner-api-tests/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2025-06-17-scripterio-js-test-runner-api-tests/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">ScripterI/O: A Fast and Simple JavaScript ESM Test Runner</title><link href="http://localhost:4000/scripterio-js-test-runner" rel="alternate" type="text/html" title="ScripterI/O: A Fast and Simple JavaScript ESM Test Runner" /><published>2025-05-20T22:00:00+03:00</published><updated>2025-05-20T22:00:00+03:00</updated><id>http://localhost:4000/scripterio-js-test-runner</id><content type="html" xml:base="http://localhost:4000/scripterio-js-test-runner"><![CDATA[<p><img src="http://localhost:4000/assets/images/posts/2025-05-20-scripterio-js-test-runner/logo.png" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<h2 id="what"><strong>What?</strong></h2>
+
+<p><a href="https://github.com/VadimNastoyashchy/scripterio">ScripterI/O</a> is a JavaScript testing framework designed to run on Node.js. It provides a simple and fast ESM (ECMAScript Module) runner for testing JavaScript code. The framework supports writing test cases using test and describe functions, organizing tests, and performing assertions with the expect function. It includes features like async/await support, test annotations, and context options for timeout configurations. ScripterI/O is focused on making testing easy and enjoyable for all.</p>
+
+<h2 id="why"><strong>Why?</strong></h2>
+
+<p>ScripterI/O is specifically designed with modern ECMAScript Modules (ESM) in mind, making it a better fit for ESM-based projects compared to older test runners like Jest or Mocha. Here’s why:</p>
+
+<ol>
+  <li>
+    <p><strong>Native ESM Support</strong>: Unlike Jest and Mocha, which often require additional configuration or experimental flags to work seamlessly with ESM, ScripterI/O natively supports ESM out of the box. This eliminates the need for workarounds and ensures a smoother development experience.</p>
+  </li>
+  <li>
+    <p><strong>Simplified Setup</strong>: With ScripterI/O, you can start testing your ESM-based code immediately without worrying about compatibility issues or complex setup processes.</p>
+  </li>
+  <li>
+    <p><strong>Performance Optimization</strong>: ScripterI/O is lightweight and optimized for speed, making it ideal for modern JavaScript projects that leverage ESM’s tree-shaking and modularity features.</p>
+  </li>
+  <li>
+    <p><strong>Future-Proof</strong>: As the JavaScript ecosystem continues to move towards ESM as the standard, Scripterio’s design aligns with the latest trends and best practices, ensuring long-term compatibility and support.</p>
+  </li>
+  <li>
+    <p><strong>No 3-rd party dependency</strong>: Runner doesn’t use any of third-party dependency.</p>
+  </li>
+</ol>
+
+<p>By choosing ScripterI/O for your ESM projects, you can focus on writing tests and building robust applications without being bogged down by legacy compatibility issues.</p>
+
+<h2 id="usage"><strong>Usage</strong></h2>
+
+<p>ScripterI/O allows you to write test cases using a simple and familiar syntax. Here’s how you can get started:</p>
+
+<h3 id="installation"><strong>Installation</strong></h3>
+
+<p>To use first install it in your project:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>npm <span class="nb">install </span>scripterio <span class="nt">--save-dev</span>
+//or
+yarn add scripterio <span class="nt">--dev</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="writing-tests"><strong>Writing Tests</strong></h3>
+
+<p>Create a test file (e.g., <code class="language-plaintext highlighter-rouge">example.test.js</code>) and use Scripterio’s API to define your test cases:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">describe</span><span class="p">,</span> <span class="nx">test</span><span class="p">,</span> <span class="nx">expect</span><span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">scripterio</span><span class="dl">'</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Title for describe block</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">Title for test</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">arr</span><span class="p">).</span><span class="nx">toHaveLength</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="running-tests"><strong>Running Tests</strong></h3>
+<p>Run your tests using the Scripterio CLI:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>npx scripterio <span class="nt">--file</span><span class="o">=</span><span class="s2">"test.js"</span>
+//or
+yarn scripterio <span class="nt">--file</span><span class="o">=</span><span class="s2">"test.js"</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<hr />
+
+<h2 id="features"><strong>Features</strong></h2>
+
+<ol>
+  <li><strong>Simple API</strong>: Scripterio provides a minimalistic API (<code class="language-plaintext highlighter-rouge">describe</code>, <code class="language-plaintext highlighter-rouge">test</code>, <code class="language-plaintext highlighter-rouge">expect</code>) that is easy to learn and use.</li>
+  <li><strong>ESM Support</strong>: Built for modern JavaScript projects, fully supports ECMAScript Modules (ESM).</li>
+  <li><strong>Assertions</strong>: Includes a variety of built-in assertions like <code class="language-plaintext highlighter-rouge">toBeEqual</code>, <code class="language-plaintext highlighter-rouge">toBeTruthy</code>, <code class="language-plaintext highlighter-rouge">toBeFalsy</code>, <code class="language-plaintext highlighter-rouge">toContain</code>, and more.</li>
+  <li><strong>Async Support</strong>: Write asynchronous tests with ease using <code class="language-plaintext highlighter-rouge">async/await</code>.</li>
+  <li><strong>Customizable Hooks</strong>: Use <code class="language-plaintext highlighter-rouge">beforeEach</code>, <code class="language-plaintext highlighter-rouge">afterEach</code>, <code class="language-plaintext highlighter-rouge">beforeAll</code>, and <code class="language-plaintext highlighter-rouge">afterAll</code> to set up and tear down test environments.</li>
+</ol>
+
+<hr />
+
+<h2 id="pros"><strong>Pros</strong></h2>
+
+<ul>
+  <li><strong>Lightweight</strong>: No third-party dependencies and a small footprint.</li>
+  <li><strong>Fast</strong>: Optimized for speed, making it ideal for large test suites.</li>
+  <li><strong>Modern</strong>: Fully supports ESM, aligning with the latest JavaScript standards.</li>
+  <li><strong>Readable Syntax</strong>: The API is intuitive and easy to understand, even for beginners.</li>
+</ul>
+
+<hr />
+
+<h2 id="cons"><strong>Cons</strong></h2>
+
+<ul>
+  <li><strong>Limited Ecosystem</strong>: As a newer tool, lacks the extensive plugin ecosystem of more established test runners like Jest or Mocha.</li>
+  <li><strong>Basic Reporting</strong>: The default test output is minimal, which may not meet the needs of teams requiring detailed reports.</li>
+  <li><strong>No Built-in Mocking</strong>: Unlike some other test runners, does not include built-in mocking or spying utilities.</li>
+</ul>
+
+<hr />
+
+<h2 id="future-improvements"><strong>Future Improvements</strong></h2>
+
+<ol>
+  <li><strong>Enhanced Reporting</strong>: Add support for detailed test reports, including HTML and JSON formats.</li>
+  <li><strong>Mocking and Spying</strong>: Introduce built-in utilities for mocking and spying on functions.</li>
+  <li><strong>Parallel Execution</strong>: Enable parallel test execution to further improve performance.</li>
+  <li><strong>Plugin System</strong>: Develop a plugin architecture to allow for community-driven extensions.</li>
+  <li><strong>TypeScript Support</strong>: Improve TypeScript integration with more comprehensive type definitions.</li>
+</ol>
+
+<hr />
+
+<h2 id="code-examples"><strong>Code Examples</strong></h2>
+
+<h3 id="basic-test"><strong>Basic Test</strong></h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">describe</span><span class="p">,</span> <span class="nx">test</span><span class="p">,</span> <span class="nx">expect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">scripterio</span><span class="dl">'</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">String operations</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">Check if string contains a substring</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello, world!</span><span class="dl">'</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">str</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="async-test"><strong>Async Test</strong></h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">describe</span><span class="p">,</span> <span class="nx">test</span><span class="p">,</span> <span class="nx">expect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">scripterio</span><span class="dl">'</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Async operations</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">Wait for a promise to resolve</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">resolve</span><span class="p">(</span><span class="mi">42</span><span class="p">),</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">result</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="using-hooks"><strong>Using Hooks</strong></h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="rouge-code"><pre><span class="k">import</span> <span class="p">{</span> <span class="nx">describe</span><span class="p">,</span> <span class="nx">test</span><span class="p">,</span> <span class="nx">beforeEach</span><span class="p">,</span> <span class="nx">afterEach</span><span class="p">,</span> <span class="nx">expect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">scripterio</span><span class="dl">'</span>
+
+<span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">Counter tests</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="p">})</span>
+
+  <span class="nx">afterEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">counter</span> <span class="o">=</span> <span class="kc">null</span>
+  <span class="p">})</span>
+
+  <span class="nx">test</span><span class="p">(</span><span class="dl">'</span><span class="s1">Increment counter</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">counter</span><span class="o">++</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">counter</span><span class="p">).</span><span class="nx">toBeEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="summary"><strong>Summary</strong></h2>
+
+<p>ScripterI/O is a promising test runner for JavaScript developers who value simplicity and speed. While it may not yet have all the features of more established tools, its modern design and ease of use make it a great choice for small to medium-sized projects. With planned improvements like enhanced reporting and a plugin system, Scripterio has the potential to become a strong contender in the test automation space.</p>
+
+<p>If you’re looking for a lightweight and modern test runner, give ScripterI/O a try!</p>
+
+<h2 id="ps">P.S.</h2>
+<p><em>ScripterI/O was created by me to use as a native ESM test runner that does not use third-party dependencies at all and to use own runner for all my personal projects. On the other hand, I am interested in developing a production (open source) tool for general purpose.</em></p>
+
+<hr />
+
+<p><strong><em>Thanks to everyone who read this article, I hope you found it useful.</em></strong></p>
+
+<p><em>Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development.</em></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="Scripterio" /><summary type="html"><![CDATA[ScripterI/O is a lightweight, fast, and easy-to-use JavaScript test runner designed for modern ESM-based projects. It provides a clean and intuitive API for writing and running tests, making it an excellent choice for all who value simplicity and speed in their testing workflows...]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2025-05-20-scripterio-js-test-runner/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2025-05-20-scripterio-js-test-runner/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

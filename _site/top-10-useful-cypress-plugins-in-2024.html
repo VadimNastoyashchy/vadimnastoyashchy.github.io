@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!-- Based on Basically Basic Jekyll Theme 1.4.4 created by Michael Rose - mademistakes.com | @mmistakes Free for personal and commercial use under the MIT license https://github.com/mmistakes/jekyll-theme-basically-basic/blob/master/LICENSE -->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+
+  
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+<link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>🔝TOP 10 useful Cypress plugins in 2024! | Vadym Nastoiashchyi</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="🔝TOP 10 useful Cypress plugins in 2024!" />
+<meta name="author" content="Vadym Nastoiashchyi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cypress is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications…" />
+<meta property="og:description" content="Cypress is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications…" />
+<link rel="canonical" href="http://localhost:4000/top-10-useful-cypress-plugins-in-2024" />
+<meta property="og:url" content="http://localhost:4000/top-10-useful-cypress-plugins-in-2024" />
+<meta property="og:site_name" content="Vadym Nastoiashchyi" />
+<meta property="og:image" content="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-04-24T22:00:00+03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" />
+<meta property="twitter:title" content="🔝TOP 10 useful Cypress plugins in 2024!" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Vadym Nastoiashchyi"},"dateModified":"2024-04-24T22:00:00+03:00","datePublished":"2024-04-24T22:00:00+03:00","description":"Cypress is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications…","headline":"🔝TOP 10 useful Cypress plugins in 2024!","image":"http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/top-10-useful-cypress-plugins-in-2024"},"url":"http://localhost:4000/top-10-useful-cypress-plugins-in-2024"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,600,600i|Fira+Sans+Condensed">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Vadym Nastoiashchyi" href="/atom.xml">
+  
+  <meta name="msvalidate.01" content="7635C3A673D3C560D528EA667E409AC8" />
+</head>
+
+
+  <body class="layout--post top-10-useful-cypress-plugins-in-2024">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+        <button class="search-toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="https://www.w3.org/2000/svg" viewbox="0 0 15.99 16">
+            <title>Search</title>
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+        <li class="menu-item">
+          <a href="/about" itemprop="url">
+            <span itemprop="name">About</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/newsletter" itemprop="url">
+            <span itemprop="name">Newsletter</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/privacy-policy" itemprop="url">
+            <span itemprop="name">Privacy policy</span>
+          </a>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:vadim.89@ukr.net">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewbox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"></path></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li>
+<a href="https://github.com/VadimNastoyashchy" target="_blank" rel="noopener noreferrer nofollow">
+  <span class="icon icon--github"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"></path></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li>
+<a href="https://www.linkedin.com/in/vadym-nastoiashchyi" target="_blank" rel="noopener noreferrer nofollow">
+  <span class="icon icon--linkedin"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"></path></svg></span>
+  <span class="label">LinkedIn</span>
+</a>
+</li>
+  
+  <li>
+    
+      <a href="/atom.xml" title="Atom Feed">
+        <span class="icon icon--rss"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194 11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0 13.806c0-1.21.983-2.195 2.194-2.195zM10.606 16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"></path></svg></span>
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/assets/images/avatar.png" alt="" class="site-logo">
+            <span>Vadym Nastoiashchyi</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          <header class="intro">
+  
+
+  <div class="inner">
+    <div class="intro-text">
+      
+      <h1 id="page-title" class="intro-title">🔝TOP 10 useful Cypress plugins in 2024!
+</h1>
+      
+
+      
+
+      
+        
+
+
+        <p class="entry-meta">
+          <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"></path><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"></polygon><rect x="382.8" y="78.8" width="1.7" height="1.4"></rect><rect x="386.1" y="78.8" width="1.7" height="1.4"></rect><rect x="389.5" y="78.8" width="1.7" height="1.4"></rect><rect x="382.8" y="81.3" width="1.7" height="1.4"></rect><rect x="386.1" y="81.3" width="1.7" height="1.4"></rect><rect x="389.5" y="81.3" width="1.7" height="1.4"></rect><rect x="382.8" y="83.8" width="1.7" height="1.4"></rect><rect x="386.1" y="83.8" width="1.7" height="1.4"></rect><rect x="389.5" y="83.8" width="1.7" height="1.4"></rect><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"></path></g></g></svg></span><time datetime="2024-04-24T22:00:00+03:00">April 24, 2024</time></span> <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewbox="15 309.7 16 16"><g><path d="M23.9 315.1v3.6c0 .5-.4.9-.9.9s-.9-.4-.9-.9v-3.6h1.8z"></path><path d="M30.1 317.7c.5 3.9-2.3 7.5-6.2 7.9-3.9.5-7.5-2.3-7.9-6.2-.5-3.9 2.3-7.5 6.2-7.9v-1.8H24v1.8c1.1.1 2.7.7 3.5 1.4l1.3-1.3 1.3 1.3-1.3 1.3c.5.9 1.2 2.5 1.3 3.5zm-1.8.9c0-2.9-2.4-5.3-5.3-5.3s-5.3 2.4-5.3 5.3 2.4 5.3 5.3 5.3 5.3-2.3 5.3-5.3z"></path></g></svg></span>3 min read</span>
+        </p>
+        <span class="byline-item"><a href="https://hits.sh/vadimnastoyashchy.github.io/top-10-useful-cypress-plugins-in-2024" target="_blank" rel="noopener noreferrer nofollow"><img alt="Hits" src="https://hits.sh/vadimnastoyashchy.github.io/top-10-useful-cypress-plugins-in-2024.svg?label=views&amp;color=535559&amp;labelColor=535559"></a></span>
+      
+
+      
+
+      
+    </div>
+  </div>
+</header>
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        <p><img src="http://localhost:4000/assets/images/posts/2024-05-03-top-10-useful-cypress-plugins-in-2024/0_F-HtzDxk0ww5KMMQ.webp" alt="_config.yml" class="align-center border max-width-600px"></p>
+
+<p><a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer nofollow">Cypress</a> is a powerful JavaScript end-to-end testing tool for web applications. As with many other testing tools, Cypress allows for the use of plugins to extend its functionality, making it more robust and flexible to meet the unique demands of different testing applications.</p>
+
+<p><strong><em>Why Extend Cypress With Plugins?</em></strong></p>
+
+<p>Cypress provides an excellent out-of-the-box experience with a wide array of features. However, every testing suite has unique issues and requirements that may not be covered by the default settings. That’s where plugins come into play.</p>
+<blockquote>
+  <p><strong><em>Cypress plugins enable the ability to:</em></strong></p>
+  <ul>
+    <li>Interact with the browser at a deeper level, offering functionality that is not available in the default browser animations.</li>
+    <li>Get more control over the Cypress server, enabling you to modify the internal behavior of Cypress.</li>
+    <li>Extend or alter the behavior of built-in commands or add custom ones.</li>
+    <li>Implement tasks that run within Node.js enabling you to access the file system or the database directly.</li>
+  </ul>
+</blockquote>
+
+<h3 id="pros-of-using-cypress-plugins">Pros of Using Cypress Plugins</h3>
+<blockquote>
+  <p><strong><em>Enhanced Functionality: **</em>Plugins can enhance the functionality of Cypress by adding new commands, integrating with other testing tools, or even altering how the tests run.
+**<em>Customization:</em></strong> Plugins can be used to customize the testing environment to suit an application’s unique needs, such as setting custom environment variables, customizing error messages, or configuring advanced stubbing and spying behaviors.
+<em>**Improved Efficiency: **</em>Some plugins can improve the efficiency of your tests by doing things like clearing app data between tests, automating the input of test data, or even parallelizing test runs across multiple machines.</p>
+</blockquote>
+
+<h3 id="cons-of-using-cypress-plugins">Cons of Using Cypress Plugins</h3>
+<blockquote>
+  <p><strong><em>Dependency Management:</em></strong> Adding plugins to a project increases the number of dependencies that need to be managed and updated, which can sometimes result in version compatibility issues and increased maintenance work.
+<strong><em>Increased Complexity:</em></strong> While plugins can add significant functionality, they can also make test suites more complex and harder to understand for developers not familiar with them.
+<em>**Performance Impact: **</em>Using too many plugins or poorly written ones could potentially slow down the test runner, affecting the performance of your tests.</p>
+</blockquote>
+
+<h2 id="top-10-useful-cypress-plugins-in-2024">TOP 10 useful Cypress plugins in 2024:</h2>
+
+<h3 id="cypress-cucumber-preprocessor"><a href="https://github.com/badeball/cypress-cucumber-preprocessor" target="_blank" rel="noopener noreferrer nofollow">cypress-cucumber-preprocessor</a></h3>
+<blockquote>
+  <p>The preprocessor (with its dependencies) parses Gherkin documents and allows you to write tests as shown below.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="rouge-code"><pre>    # cypress/e2e/duckduckgo.feature
+    Feature: duckduckgo.com
+      Scenario: visiting the frontpage
+        When I visit duckduckgo.com
+        Then I should see a search bar
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="cypress-real-events"><a href="https://github.com/dmtrKovalenko/cypress-real-events" target="_blank" rel="noopener noreferrer nofollow">cypress-real-events</a></h3>
+<blockquote>
+  <p>Cypress default events are simulated. That means that all events like cy.click or cy.type are fired from javascript. That’s why these events will be untrusted (event.isTrusted will be false) and they can behave a little different from real native events. But for some cases, it can be impossible to use simulated events, for example, to fill a native alert or copy to the clipboard. This plugin solves this problem.</p>
+</blockquote>
+
+<h3 id="cypress-split"><a href="https://github.com/bahmutov/cypress-split" target="_blank" rel="noopener noreferrer nofollow">cypress-split</a></h3>
+<blockquote>
+  <p>This plugin finds the Cypress specs using <a href="https://github.com/bahmutov/find-cypress-specs" target="_blank" rel="noopener noreferrer nofollow">find-cypress-specs</a> and then splits the list into chunks using the machine index and the total number of machines. On some CIs (GitLab, Circle), the machine index and the total number of machines are available in the environment variables. On other CIs, you have to be explicit and pass these numbers yourself.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td>
+<td class="rouge-code"><pre>    // it works something like this:
+    setupNodeEvents(on, config) {
+      const allSpecs = findCypressSpecs()
+      // allSpecs is a list of specs
+      const chunk = getChunk(allSpecs, k, n)
+      // chunk is a subset of specs for this machine "k" of "n"
+      // set the list as the spec pattern
+      // for Cypress to run
+      config.specPattern = chunk
+      return config
+    }
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<h3 id="eslint-plugin-cypress"><a href="https://github.com/cypress-io/eslint-plugin-cypress#readme" target="_blank" rel="noopener noreferrer nofollow">eslint-plugin-cypress</a></h3>
+<blockquote>
+  <p>An <a href="https://eslint.org/" target="_blank" rel="noopener noreferrer nofollow">ESLint</a> plugin for your <a href="https://cypress.io/" target="_blank" rel="noopener noreferrer nofollow">Cypress</a> tests.
+Note: If you installed ESLint globally then you must also install eslint-plugin-cypress globally.</p>
+</blockquote>
+
+<h3 id="cypress-file-upload"><a href="https://github.com/abramenal/cypress-file-upload#readme" target="_blank" rel="noopener noreferrer nofollow">cypress-file-upload</a></h3>
+<blockquote>
+  <p>File upload testing made easy.
+This package adds a custom <a href="https://cypress.io/" target="_blank" rel="noopener noreferrer nofollow">Cypress</a> command that allows you to make an abstraction on how exactly you upload files through HTML controls and focus on testing user workflows.</p>
+</blockquote>
+
+<h3 id="cypress-axe"><a href="https://github.com/component-driven/cypress-axe" target="_blank" rel="noopener noreferrer nofollow">cypress-axe</a></h3>
+<blockquote>
+  <p>Test accessibility with <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer nofollow">axe-core</a> in <a href="https://cypress.io/" target="_blank" rel="noopener noreferrer nofollow">Cypress</a>.</p>
+</blockquote>
+
+<h3 id="cypress-iframe"><a href="https://gitlab.com/kgroat/cypress-iframe#readme" target="_blank" rel="noopener noreferrer nofollow">cypress-iframe</a></h3>
+<blockquote>
+  <p>Adds iframe support to <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer nofollow">Cypress</a>.</p>
+</blockquote>
+
+<h3 id="github-action"><a href="https://github.com/cypress-io/github-action" target="_blank" rel="noopener noreferrer nofollow">github-action</a></h3>
+<blockquote>
+  <p><a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer nofollow">GitHub Action</a> for running <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer nofollow">Cypress</a> end-to-end and component tests. Includes npm, pnpm and Yarn installation, custom caching and lots of configuration options.</p>
+</blockquote>
+
+<h3 id="cypress-multi-reporters"><a href="https://github.com/YOU54F/cypress-plugins/tree/master/cypress-multi-reporters" target="_blank" rel="noopener noreferrer nofollow">cypress-multi-reporters</a></h3>
+<blockquote>
+  <p>Generate multiple mocha reports in a single mocha execution.</p>
+</blockquote>
+
+<h3 id="cypress-if"><a href="https://github.com/bahmutov/cypress-if#readme" target="_blank" rel="noopener noreferrer nofollow">cypress-if</a></h3>
+<blockquote>
+  <p>Easy conditional if-else logic for your Cypress tests</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="rouge-code"><pre>    cy.contains('Accept cookies')
+      .if('visible')
+      .click()
+      .else()
+      .log('no cookie banner')
+</pre></td>
+</tr></tbody></table></code></pre></div></div>
+
+<p>Cypress plugins open a new horizon of possibilities for testing web applications, enabling tailored solutions to cater to various business requirements. However, they should be picked wisely, considering their potential drawbacks. Always thoroughly assess the cost versus the benefit each plugin provides for your scenario to ensure that plugins turn out to be a helping hand rather than a stumbling block in your Cypress testing journey.</p>
+
+<p><strong><em>Thanks to everyone who read this article to the end, I hope you found it useful.</em></strong></p>
+
+<p>Sources used in the article:
+<a href="https://docs.cypress.io/guides/tooling/plugins-guide" target="_blank" rel="noopener noreferrer nofollow">https://docs.cypress.io/guides/tooling/plugins-guide</a></p>
+
+      </div>
+
+      
+        <!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+<div id="mc_embed_signup">
+    <form action="https://github.us14.list-manage.com/subscribe/post?u=1279d7d1e948c1b7300f4931b&amp;id=14954ef12e&amp;f_id=002089e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+      <h2>Get new posts and extra comments</h2>
+      <p id="benefits">You'll get every new post with extra unpublished, subscriber-only comments!</p>
+      <div class="mc-field-group">
+        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email address">
+        <input type="hidden" value="🔝TOP 10 useful Cypress plugins in 2024!" name="REFPAGE" class="" id="mce-REFPAGE" placeholder="">
+      </div>
+      <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+      </div>
+      <div style="position: absolute; left: -5000px;" aria-hidden="true">
+        <input type="text" name="b_d3ec7b1b2989b47870d554559_3b76cf8145" tabindex="-1" value="">
+      </div>
+      <div class="clear">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+      </div>
+      <p id="unsubscribe">No ads, no spam. Just notifications when I do cool stuff. Unsubscribe at any time.</p>
+    </div>
+  </form>
+</div>
+<!--End mc_embed_signup-->
+
+
+<script src="https://giscus.app/client.js" data-repo="VadimNastoyashchy/vadimnastoyashchy.github.io" data-repo-id="R_kgDONws5cA" data-category="General" data-category-id="DIC_kwDONws5cM4Cmc8H" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+</script>
+<noscript>Please enable JavaScript to view the comments.</noscript>
+
+
+      
+
+      
+        <div id="related">
+          <h3>You may also like</h3>
+          <ul class="posts">
+            
+            <li><a href="/playwright-parallelism-why-the-playwright-sharding-approach-speeds-up-test-execution">🎭Playwright Parallelism: Why the Playwright sharding approach speeds up test execution over workers?</a></li>
+            
+            <li><a href="/javascript-ui-test-automation-frameworks-latest-updates-3">🔝JavaScript UI Test Automation Frameworks - latest updates in 2025 part 3</a></li>
+            
+            <li><a href="/scripterio-js-test-runner-api-tests">Performing API Testing Using ScripterI/O as a JavaScript Test Runner</a></li>
+            
+          </ul>
+        </div>
+      
+    </article>
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  <label class="visually-hidden" for="search">Site Search</label>
+        <input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="Enter your search term...">
+        <div id="results" class="results"></div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <button id="back-to-top">
+  <svg viewbox="0 0 24 24">
+    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
+  </svg>
+</button>
+<script>
+  (function () {
+    var backToTop = document.getElementById("back-to-top");
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+
+    function handleScroll() {
+      if (window.scrollY > 100) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    backToTop.addEventListener("click", scrollToTop);
+  })();
+</script>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <ul class="contact-list">
+      
+        <li>
+<a href="https://github.com/VadimNastoyashchy" target="_blank" rel="noopener noreferrer nofollow">
+  <span class="icon icon--github"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"></path></svg></span>
+  <span class="label">VadimNastoyashchy</span>
+</a>
+</li>
+      
+
+      
+        <li>
+<a href="https://www.linkedin.com/in/vadym-nastoiashchyi" target="_blank" rel="noopener noreferrer nofollow">
+  <span class="icon icon--linkedin"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"></path></svg></span>
+  <span class="label">vadym-nastoiashchyi</span>
+</a>
+</li>
+      
+    </ul>
+
+    
+      <div class="copyright">
+        
+          <p>© 2026 Vadym Nastoiashchyi</p>
+        
+      </div>
+    
+  </div>
+</footer>
+
+    <script async src="/assets/javascripts/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="http://localhost:4000/assets/javascripts/lunr/lunr.min.js"></script>
+  <script src="http://localhost:4000/assets/javascripts/lunr/lunr.store.js"></script>
+  <script>
+    var idx = lunr(function () {
+      
+      // the, the normal lunr index initialization
+      this.field('title')
+      this.field('excerpt')
+      this.field('categories')
+      this.field('tags')
+      this.ref('id')
+
+      this.pipeline.remove(lunr.trimmer)
+
+      // add documents to index
+      for (var item in store) {
+        this.add({
+          title: store[item].title,
+          excerpt: store[item].excerpt,
+          categories: store[item].categories,
+          tags: store[item].tags,
+          id: item
+        })
+      }
+    });
+
+    $(document).ready(function () {
+      $('input#search').on('keyup', function () {
+        var resultdiv = $('#results');
+        var query = $(this).val().toLowerCase();
+        var result =
+          idx.query(function (q) {
+            query.split(lunr.tokenizer.separator).forEach(function (term) {
+              q.term(term, { boost: 100 })
+              if (query.lastIndexOf(" ") != query.length - 1) {
+                q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+              }
+              if (term != "") {
+                q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+              }
+            })
+          });
+        resultdiv.empty();
+        resultdiv.prepend('<p id="results-count" class="results-found">' + result.length + ' Result(s) found</p>');
+        for (var item in result) {
+          var ref = result[item].ref;
+          var searchitem =
+            '<article class="entry">' +
+              '<h3 class="entry-title">' +
+                '<a href="' + store[ref].url + '">' + store[ref].title + '</a>' +
+              '</h3>' +
+              '<div class="entry-excerpt">' +
+                '<p>' + store[ref].excerpt.split(" ").splice(0, 20).join(" ") + '...</p>' +
+              '</div>' +
+            '</article>';
+          resultdiv.append(searchitem);
+        }
+      });
+    });
+  </script>
+
+
+
+  </body>
+
+</html>

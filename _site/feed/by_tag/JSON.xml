@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed/by_tag/JSON.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2026-01-14T13:53:07+02:00</updated><id>http://localhost:4000/feed/by_tag/JSON.xml</id><title type="html">Vadym Nastoiashchyi</title><subtitle>Software quality fanatic | Software Engineer in Test</subtitle><author><name>Vadym Nastoiashchyi</name></author><entry><title type="html">How do I split one or more large JSON files into a bunch of smaller JSON files?</title><link href="http://localhost:4000/json-splitter" rel="alternate" type="text/html" title="How do I split one or more large JSON files into a bunch of smaller JSON files?" /><published>2024-06-15T22:00:00+03:00</published><updated>2024-06-15T22:00:00+03:00</updated><id>http://localhost:4000/json-splitter</id><content type="html" xml:base="http://localhost:4000/json-splitter"><![CDATA[<p><img src="http://localhost:4000/assets/images/posts/2024-06-15-json-splitter/1_itQSHhFdqqfySbYgPSEwNw.webp" alt="_config.yml" class="align-center border max-width-600px" /></p>
+
+<p>Working with JSON (JavaScript Object Notation) is common in web development. JSON has become a popular data exchange format because of its lightweight nature and easy-to-understand syntax. However, we sometimes encounter large JSON files that can be bulky and difficult for other tools to manage, read, or process.
+In such scenarios, it is beneficial to break or “slice” the mammoth JSON file into smaller, more manageable chunks. This divide-and-conquer approach allows for efficient processing, easy sanity checking, and better readability. 
+This article will introduce you to the JSONSplitter UI application and guide you through the process of splitting large JSON files into smaller ones.</p>
+
+<h2 id="what-is-a-json-splitter-app">What is a JSON Splitter app?</h2>
+
+<p>A JSON splitter is a UI tool that takes a JSON file/s as input and breaks it down into several smaller JSON files.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<h3 id="1-clone-the-repo--or-download-latest-source-code-zip">1. Clone the <a href="https://github.com/VadimNastoyashchy/JSONSplitter">repo</a> / or download latest <a href="https://github.com/VadimNastoyashchy/JSONSplitter/releases">Source code (zip)</a></h3>
+<blockquote>
+  <p><em>Before you follow the steps below, make sure you have the</em></p>
+</blockquote>
+
+<p><a href="https://nodejs.org/en/download/">Node.js</a> installed <em>globally</em> only your system</p>
+
+<h3 id="2-installing-open-the-jsonsplitter-root-directory">2. Installing (Open the JSONSplitter root directory)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npm install
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="3-running">3. Running</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npm run start
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>After opening the application, upload the file or files that we will split into smaller parts</p>
+
+<p>As an input, json will use the large-file.json file from <a href="https://github.com/json-iterator/test-data/blob/master/large-file.json">https://github.com/json-iterator/test-data/blob/master/large-file.json</a>.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2916/1*FvPvDW4h5tZnoOGv-4PjrQ.png" alt="[large-file.json](https://github.com/json-iterator/test-data/blob/master/large-file.json)" /><em><a href="https://github.com/json-iterator/test-data/blob/master/large-file.json">large-file.json</a></em></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/4664/1*FQKVCym1GxTPBJwp5j-CcA.png" alt="file contains 11350 objects" /><em>file contains 11350 objects</em></p>
+
+<p>Drag and drop the desired file into the appropriate zone. The result will be the output of the file name we placed, and the <strong>“Run Splitting”</strong> and <strong>“Clear”</strong> buttons are now active.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/3188/1*huI1aCW079_zYrmFxPCOZQ.png" alt="**“Run Splitting”** and **“Clear”** buttons are now active" /><em><strong>“Run Splitting”</strong> and <strong>“Clear”</strong> buttons are now active</em></p>
+
+<p>Now all we need to do is specify how many objects per file we want to have after splitting and click <strong>“Run splitting”</strong>.</p>
+
+<p>I set a limit of 5000 objects per file. After starting, application will open the output folder where our files will be located after splitting.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/4528/1*7762rOfCWq-X4Dtc56HjUg.png" alt="application will open the output folder where our files will be located after splitting" /><em>application will open the output folder where our files will be located after splitting</em></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Splitting a large JSON file into smaller pieces helps you manage and process data more efficiently. Whether you choose to use a dedicated tool or develop your own solution like I did with Node.js, splitting large JSON files is a viable strategy for working with large amounts of data, and it’s especially nice to have an easy-to-use interface for doing so.</p>
+
+<p><strong><em>Thanks to everyone who read this article, I hope you found it useful.</em></strong></p>
+
+<p>I would also like to thank <a href="https://github.com/Thulrig">Valentin Zorin</a> for conceiving and implementing the core logic.</p>
+
+<p>Sources used in the article:</p>
+
+<p><a href="https://github.com/VadimNastoyashchy/JSONSplitter">https://github.com/VadimNastoyashchy/JSONSplitter</a>
+<a href="https://www.npmjs.com/package/ui-json-splitter">https://www.npmjs.com/package/ui-json-splitter</a></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="JavaScript" /><category term="JSON" /><category term="Split" /><summary type="html"><![CDATA[Working with JSON (JavaScript Object Notation) is common in web development. JSON has become a popular data exchange format because of its lightweight nature and easy-to-understand syntax. However, we sometimes encounter large JSON files that can be bulky and difficult for other tools to manage, read, or process. In such scenarios, it is beneficial to break or “slice” the mammoth JSON file into smaller, more manageable chunks. This divide-and-conquer approach allows for efficient processing, easy sanity checking, and better readability. This article will introduce you to the JSONSplitter UI application and guide you through the process of splitting large JSON files into smaller ones...]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2024-06-15-json-splitter/1_itQSHhFdqqfySbYgPSEwNw.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2024-06-15-json-splitter/1_itQSHhFdqqfySbYgPSEwNw.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

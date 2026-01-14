@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed/by_tag/Gitlab.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2026-01-14T13:53:07+02:00</updated><id>http://localhost:4000/feed/by_tag/Gitlab.xml</id><title type="html">Vadym Nastoiashchyi</title><subtitle>Software quality fanatic | Software Engineer in Test</subtitle><author><name>Vadym Nastoiashchyi</name></author><entry><title type="html">💁‍♂️What is CI/CD Continuous Integration and Continuous Deployment?</title><link href="http://localhost:4000/what-is-ci-cd-continuous-integration-and-continuous-deployment" rel="alternate" type="text/html" title="💁‍♂️What is CI/CD Continuous Integration and Continuous Deployment?" /><published>2024-11-04T21:00:00+02:00</published><updated>2024-11-04T21:00:00+02:00</updated><id>http://localhost:4000/what-is-ci-cd-continuous-integration-and-continuous-deployment</id><content type="html" xml:base="http://localhost:4000/what-is-ci-cd-continuous-integration-and-continuous-deployment"><![CDATA[<p>In the fast-paced world of software development, it’s crucial to have systems that allow quick and reliable software updates. This is where CI/CD, or Continuous Integration and Continuous Deployment, comes into play. But what exactly does CI/CD mean, and how does it differ between its components? Let’s break it down into simple terms.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2400/0*OnzP_7IgfjwFIHwN.png" alt="[Free CI/CD Tools: A Comprehensive Guide](https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fapidog.com%2Fblog%2Ffree-ci-cd-tools-a-comprehensive-guide%2F&amp;psig=AOvVaw0n_Q4Q7Pv9thl1peCEX7ia&amp;ust=1729055551712000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBcQjhxqFwoTCPj5koTQj4kDFQAAAAAdAAAAABAE)" /><em><a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fapidog.com%2Fblog%2Ffree-ci-cd-tools-a-comprehensive-guide%2F&amp;psig=AOvVaw0n_Q4Q7Pv9thl1peCEX7ia&amp;ust=1729055551712000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBcQjhxqFwoTCPj5koTQj4kDFQAAAAAdAAAAABAE">Free CI/CD Tools: A Comprehensive Guide</a></em></p>
+
+<h3 id="what-is-continuous-integration-ci">What is Continuous Integration (CI)?</h3>
+
+<p>Continuous Integration (CI) is a development practice where developers frequently integrate code changes into a central repository, preferably several times daily. Each integration is then automatically tested. This practice aims to spot problems early, improve software quality, and reduce the time it takes to validate and release new software updates.</p>
+
+<h3 id="why-is-ci-needed">Why is CI needed?</h3>
+<blockquote>
+  <p><strong><em>Quick Feedback:</em></strong> CI allows developers to get quick feedback on their code. It checks if the new code conflicts with the existing code, and automated tests determine if the new code breaks anything.
+<strong><em>Spot Issues Early: **</em>By integrating regularly, you can detect errors quickly and locate them more easily.
+**<em>Increase Transparency:</em></strong> All team members can see the system’s health and the influences of their changes, boosting collaboration and transparency.</p>
+</blockquote>
+
+<p>**Example of CI:
+**Imagine a scenario where five developers are working on different features of the same application. With CI, each developer’s updates are tested every time they push their code to the shared repository. If developer A’s new piece accidentally breaks a feature from developer B, the CI process alerts them immediately, and they can fix it before it affects more work.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/5896/1*XFOSZk8vMgRLTfuvdIXZBQ.png" alt="[https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385888711/job/31676782440](https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385888711/job/31676782440)" /><em><a href="https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385888711/job/31676782440">https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385888711/job/31676782440</a></em></p>
+
+<h3 id="what-is-continuous-deployment-cd">What is Continuous Deployment (CD)?</h3>
+
+<p>Continuous Deployment (CD) is often confused with Continuous Delivery, but here we focus on Deployment. It’s a step beyond Continuous Integration. Your automated tests not only help you catch bugs but once the code passes the tests in CI, it is automatically deployed to your production environment without manual intervention.</p>
+
+<h3 id="why-is-cd-needed">Why is CD needed?</h3>
+<blockquote>
+  <p><strong><em>Automate the Release Process:</em></strong> CD reduces human error and frees up individual teams from manual processes.
+<strong><em>Quick Release: **</em>Allows for faster iteration and ensures that features reach the customers quickly.
+**<em>Better Response to Customers:</em></strong> Teams can respond faster to market changes and customer feedback with more rapid deployments.</p>
+</blockquote>
+
+<p><strong>Example of CD:</strong>
+Let’s say the same team of developers is working on a web application. With CD, as soon as a developer’s change is approved and passes all the automated tests (Continuously Integrated), it is automatically deployed to the live site. Customers get access to new features as soon as they’re ready without waiting for a designated release date.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/5876/1*6JAurwAYCUFOuSnVsbCMhQ.png" alt="[https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385753560/job/31676339873](https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385753560/job/31676339873)" /><em><a href="https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385753560/job/31676339873">https://github.com/VadimNastoyashchy/JSONFInder/actions/runs/11385753560/job/31676339873</a></em></p>
+
+<h3 id="differences-between-ci-and-cd">Differences Between CI and CD</h3>
+<blockquote>
+  <p><strong><em>Focus:</em></strong> While CI focuses on integrating and testing code changes frequently, CD focuses on ensuring that such changes are automatically deployed to production as soon as they’re ready.
+<strong><em>Scope:</em></strong> CI deals with the creation of a build and running tests, whereas CD takes the validated builds and deploys them to production environments.
+<strong><em>Tools and Practices:</em></strong> CI uses tools that integrate and test code such as Jenkins, CircleCI, or Travis CI. For CD, tools like Jenkins, Spinnaker, or GitLab CD are employed to handle the deployment aspects.</p>
+</blockquote>
+
+<p><strong><em>Below is a list of popular CI/CD tools along with links to their official websites so you can explore them further:</em></strong></p>
+
+<ol>
+  <li>
+    <p><a href="https://www.jenkins.io/">Jenkins</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.travis-ci.com/">Travis CI</a></p>
+  </li>
+  <li>
+    <p><a href="https://circleci.com/">CircleCI</a></p>
+  </li>
+  <li>
+    <p><a href="https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/">GitLab CI/CD</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/features/actions">GitHub Actions</a></p>
+  </li>
+  <li>
+    <p><a href="https://bitbucket.org/product/features/pipelines">Bitbucket Pipelines</a></p>
+  </li>
+  <li>
+    <p><a href="https://spinnaker.io/">Spinnaker</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.atlassian.com/software/bamboo">Bamboo</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.jetbrains.com/teamcity/">TeamCity</a></p>
+  </li>
+  <li>
+    <p><a href="https://azure.microsoft.com/en-us/services/devops/">Azure DevOps</a></p>
+  </li>
+</ol>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>CI and CD embody a culture of automation, monitoring, and collaboration among teams, improving code quality and reducing time to market. Integrating CI/CD into your development process means building a safer, faster, and more transparent workflow. So, as you develop your next project, consider how CI/CD could enhance your code, team dynamics, and product delivery.</p>
+
+<p><strong><em>Thanks to everyone who read this article, I hope you found it useful.</em></strong></p>]]></content><author><name>Vadym Nastoiashchyi</name></author><category term="CI/CD" /><category term="Github Actions" /><category term="Bamboo" /><category term="Gitlab" /><category term="Jenkins" /><summary type="html"><![CDATA[In the fast-paced world of software development, it’s crucial to have systems that allow quick and reliable software updates. This is where CI/CD, or Continuous Integration and Continuous Deployment, comes into play. But what exactly does CI/CD mean, and how does it differ between its components? Let’s break it down into simple terms...]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/posts/2024-11-04-what-is-ci-cd-continuous-integration-and-continuous-deployment/0_OnzP_7IgfjwFIHwN.webp" /><media:content medium="image" url="http://localhost:4000/assets/images/posts/2024-11-04-what-is-ci-cd-continuous-integration-and-continuous-deployment/0_OnzP_7IgfjwFIHwN.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
