@@ -319,3 +319,127 @@ code.language-plaintext.highlighter-rouge {
 #img-caption {
   text-align: center
 }
+
+// Related Posts Styling
+.related-posts-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid $border-color;
+}
+
+.related-posts-title {
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $text-color;
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.related-post-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none !important;
+  color: inherit;
+  height: 100%;
+  
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none !important;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    
+    .related-post-image {
+      transform: scale(1.05);
+    }
+    
+    .related-post-card-title {
+      color: $accent-color;
+    }
+  }
+}
+
+.related-post-thumbnail {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  
+  .related-post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+}
+
+.related-post-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0.9rem;
+  flex-grow: 1;
+}
+
+.related-post-card-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: $text-color;
+  transition: color 0.3s ease;
+}
+
+.related-post-excerpt {
+  margin: 0 0 0.6rem 0;
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.related-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid $border-color;
+}
+
+.related-post-date {
+  font-size: 0.7rem;
+  color: #999;
+  font-weight: 500;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .related-posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .related-post-thumbnail {
+    height: 150px;
+  }
+  
+  .related-post-card-title {
+    font-size: 1rem;
+  }
+  
+  .related-post-excerpt {
+    font-size: 0.9rem;
+  }
+}
