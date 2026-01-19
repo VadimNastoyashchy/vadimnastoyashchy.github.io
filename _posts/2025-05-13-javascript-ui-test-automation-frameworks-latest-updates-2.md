@@ -108,5 +108,3 @@ await expect(locator).toMatchAriaSnapshot(`
 These are the latest updates we received in 2025. We continue to follow the development and updates of the most popular tools in the world of JavaScript testing
 
 ***Thanks to everyone who read this article, I hope you found it useful.***
-
-*Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development.*

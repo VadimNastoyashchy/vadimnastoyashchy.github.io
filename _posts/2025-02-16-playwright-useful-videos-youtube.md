@@ -35,6 +35,4 @@ I've been asked for a long time what video courses or lessons I can recommend to
 
 Currently, these are the top 3 channels for learning Playwright that can be useful for both beginners and experienced engineers. I hope you find these videos useful and informative.
 
-**_Thanks to everyone who read this article, I hope you found it useful._**
-
-_Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development._
+***Thanks to everyone who read this article, I hope you found it useful.***

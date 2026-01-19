@@ -1,3 +1,51 @@
-{% include mailchimp.html refpage=include.refpage %}
+<div class="post-footer-sections">
+  <hr class="section-divider">
+  <div class="section-intro">
+    <p>Don't hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don't miss interesting things from the world of testing and development.</p>
+  </div>
 
-{% include comments.html %}
+  <div class="section-buttons">
+    <button id="toggle-subscribe-btn" class="section-toggle-btn" onclick="toggleSection('subscribe')">
+      Subscribe
+    </button>
+    <button id="toggle-comments-btn" class="section-toggle-btn" onclick="toggleSection('comments')">
+      Comments
+    </button>
+  </div>
+
+  <div id="subscribe-section" class="footer-section">
+    {% include mailchimp.html refpage=include.refpage %}
+  </div>
+
+  <div id="comments-section" class="footer-section">
+    {% include comments.html %}
+  </div>
+</div>
+
+<script>
+  function toggleSection(sectionName) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.footer-section');
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+
+    // Remove active class from all buttons
+    const buttons = document.querySelectorAll('.section-toggle-btn');
+    buttons.forEach(button => {
+      button.classList.remove('active');
+    });
+
+    // Show selected section
+    const section = document.getElementById(sectionName + '-section');
+    if (section) {
+      section.classList.add('active');
+    }
+
+    // Activate corresponding button
+    const button = document.getElementById('toggle-' + sectionName + '-btn');
+    if (button) {
+      button.classList.add('active');
+    }
+  }
+</script>

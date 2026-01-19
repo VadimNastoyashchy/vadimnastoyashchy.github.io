@@ -132,6 +132,4 @@ The best option depends on the specific needs of your project. If you want the h
 
 <hr>
 
-**_Thanks to everyone who read this article, I hope you found it useful._**
-
-_Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development._
+***Thanks to everyone who read this article, I hope you found it useful.***
