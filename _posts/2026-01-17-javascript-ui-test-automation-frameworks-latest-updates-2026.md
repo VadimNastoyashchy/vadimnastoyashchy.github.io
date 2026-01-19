@@ -159,5 +159,3 @@ export default defineConfig({
 <br>
 
 ***Thanks to everyone who read this article, I hope you found it useful.***
-
-*Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development.*

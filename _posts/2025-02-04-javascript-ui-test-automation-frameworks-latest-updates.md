@@ -143,6 +143,4 @@ Learn more in the [aria snapshots guide](https://playwright.dev/docs/aria-snapsh
 
 These are the updates we received in early 2025. We continue to follow the development and updates of the most popular tools in the world of JavaScript testing
 
-**_Thanks to everyone who read this article, I hope you found it useful._**
-
-_Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development._
+***Thanks to everyone who read this article, I hope you found it useful.***

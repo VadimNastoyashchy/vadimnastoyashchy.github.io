@@ -132,6 +132,4 @@ Cypress plugins offer many opportunities for enhancing web application testing, 
 
 <hr>
 
-**_Thanks to everyone who read this article, I hope you found it useful._**
-
-_Don’t hold yourself back from rating or commenting. You can also subscribe to the e-mail newsletter so that you don’t miss interesting things from the world of testing and development._
+***Thanks to everyone who read this article, I hope you found it useful.***
