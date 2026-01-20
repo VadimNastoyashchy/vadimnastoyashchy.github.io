@@ -320,6 +320,153 @@ code.language-plaintext.highlighter-rouge {
   text-align: center
 }
 
+// Entry Card Styling
+.entry-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none !important;
+  color: inherit;
+  height: 100%;
+  
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none !important;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    
+    .entry-card-image {
+      transform: scale(1.05);
+    }
+    
+    .entry-title {
+      color: $accent-color;
+    }
+  }
+}
+
+.entry-card-link {
+  text-decoration: none;
+  display: block;
+}
+
+.entry-card-thumbnail {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .entry-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+}
+
+.entry-card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  flex-grow: 1;
+}
+
+.entry-card .entry-header {
+  margin-bottom: 0.8rem;
+}
+
+.entry-card .entry-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $text-color;
+  transition: color 0.3s ease;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+
+.entry-card .entry-excerpt {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+  word-break: break-word;
+  
+  p {
+    margin: 0;
+  }
+}
+
+.entry-card .entry-meta {
+  padding-top: 0.8rem;
+  border-top: 1px solid $border-color;
+  font-size: 0.85rem;
+  color: #999;
+  
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+      
+      .icon {
+        font-size: 14px;
+        fill: $accent-color;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// Responsive adjustments for entry card
+@media (max-width: 768px) {
+  .entry-card-thumbnail {
+    height: 180px;
+  }
+  
+  .entry-card .entry-title {
+    font-size: 1.1rem;
+  }
+  
+  .entry-card .entry-excerpt {
+    font-size: 0.9rem;
+  }
+  
+  .entry-card-content {
+    padding: 1rem;
+  }
+}
+
 // Related Posts Styling
 .related-posts-section {
   margin-top: 3rem;
@@ -373,7 +520,7 @@ code.language-plaintext.highlighter-rouge {
 
 .related-post-thumbnail {
   width: 100%;
-  height: 120px;
+  height: 200px;
   overflow: hidden;
   background-color: #f5f5f5;
   
