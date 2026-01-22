@@ -33,5 +33,6 @@ google_fonts:
 
 # Navigation https://github.com/mmistakes/jekyll-theme-basically-basic#navigation
 navigation_pages:
+  - posts.md
   - about.md
   - tags.md
