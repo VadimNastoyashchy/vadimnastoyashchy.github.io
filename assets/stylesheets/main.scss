@@ -154,6 +154,11 @@ $accent-color: #dc143c !default;
   }
 }
 
+div#related {
+  position: relative;
+  z-index: 1;
+  margin-top: 3rem;
+}
 
 ul.entry-tags {
   & {
