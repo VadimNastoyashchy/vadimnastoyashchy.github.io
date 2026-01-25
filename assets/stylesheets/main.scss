@@ -800,3 +800,13 @@ code.language-plaintext.highlighter-rouge {
     opacity: 1;
   }
 }
+
+@media (min-width: 64em) { // ~1024px+, matches your other desktop rules
+  .sidebar-toggle-wrapper {
+    display: none !important;
+  }
+  #sidebar {
+    transform: translateX(-100%) !important;
+    visibility: hidden !important;
+  }
+}
