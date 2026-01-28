@@ -193,14 +193,18 @@ header#masthead {
   font-weight: 300;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 3rem;
 
   .brand {
     display: flex;
     align-items: center;
     gap: 0.6rem;
 
-    span { font-size: 1.5rem; font-weight: 500; line-height: 1; }
+    span { 
+      font-size: 1.2rem; 
+      font-weight: 500; 
+      line-height: 1;
+    }
   }
 }
 
@@ -217,7 +221,7 @@ header#masthead {
 
   a {
     color: white;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
     text-decoration: none;
     opacity: 0.9;
@@ -774,4 +778,29 @@ code.language-plaintext.highlighter-rouge {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* About page avatar styling */
+.about-avatar {
+  float: left;
+  width: 180px;
+  max-width: 40%;
+  margin: 0.5rem 2rem 1.25rem 0;
+  border-radius: 50%;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* Improve text readability around the image */
+.page__content p {
+  line-height: 1.7;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .about-avatar {
+    float: none;
+    display: block;
+    margin: 1.5rem auto;
+    width: 150px;
+  }
 }
