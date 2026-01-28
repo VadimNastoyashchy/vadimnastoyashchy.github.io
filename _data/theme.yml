@@ -13,7 +13,7 @@ t:
   results_found: "Result(s) found"
   search_placeholder_text: "Enter your search term..."
   related_posts: "You may also like:"
-  home: "Blog"
+  home: "Home"
   newer: "Newer"
   older: "Older"
   email: "Email"
@@ -33,5 +33,5 @@ google_fonts:
 
 # Navigation https://github.com/mmistakes/jekyll-theme-basically-basic#navigation
 navigation_pages:
+  - posts.md
   - about.md
-  - tags.md
