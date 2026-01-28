@@ -1,27 +1,56 @@
-{% if site.logo contains '://' %}
-  {% assign site_logo = site.logo %}
-{% else %}
-  {% assign site_logo = site.logo | relative_url %}
-{% endif %}
+{% if site.logo contains '://' %} {% assign site_logo = site.logo %} {% else %}
+{% assign site_logo = site.logo | relative_url %} {% endif %}
 
 <header id="masthead">
   <div class="inner">
     <div class="title-area">
-      {% if page.url == '/' %}
-        <h1 class="site-title">
-          <a href="{{ '/' | relative_url }}">
-            {% if site.use_logo %}<img src="{{ site.url }}{{ site_logo }}/assets/images/avatar.png" alt="" class="site-logo">{% endif %}
-            <span>{{ site.title | escape }}</span>
-          </a>
-        </h1>
-      {% else %}
-        <p class="site-title">
-          <a href="{{ '/' | relative_url }}">
-            {% if site.use_logo %}<img src="{{ site_logo }}/assets/images/avatar.png" alt="" class="site-logo">{% endif %}
-            <span>{{ site.title | escape }}</span>
-          </a>
-        </p>
-      {% endif %}
+      <div class="site-title">
+        <a href="{{ '/' | relative_url }}" class="brand">
+          {% if site.use_logo %}
+          <img
+            src="{{ site.url }}{{ site_logo }}/assets/images/avatar.png"
+            alt=""
+            class="site-logo"
+          />
+          {% endif %}
+          <span>{{ site.title | escape }}</span>
+        </a>
+        <nav class="site-inline-nav">
+          <a href="{{ site.url }}/posts">Posts</a>
+          <a href="{{ site.url }}/about">About</a>
+        </nav>
+        <ul class="header-social">
+          <li>
+            <a
+              href="https://github.com/{{ site.github_username }}"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="icon icon--github"
+                >{% include icon-github.svg %}</span
+              >
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/{{ site.linkedin_username }}/"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="icon icon--linkedin"
+                >{% include icon-linkedin.svg %}</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="{{ 'mailto:' | append: site.email }}" aria-label="Email">
+              <span class="icon icon--email">{% include icon-email.svg %}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </header>
